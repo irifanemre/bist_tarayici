@@ -1,0 +1,31 @@
+{
+  "deneme": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 30.0
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Stoch.K",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 20.0
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1000000.0
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "BIST 100",
+    "mantik": "VE",
+    "sektorler": []
+  }
+}
