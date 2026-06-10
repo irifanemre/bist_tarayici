@@ -1,0 +1,20 @@
+# Sırlar — ASLA paylaşma
+bildirim.sh
+.env
+*.token
+
+# Kullanıcı verisi
+kombinler.json
+takip.json
+
+# Python
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+telegram.json
+zamanlamalar.json
+zamanlama.log
+motor.log
+durum.json
+*.tmp
+.DS_Store
