@@ -46,8 +46,9 @@ def _motor_durum():
     except Exception:
         return None
 
-MAKS = 30        # en fazla kaç indikatör kombinlenebilir
-TAKIP_MAKS = 3   # takip listesine en fazla kaç hisse
+MAKS = 30          # en fazla kaç indikatör bir kombinde birleştirilebilir
+MAKS_KOMBIN = 30   # en fazla kaç adet kombin kaydedilebilir
+TAKIP_MAKS = 3     # takip listesine en fazla kaç hisse
 
 st.set_page_config(
     page_title="BIST Tarayıcı", page_icon="📊",
@@ -576,22 +577,27 @@ st.markdown(
 # Kenar çubuğu — Kombinlerim · Piyasa · Takip Listesi
 # --------------------------------------------------------------------------
 with st.sidebar:
-    st.markdown("### 💾 Kombinlerim")
+    kayitlar = ks.tum_kombinler()
+    st.markdown(f"### 💾 Kombinlerim  ·  {len(kayitlar)}/{MAKS_KOMBIN}")
     st.caption("Kurduğun kombini (ayarlarıyla) kaydet, tek tıkla geri yükle.")
 
     ad = st.text_input("Kombin adı", placeholder="örn. RSI dip avı", key="kaydet_ad")
     if st.button("💾  Kaydet", use_container_width=True, disabled=not secimler):
-        if not ad.strip():
+        ad_temiz = ad.strip()
+        if not ad_temiz:
             st.warning("Önce bir ad gir.")
+        elif ad_temiz not in kayitlar and len(kayitlar) >= MAKS_KOMBIN:
+            st.warning(f"En fazla {MAKS_KOMBIN} kombin kaydedilebilir. "
+                       "Yeni eklemek için aşağıdan birini sil.")
         else:
-            ks.kaydet(ad.strip(), {
+            ks.kaydet(ad_temiz, {
                 "secimler": secimler, "zaman": zaman_label,
                 "endeks": endeks_label, "mantik": mantik, "sektorler": sektor_tr,
             })
-            st.toast(f"“{ad.strip()}” kaydedildi ✓", icon="💾")
+            st.toast(f"“{ad_temiz}” kaydedildi ✓", icon="💾")
+            st.rerun()
 
     st.divider()
-    kayitlar = ks.tum_kombinler()
     if not kayitlar:
         st.caption("Henüz kayıtlı kombin yok.")
     else:
