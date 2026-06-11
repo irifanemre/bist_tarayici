@@ -51,6 +51,7 @@ KATALOG = {
     "EMA50":  {"ad": "EMA 50",  "alan": "EMA50",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA100": {"ad": "EMA 100", "alan": "EMA100", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA200": {"ad": "EMA 200", "alan": "EMA200", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "SMA10":  {"ad": "SMA 10",  "alan": "SMA10",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "SMA20":  {"ad": "SMA 20",  "alan": "SMA20",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "SMA50":  {"ad": "SMA 50",  "alan": "SMA50",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "SMA200": {"ad": "SMA 200", "alan": "SMA200", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
@@ -78,6 +79,7 @@ KATALOG = {
     "change": {"ad": "Günlük değişim %",  "alan": "change", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-20, 20), "op": ">", "deger": 0},
     "volume": {"ad": "Hacim (adet)",      "alan": "volume", "grup": "Fiyat/Hacim", "tur": "hacim", "op": ">", "deger": 1_000_000},
     "relative_volume_10d_calc": {"ad": "Bağıl hacim (10g)", "alan": "relative_volume_10d_calc", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (0, 10), "op": ">", "deger": 1.5},
+    "average_volume_10d_calc": {"ad": "Ort. hacim (10g)", "alan": "average_volume_10d_calc", "grup": "Fiyat/Hacim", "tur": "hacim", "op": ">", "deger": 1_000_000},
 
     # ===================== TEMEL ANALİZ / RATING (zaman diliminden bağımsız) =====================
     "Recommend.All":        {"ad": "Teknik Rating (-1…1)", "alan": "Recommend.All", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-1, 1), "op": ">", "deger": 0.3, "zaman_yok": True},
@@ -153,7 +155,8 @@ KARSILASTIRMA_ALANLARI = [
     "MACD.macd", "MACD.signal",
     # osilatör/hacim karşılaştırmaları (indikatör vs indikatör)
     "RSI", "RSI7", "Stoch.K", "Stoch.D", "Stoch.RSI.K", "Stoch.RSI.D",
-    "ADX", "volume", "average_volume_10d_calc",
+    "ADX", "volume", "average_volume_10d_calc", "SMA10",
+    "Aroon.Up", "Aroon.Down", "ChaikinMoneyFlow", "ChaikinMoneyFlow|60",
 ]
 
 OPERATORLER = ["<", "<=", ">", ">=", "yukarı keser", "aşağı keser", "arada", "arada değil"]
@@ -225,6 +228,7 @@ ACIKLAMALAR = {
     "EMA50": "50 günlük üssel ortalama; orta vade trend çizgisi.",
     "EMA100": "100 günlük üssel ortalama.",
     "EMA200": "200 günlük üssel ortalama; uzun vade boğa/ayı sınırı.",
+    "SMA10": "10 günlük basit ortalama; kısa vade.",
     "SMA20": "20 günlük basit ortalama.",
     "SMA50": "50 günlük basit ortalama.",
     "SMA200": "200 günlük basit ortalama; uzun vade.",
@@ -240,6 +244,7 @@ ACIKLAMALAR = {
     "change": "Günlük yüzde değişim.",
     "volume": "İşlem gören pay adedi; likidite filtresi.",
     "relative_volume_10d_calc": "Hacmin 10 günlük ortalamaya oranı. 1.5+ = hareketlilik.",
+    "average_volume_10d_calc": "Son 10 günün ortalama işlem hacmi (likidite).",
     "Recommend.All": "TradingView teknik özeti. +0.5 üstü Güçlü Al.",
     "price_earnings_ttm": "F/K oranı; düşük olması görece ucuz (sektöre göre yorumla).",
     "price_book_fq": "PD/DD; defter değerine göre fiyat. Düşük = ucuz.",

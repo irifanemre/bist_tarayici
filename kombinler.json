@@ -76,5 +76,76 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "MARGASİ YUKSELECEK": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume_10d_calc",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA200",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "SMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Aroon.Down",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "Aroon.Up"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "HullMA9",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Ichimoku.BLine",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "Ichimoku.CLine"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA10",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "SMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Aroon.Up",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 85
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "ChaikinMoneyFlow",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "ChaikinMoneyFlow|60"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "average_volume_10d_calc",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 0
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }
