@@ -81,7 +81,7 @@
     "secimler": [
       {
         "tip": "metrik",
-        "anahtar": "relative_volume_10d_calc",
+        "anahtar": "relative_volume",
         "op": ">",
         "hedef_turu": "deger",
         "deger": 1

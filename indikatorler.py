@@ -78,6 +78,7 @@ KATALOG = {
     "close":  {"ad": "Fiyat (kapanış)",   "alan": "close",  "grup": "Fiyat/Hacim", "tur": "seviye", "op": ">", "deger": 10},
     "change": {"ad": "Günlük değişim %",  "alan": "change", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-20, 20), "op": ">", "deger": 0},
     "volume": {"ad": "Hacim (adet)",      "alan": "volume", "grup": "Fiyat/Hacim", "tur": "hacim", "op": ">", "deger": 1_000_000},
+    "relative_volume": {"ad": "Bağıl hacim (1g/anlık)", "alan": "relative_volume", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (0, 10), "op": ">", "deger": 1},
     "relative_volume_10d_calc": {"ad": "Bağıl hacim (10g)", "alan": "relative_volume_10d_calc", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (0, 10), "op": ">", "deger": 1.5},
     "average_volume_10d_calc": {"ad": "Ort. hacim (10g)", "alan": "average_volume_10d_calc", "grup": "Fiyat/Hacim", "tur": "hacim", "op": ">", "deger": 1_000_000},
 
@@ -243,6 +244,7 @@ ACIKLAMALAR = {
     "close": "Kapanış fiyatı.",
     "change": "Günlük yüzde değişim.",
     "volume": "İşlem gören pay adedi; likidite filtresi.",
+    "relative_volume": "Anlık/günlük bağıl hacim (bugünkü hacim tipik hacme göre). 1+ = normalden hareketli.",
     "relative_volume_10d_calc": "Hacmin 10 günlük ortalamaya oranı. 1.5+ = hareketlilik.",
     "average_volume_10d_calc": "Son 10 günün ortalama işlem hacmi (likidite).",
     "Recommend.All": "TradingView teknik özeti. +0.5 üstü Güçlü Al.",
