@@ -151,6 +151,9 @@ KARSILASTIRMA_ALANLARI = [
     "BB.upper", "BB.lower", "P.SAR", "Ichimoku.BLine", "Ichimoku.CLine",
     "Pivot.M.Classic.Middle", "Pivot.M.Classic.R1", "Pivot.M.Classic.S1",
     "MACD.macd", "MACD.signal",
+    # osilatör/hacim karşılaştırmaları (indikatör vs indikatör)
+    "RSI", "RSI7", "Stoch.K", "Stoch.D", "Stoch.RSI.K", "Stoch.RSI.D",
+    "ADX", "volume", "average_volume_10d_calc",
 ]
 
 OPERATORLER = ["<", "<=", ">", ">=", "yukarı keser", "aşağı keser", "arada", "arada değil"]
