@@ -174,28 +174,49 @@ def _strateji_yukle(strat_ad):
 st.markdown(
     """
     <style>
+      html, body, .stApp, button, input, select, textarea,
+      [data-testid="stMarkdownContainer"], [data-baseweb] {
+          font-family: "Trebuchet MS", Tahoma, -apple-system, sans-serif !important;}
       #MainMenu, footer, header [data-testid="stToolbar"] {visibility: hidden;}
-      .block-container {padding-top: 2.2rem; max-width: 1180px;}
-      .app-title {font-size: 1.9rem; font-weight: 700; letter-spacing:-.02em; margin-bottom:.1rem; color:#e6edf3;}
-      .app-sub   {color:#8b949e; font-size:.95rem; margin-bottom:1.2rem;}
-      .step {font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
-             color:#58a6ff; margin:.6rem 0 .5rem;}
+      .stApp {background:#131722;}
+      section[data-testid="stSidebar"] {background:#1e222d; border-right:1px solid #2a2e39;}
+      .block-container {padding-top: 1.8rem; max-width: 1280px;}
+
+      .app-title {font-size:1.55rem; font-weight:700; letter-spacing:-.01em; color:#d1d4dc; margin-bottom:.1rem;}
+      .app-sub   {color:#787b86; font-size:.88rem; margin-bottom:1.1rem;}
+      .step {font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
+             color:#787b86; margin:.85rem 0 .5rem;}
+
+      /* paneller / kartlar — TradingView */
       div[data-testid="stVerticalBlockBorderWrapper"] {
-          border-radius:12px; border:1px solid #30363d; background:#161b22;
-          box-shadow:0 1px 2px rgba(0,0,0,.25);}
-      .card-name {font-weight:650; font-size:.95rem; margin-bottom:.2rem; color:#e6edf3;}
-      .card-grp  {font-size:.72rem; color:#8b949e; text-transform:uppercase; letter-spacing:.05em;}
-      .chip {display:inline-block; background:rgba(47,129,247,.14); color:#79c0ff;
-             border:1px solid rgba(47,129,247,.4); border-radius:20px;
-             padding:3px 12px; margin:3px 4px 3px 0; font-size:.82rem; font-weight:550;}
-      .chip-and {color:#6e7681; font-weight:600; margin:0 2px; font-size:.8rem;}
-      .stButton button {border-radius:10px; font-weight:600;}
-      div[data-testid="stMetricValue"] {font-size:1.6rem;}
-      .disclaimer {color:#6e7681; font-size:.78rem; margin-top:1rem; border-top:1px solid #21262d; padding-top:.6rem;}
-      .haber {margin:.3rem 0; font-size:.9rem; line-height:1.35;}
-      .haber a {color:#79c0ff; text-decoration:none;}
+          border-radius:6px; border:1px solid #2a2e39; background:#1e222d; box-shadow:none;}
+      .card-name {font-weight:600; font-size:.92rem; color:#d1d4dc; margin-bottom:.2rem;}
+      .card-grp  {font-size:.68rem; color:#787b86; text-transform:uppercase; letter-spacing:.05em;}
+
+      /* filtre çipleri — TradingView screener stili */
+      .chip {display:inline-block; background:#1e222d; color:#d1d4dc;
+             border:1px solid #363a45; border-radius:6px;
+             padding:4px 10px; margin:3px 5px 3px 0; font-size:.82rem; font-weight:500;}
+      .chip-and {color:#2962ff; font-weight:700; margin:0 4px; font-size:.78rem;}
+
+      /* girişler ve seçili indikatör etiketleri */
+      div[data-baseweb="select"] > div, .stTextInput input, .stNumberInput input,
+      div[data-baseweb="input"] {background:#1e222d !important; border-color:#2a2e39 !important;}
+      span[data-baseweb="tag"] {background:#2962ff !important; border-radius:4px !important;}
+
+      /* butonlar */
+      .stButton button {border-radius:6px; font-weight:600; border:1px solid #2a2e39;
+             background:#1e222d; color:#d1d4dc;}
+      .stButton button:hover {border-color:#2962ff; color:#fff;}
+      .stButton button[kind="primary"] {background:#2962ff; border-color:#2962ff; color:#fff;}
+      .stButton button[kind="primary"]:hover {background:#1e53e5; border-color:#1e53e5;}
+
+      div[data-testid="stMetricValue"] {font-size:1.5rem; color:#d1d4dc;}
+      .disclaimer {color:#787b86; font-size:.76rem; margin-top:1rem; border-top:1px solid #2a2e39; padding-top:.6rem;}
+      .haber {margin:.3rem 0; font-size:.88rem; line-height:1.35;}
+      .haber a {color:#2962ff; text-decoration:none;}
       .haber a:hover {text-decoration:underline;}
-      .haber-meta {color:#6e7681; font-size:.78rem;}
+      .haber-meta {color:#787b86; font-size:.76rem;}
     </style>
     """,
     unsafe_allow_html=True,
