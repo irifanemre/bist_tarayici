@@ -24,6 +24,7 @@ import zamanlama_store as zs
 import piyasa
 import haberler
 import backtest
+import rapor
 
 
 def _varsayilan_chat():
@@ -432,6 +433,7 @@ if secili_adlar:
                 st.session_state["sonuc"] = {
                     "df": df, "toplam": toplam, "secimler": list(secimler),
                     "zaman_label": zaman_label, "veri": veri_bilgisi(df),
+                    "tarama_zamani": datetime.now().strftime("%d.%m.%Y %H:%M"),
                 }
             except Exception:
                 st.error("Şu an veriye ulaşılamadı. Birazdan tekrar dene.")
@@ -490,10 +492,25 @@ if secili_adlar:
                     "Grafik": st.column_config.LinkColumn("Grafik", display_text="Aç ↗"),
                 },
             )
-            _gizli = ["ticker", "update_mode", "current_session", "last-price-update-time"]
-            st.download_button("⬇️  CSV indir",
-                               g.drop(columns=_gizli, errors="ignore").to_csv(index=False).encode("utf-8"),
-                               "bist_tarama.csv", "text/csv")
+            _satirlar = []
+            for _, r in g.iterrows():
+                _f = pd.to_numeric(r.get("close"), errors="coerce")
+                _d = pd.to_numeric(r.get("change"), errors="coerce")
+                _satirlar.append({
+                    "hisse": r.get("name", ""),
+                    "fiyat": None if pd.isna(_f) else float(_f),
+                    "degisim": None if pd.isna(_d) else float(_d),
+                    "rating": r.get("Rating", ""),
+                    "sektor": r.get("Sektör", ""),
+                })
+            _excel = rapor.tarama_excel(_satirlar, sonuc["tarama_zamani"], vb.get("saat"))
+            _dosya = ("bist_tarama_"
+                      + sonuc["tarama_zamani"].replace(" ", "_").replace(":", "").replace(".", "-")
+                      + ".xlsx")
+            st.download_button(
+                "⬇️  Excel indir (.xlsx)", _excel, _dosya,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+            st.caption(f"📅 Tarama zamanı dosyada kayıtlı: **{sonuc['tarama_zamani']}**")
 
             # ---- Tıklanan hissenin grafiği (CSV'nin ALTINDA) ----
             try:
