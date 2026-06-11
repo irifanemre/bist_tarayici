@@ -81,6 +81,25 @@ KATALOG = {
     "relative_volume": {"ad": "Bağıl hacim (1g/anlık)", "alan": "relative_volume", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (0, 10), "op": ">", "deger": 1},
     "relative_volume_10d_calc": {"ad": "Bağıl hacim (10g)", "alan": "relative_volume_10d_calc", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (0, 10), "op": ">", "deger": 1.5},
     "average_volume_10d_calc": {"ad": "Ort. hacim (10g)", "alan": "average_volume_10d_calc", "grup": "Fiyat/Hacim", "tur": "hacim", "op": ">", "deger": 1_000_000},
+    "average_volume_30d_calc": {"ad": "Ort. hacim (30g)", "alan": "average_volume_30d_calc", "grup": "Fiyat/Hacim", "tur": "hacim", "op": ">", "deger": 1_000_000},
+    "gap": {"ad": "Açılış boşluğu (gap %)", "alan": "gap", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-20, 20), "op": ">", "deger": 0},
+    "Perf.W": {"ad": "Haftalık getiri %", "alan": "Perf.W", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-30, 30), "op": ">", "deger": 0},
+    "Perf.1M": {"ad": "Aylık getiri %", "alan": "Perf.1M", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-50, 50), "op": ">", "deger": 0},
+    "Perf.Y": {"ad": "Yıllık getiri %", "alan": "Perf.Y", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-100, 300), "op": ">", "deger": 0},
+    "price_52_week_high": {"ad": "52 hafta zirve", "alan": "price_52_week_high", "grup": "Fiyat/Hacim", "tur": "seviye", "op": ">", "hedef_alan": "close"},
+    "price_52_week_low": {"ad": "52 hafta dip", "alan": "price_52_week_low", "grup": "Fiyat/Hacim", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+
+    # ===================== EK İNDİKATÖRLER (geniş TradingView kapsamı) =====================
+    "EMA30":  {"ad": "EMA 30",  "alan": "EMA30",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "SMA30":  {"ad": "SMA 30",  "alan": "SMA30",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "SMA100": {"ad": "SMA 100", "alan": "SMA100", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "BB.basis":      {"ad": "Bollinger Orta", "alan": "BB.basis",      "grup": "Bantlar", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "KltChnl.upper": {"ad": "Keltner Üst",    "alan": "KltChnl.upper", "grup": "Bantlar", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "KltChnl.lower": {"ad": "Keltner Alt",    "alan": "KltChnl.lower", "grup": "Bantlar", "tur": "seviye", "op": ">", "hedef_alan": "close"},
+    "KltChnl.basis": {"ad": "Keltner Orta",   "alan": "KltChnl.basis", "grup": "Bantlar", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "Ichimoku.Lead1": {"ad": "Ichimoku Öncü A", "alan": "Ichimoku.Lead1", "grup": "Pivot/Ichimoku", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "Ichimoku.Lead2": {"ad": "Ichimoku Öncü B", "alan": "Ichimoku.Lead2", "grup": "Pivot/Ichimoku", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "Stoch.RSI.D":   {"ad": "Stokastik RSI %D", "alan": "Stoch.RSI.D", "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100), "op": "<", "deger": 20},
 
     # ===================== TEMEL ANALİZ / RATING (zaman diliminden bağımsız) =====================
     "Recommend.All":        {"ad": "Teknik Rating (-1…1)", "alan": "Recommend.All", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-1, 1), "op": ">", "deger": 0.3, "zaman_yok": True},
@@ -147,18 +166,31 @@ HAZIR_SINYALLER = {
 
 
 # Operatör hedefi olarak seçilebilecek "başka indikatör" alanları
-KARSILASTIRMA_ALANLARI = [
-    "close", "open", "high", "low",
-    "EMA5", "EMA10", "EMA20", "EMA50", "EMA100", "EMA200",
-    "SMA20", "SMA50", "SMA200", "VWAP", "VWMA", "HullMA9",
-    "BB.upper", "BB.lower", "P.SAR", "Ichimoku.BLine", "Ichimoku.CLine",
-    "Pivot.M.Classic.Middle", "Pivot.M.Classic.R1", "Pivot.M.Classic.S1",
-    "MACD.macd", "MACD.signal",
-    # osilatör/hacim karşılaştırmaları (indikatör vs indikatör)
-    "RSI", "RSI7", "Stoch.K", "Stoch.D", "Stoch.RSI.K", "Stoch.RSI.D",
-    "ADX", "volume", "average_volume_10d_calc", "SMA10",
-    "Aroon.Up", "Aroon.Down", "ChaikinMoneyFlow", "ChaikinMoneyFlow|60",
+# Karşılaştırma hedefleri OTOMATİK türetilir: ham fiyat alanları + katalogdaki
+# tüm teknik indikatörler + sık kullanılan çapraz zaman dilimi varyantları.
+# Böylece her yeni indikatör eklendiğinde "karşılaştırılabilir alan" da otomatik gelir.
+_HAM_ALANLAR = ["close", "open", "high", "low"]
+_CAPRAZ_ZAMAN = [
+    "RSI|60", "RSI|240", "RSI|1W",
+    "ChaikinMoneyFlow|60", "ChaikinMoneyFlow|240",
+    "MoneyFlow|60", "Stoch.K|60", "MACD.macd|1W",
 ]
+
+
+def _karsilastirma_alanlari():
+    alanlar = list(_HAM_ALANLAR)
+    for tanim in KATALOG.values():
+        if tanim.get("grup") == "Temel/Rating":  # F/K, piyasa değeri vb. hedef olmaz
+            continue
+        if tanim["alan"] not in alanlar:
+            alanlar.append(tanim["alan"])
+    for a in _CAPRAZ_ZAMAN:
+        if a not in alanlar:
+            alanlar.append(a)
+    return alanlar
+
+
+KARSILASTIRMA_ALANLARI = _karsilastirma_alanlari()
 
 OPERATORLER = ["<", "<=", ">", ">=", "yukarı keser", "aşağı keser", "arada", "arada değil"]
 
@@ -247,6 +279,23 @@ ACIKLAMALAR = {
     "relative_volume": "Anlık/günlük bağıl hacim (bugünkü hacim tipik hacme göre). 1+ = normalden hareketli.",
     "relative_volume_10d_calc": "Hacmin 10 günlük ortalamaya oranı. 1.5+ = hareketlilik.",
     "average_volume_10d_calc": "Son 10 günün ortalama işlem hacmi (likidite).",
+    "average_volume_30d_calc": "Son 30 günün ortalama işlem hacmi.",
+    "gap": "Açılış boşluğu: bugünkü açılışın önceki kapanışa göre farkı (%).",
+    "Perf.W": "Son bir haftanın getirisi (%).",
+    "Perf.1M": "Son bir ayın getirisi (%).",
+    "Perf.Y": "Son bir yılın getirisi (%).",
+    "price_52_week_high": "Son 52 haftanın en yüksek fiyatı (direnç/zirve).",
+    "price_52_week_low": "Son 52 haftanın en düşük fiyatı (destek/dip).",
+    "EMA30": "30 günlük üssel ortalama.",
+    "SMA30": "30 günlük basit ortalama.",
+    "SMA100": "100 günlük basit ortalama.",
+    "BB.basis": "Bollinger orta bandı (20 günlük ortalama).",
+    "KltChnl.upper": "Keltner kanalı üst sınırı.",
+    "KltChnl.lower": "Keltner kanalı alt sınırı.",
+    "KltChnl.basis": "Keltner kanalı orta çizgisi.",
+    "Ichimoku.Lead1": "Ichimoku öncü çizgi A (bulut sınırı).",
+    "Ichimoku.Lead2": "Ichimoku öncü çizgi B (bulut sınırı).",
+    "Stoch.RSI.D": "Stokastik RSI %D (sinyal çizgisi).",
     "Recommend.All": "TradingView teknik özeti. +0.5 üstü Güçlü Al.",
     "price_earnings_ttm": "F/K oranı; düşük olması görece ucuz (sektöre göre yorumla).",
     "price_book_fq": "PD/DD; defter değerine göre fiyat. Düşük = ucuz.",
