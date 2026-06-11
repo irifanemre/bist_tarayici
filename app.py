@@ -503,14 +503,37 @@ if secili_adlar:
             for kol in ["close", "change", "RSI", "ADX", "price_earnings_ttm"]:
                 goster[kol] = pd.to_numeric(goster[kol], errors="coerce").round(2)
 
+            def _deg_renk(v):
+                try:
+                    x = float(v)
+                except (TypeError, ValueError):
+                    return ""
+                if x > 0:
+                    return "color:#089981;font-weight:600;"   # TradingView yeşili
+                if x < 0:
+                    return "color:#f23645;font-weight:600;"   # TradingView kırmızısı
+                return "color:#868993;"
+
+            def _rat_renk(v):
+                s = str(v)
+                if "Al" in s:
+                    return "color:#089981;font-weight:600;"
+                if "Sat" in s:
+                    return "color:#f23645;font-weight:600;"
+                return "color:#868993;"
+
+            _stilli = (goster.style
+                       .map(_deg_renk, subset=["change"])
+                       .map(_rat_renk, subset=["Rating"]))
+
             secim_event = st.dataframe(
-                goster, use_container_width=True, hide_index=True,
+                _stilli, use_container_width=True, hide_index=True,
                 on_select="rerun", selection_mode="single-row", key="sonuc_tablo",
                 column_config={
                     "name": "Hisse",
                     "close": "Fiyat",
-                    "change": st.column_config.NumberColumn("Değ %", format="%.2f"),
-                    "price_earnings_ttm": st.column_config.NumberColumn("F/K", format="%.1f"),
+                    "change": "Değ %",
+                    "price_earnings_ttm": "F/K",
                     "Grafik": st.column_config.LinkColumn("Grafik", display_text="Aç ↗"),
                 },
             )
