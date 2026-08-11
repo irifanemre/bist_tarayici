@@ -282,5 +282,41 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "LUVCERA": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Stoch.RSI.K",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "Stoch.RSI.D"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "MACD.signal"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.signal",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 1
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }
