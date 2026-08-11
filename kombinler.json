@@ -147,5 +147,41 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "MARG TEM TEK": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "EMA13",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA13_1H",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "yukarı keser",
+        "hedef_turu": "deger",
+        "deger": 50
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "volume",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "average_volume_30d_calc"
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }

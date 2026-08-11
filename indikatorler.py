@@ -47,6 +47,8 @@ KATALOG = {
     # ===================== HAREKETLİ ORTALAMALAR (varsayılan: fiyat ortalamanın ÜSTÜNDE) =====================
     "EMA5":   {"ad": "EMA 5",   "alan": "EMA5",   "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA10":  {"ad": "EMA 10",  "alan": "EMA10",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "EMA13":  {"ad": "EMA 13",  "alan": "EMA13",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "EMA13_1H": {"ad": "EMA 13 (1 saatlik)", "alan": "EMA13|60", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
     "EMA20":  {"ad": "EMA 20",  "alan": "EMA20",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA50":  {"ad": "EMA 50",  "alan": "EMA50",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA100": {"ad": "EMA 100", "alan": "EMA100", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
@@ -257,6 +259,8 @@ ACIKLAMALAR = {
     "MACD.signal": "MACD sinyal çizgisi; kesişimler al/sat üretir.",
     "EMA5": "5 günlük üssel ortalama; fiyat üstündeyse kısa vade yukarı.",
     "EMA10": "10 günlük üssel ortalama.",
+    "EMA13": "13 günlük üssel ortalama.",
+    "EMA13_1H": "13 periyotluk EMA, 1 saatlik grafikte (kısa vade).",
     "EMA20": "20 günlük üssel ortalama; kısa-orta vade trend.",
     "EMA50": "50 günlük üssel ortalama; orta vade trend çizgisi.",
     "EMA100": "100 günlük üssel ortalama.",
