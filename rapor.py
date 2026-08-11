@@ -77,12 +77,91 @@ def tarama_excel(satirlar, tarama_zamani, veri_saati=None) -> bytes:
     return buf.getvalue()
 
 
+def _deg_hucre(ws, satir, sutun, deger):
+    c = ws.cell(row=satir, column=sutun)
+    if deger is not None and deger == deger:
+        deger = float(deger)
+        c.value = deger
+        c.number_format = '+0.00"%";-0.00"%";0.00"%"'
+        c.font = Font(color=(_YESIL if deger > 0 else (_KIRMIZI if deger < 0 else _KOYU)), bold=True)
+    return c
+
+
+def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
+    """
+    Çok kombinli (bölüm bölüm) rapor.
+    bolumler: [{"ad": "Kombin adı", "satirlar": [{hisse, fiyat, degisim, rating, sektor}]}]
+    Her kombinasyon ayrı bir bölüm olarak yazılır.
+    """
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Toplu Tarama"
+
+    ws["A1"] = "BIST Toplu Tarama Raporu"
+    ws["A1"].font = Font(bold=True, size=14, color=_KOYU)
+    ws["A2"] = f"Tarama zamanı: {tarama_zamani}"
+    ws["A2"].font = Font(bold=True, size=11, color=_KOYU)
+    if veri_saati:
+        ws["A3"] = f"Veri saati: {veri_saati}  (15 dk gecikmeli)"
+        ws["A3"].font = Font(size=10, color=_GRI)
+
+    r = 5
+    for bolum in bolumler:
+        satirlar = bolum.get("satirlar", [])
+        # bölüm başlığı (mavi şerit, birleştirilmiş)
+        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=5)
+        bh = ws.cell(row=r, column=1, value=f"▸ {bolum.get('ad', '')}   ·   {len(satirlar)} firma")
+        bh.font = Font(bold=True, size=12, color=_BEYAZ)
+        bh.fill = PatternFill("solid", fgColor=_BASLIK_BG)
+        bh.alignment = Alignment(horizontal="left", vertical="center")
+        r += 1
+
+        if not satirlar:
+            ws.cell(row=r, column=1, value="— eşleşme yok —").font = Font(italic=True, color=_GRI)
+            r += 2
+            continue
+
+        # sütun başlıkları
+        for j, b in enumerate(["Hisse", "Fiyat (₺)", "Değişim %", "Rating", "Sektör"], start=1):
+            c = ws.cell(row=r, column=j, value=b)
+            c.font = Font(bold=True, color=_KOYU)
+            c.border = Border(bottom=_ince)
+        r += 1
+
+        for s in satirlar:
+            ws.cell(row=r, column=1, value=s.get("hisse", "")).font = Font(bold=True, color=_KOYU)
+            f = s.get("fiyat")
+            fc = ws.cell(row=r, column=2)
+            if f is not None and f == f:
+                fc.value = round(float(f), 2)
+                fc.number_format = "#,##0.00"
+            _deg_hucre(ws, r, 3, s.get("degisim"))
+            ws.cell(row=r, column=4, value=s.get("rating", "")).font = Font(color=_KOYU)
+            ws.cell(row=r, column=5, value=s.get("sektor", "")).font = Font(color=_KOYU)
+            r += 1
+        r += 1  # bölümler arası boşluk
+
+    for kol, gen in zip("ABCDE", (12, 12, 12, 16, 26)):
+        ws.column_dimensions[kol].width = gen
+    ws.freeze_panes = "A5"
+
+    buf = BytesIO()
+    wb.save(buf)
+    return buf.getvalue()
+
+
 if __name__ == "__main__":
-    ornek = [
-        {"hisse": "ASELS", "fiyat": 357.25, "degisim": 1.8, "rating": "🟢 Güçlü Al", "sektor": "Elektronik"},
-        {"hisse": "GARAN", "fiyat": 130.40, "degisim": -0.85, "rating": "⚪ Nötr", "sektor": "Finans"},
+    bolumler = [
+        {"ad": "Momentum Kırılımı", "satirlar": [
+            {"hisse": "ASELS", "fiyat": 357.25, "degisim": 1.8, "rating": "🟢 Güçlü Al", "sektor": "Elektronik"},
+            {"hisse": "THYAO", "fiyat": 296.75, "degisim": 3.2, "rating": "🟢 Al", "sektor": "Ulaştırma"},
+        ]},
+        {"ad": "Dip Avı", "satirlar": [
+            {"hisse": "GARAN", "fiyat": 130.40, "degisim": -0.85, "rating": "⚪ Nötr", "sektor": "Finans"},
+        ]},
+        {"ad": "Golden Cross", "satirlar": []},
     ]
-    data = tarama_excel(ornek, "11.06.2026 18:45", "11.06 18:09")
-    with open("/tmp/ornek_tarama.xlsx", "wb") as f:
+    data = toplu_rapor_excel(bolumler, "11.06.2026 18:45", "11.06 18:09")
+    with open("/tmp/ornek_toplu.xlsx", "wb") as f:
         f.write(data)
-    print("ornek_tarama.xlsx yazildi:", len(data), "bayt")
+    print("ornek_toplu.xlsx yazildi:", len(data), "bayt |", len(bolumler), "bölüm")
