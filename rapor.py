@@ -105,34 +105,42 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
     _gri = Side(style="thin", color="FF808080")
     kenar = Border(left=_gri, right=_gri, top=_gri, bottom=_gri)
 
-    # üst bilgi (tüm sütunlara yayılı)
-    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=n)
+    # üst bilgi (her strateji 2 sütun: hisse kodu + boş giriş kutusu)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=2 * n)
     ust = f"BIST Toplu Tarama · {tarama_zamani}"
     if veri_saati:
         ust += f"  ·  veri {veri_saati} (15 dk gecikmeli)"
     ws.cell(row=1, column=1, value=ust).font = Font(bold=True, size=11, color=_KOYU)
 
-    # en uzun sütun kadar (en az 15) satırlık düzgün ızgara
     max_firma = max((len(b.get("satirlar", [])) for b in bolumler), default=0)
     satir_sayisi = max(max_firma, 15)
 
-    for j, bolum in enumerate(bolumler, start=1):
+    for j, bolum in enumerate(bolumler):
+        c1 = 2 * j + 1   # hisse kodu sütunu
+        c2 = 2 * j + 2   # boş giriş kutusu (kullanıcı veri yazar)
         firmalar = [s.get("hisse", "") for s in bolum.get("satirlar", [])]
-        # strateji başlığı (mavi, kenarlıklı)
-        h = ws.cell(row=2, column=j, value=str(bolum.get("ad", "")))
+
+        # strateji başlığı — iki sütuna yayılı, kenarlıklı
+        ws.merge_cells(start_row=2, start_column=c1, end_row=2, end_column=c2)
+        h = ws.cell(row=2, column=c1, value=str(bolum.get("ad", "")))
         h.font = Font(bold=True, color=_BEYAZ, size=10)
         h.fill = PatternFill("solid", fgColor=_BASLIK_BG)
         h.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-        h.border = kenar
-        # firmalar + boş hücreler — HEPSİ kenarlıklı (ızgara)
+        ws.cell(row=2, column=c1).border = kenar
+        ws.cell(row=2, column=c2).border = kenar
+
+        # satırlar: hisse kodu | boş kutucuk (veri girişi için)
         for i in range(satir_sayisi):
-            c = ws.cell(row=3 + i, column=j)
+            hc = ws.cell(row=3 + i, column=c1)   # hisse kodu
+            bc = ws.cell(row=3 + i, column=c2)   # boş kutu
             if i < len(firmalar):
-                c.value = firmalar[i]
-                c.font = Font(color=_KOYU)
-            c.alignment = Alignment(horizontal="center")
-            c.border = kenar
-        ws.column_dimensions[get_column_letter(j)].width = 12
+                hc.value = firmalar[i]
+                hc.font = Font(color=_KOYU)
+            hc.alignment = Alignment(horizontal="center")
+            hc.border = kenar
+            bc.border = kenar
+        ws.column_dimensions[get_column_letter(c1)].width = 10
+        ws.column_dimensions[get_column_letter(c2)].width = 16
 
     ws.row_dimensions[2].height = 34
     ws.freeze_panes = "A3"
