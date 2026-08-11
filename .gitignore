@@ -18,3 +18,5 @@ motor.log
 durum.json
 *.tmp
 .DS_Store
+toplu_tarama_*.xlsx
+bist_tarama*.xlsx
