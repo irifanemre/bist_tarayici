@@ -101,36 +101,41 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
     ws.title = "Tarama"
 
     n = max(len(bolumler), 1)
+    # tüm hücrelere ızgara çizgisi (el yazısı tablo gibi)
+    _gri = Side(style="thin", color="FF808080")
+    kenar = Border(left=_gri, right=_gri, top=_gri, bottom=_gri)
+
     # üst bilgi (tüm sütunlara yayılı)
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=n)
     ust = f"BIST Toplu Tarama · {tarama_zamani}"
     if veri_saati:
         ust += f"  ·  veri {veri_saati} (15 dk gecikmeli)"
-    b = ws.cell(row=1, column=1, value=ust)
-    b.font = Font(bold=True, size=12, color=_KOYU)
+    ws.cell(row=1, column=1, value=ust).font = Font(bold=True, size=11, color=_KOYU)
+
+    # en uzun sütun kadar (en az 15) satırlık düzgün ızgara
+    max_firma = max((len(b.get("satirlar", [])) for b in bolumler), default=0)
+    satir_sayisi = max(max_firma, 15)
 
     for j, bolum in enumerate(bolumler, start=1):
         firmalar = [s.get("hisse", "") for s in bolum.get("satirlar", [])]
-        # strateji başlığı (mavi, sütun tepesi)
+        # strateji başlığı (mavi, kenarlıklı)
         h = ws.cell(row=2, column=j, value=str(bolum.get("ad", "")))
         h.font = Font(bold=True, color=_BEYAZ, size=10)
         h.fill = PatternFill("solid", fgColor=_BASLIK_BG)
         h.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-        h.border = Border(right=_ince, bottom=_ince)
-        # firma sayısı
-        cnt = ws.cell(row=3, column=j, value=f"{len(firmalar)} firma")
-        cnt.font = Font(size=9, italic=True, color=_GRI)
-        cnt.alignment = Alignment(horizontal="center")
-        # firmalar alt alta
-        for i, tk in enumerate(firmalar, start=4):
-            cc = ws.cell(row=i, column=j, value=tk)
-            cc.font = Font(color=_KOYU)
-            cc.alignment = Alignment(horizontal="center")
-            cc.border = Border(right=_ince)
-        ws.column_dimensions[get_column_letter(j)].width = 11
+        h.border = kenar
+        # firmalar + boş hücreler — HEPSİ kenarlıklı (ızgara)
+        for i in range(satir_sayisi):
+            c = ws.cell(row=3 + i, column=j)
+            if i < len(firmalar):
+                c.value = firmalar[i]
+                c.font = Font(color=_KOYU)
+            c.alignment = Alignment(horizontal="center")
+            c.border = kenar
+        ws.column_dimensions[get_column_letter(j)].width = 12
 
     ws.row_dimensions[2].height = 34
-    ws.freeze_panes = "A4"
+    ws.freeze_panes = "A3"
 
     buf = BytesIO()
     wb.save(buf)
