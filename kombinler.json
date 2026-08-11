@@ -183,5 +183,104 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "Margasi potansiyel": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "arada",
+        "deger": 50,
+        "deger2": 65
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "ADX",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 30
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA20",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change",
+        "op": "arada",
+        "deger": 0,
+        "deger2": 6
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Perf.1M",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 0
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA100",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Perf.3M",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 20
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "MACD.signal"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "CCI20",
+        "op": "arada",
+        "deger": 0,
+        "deger2": 150
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MoneyFlow",
+        "op": "arada",
+        "deger": 50,
+        "deger2": 80
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "P.SAR",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Ichimoku.CLine",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "Ichimoku.BLine"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "average_volume_10d_calc",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "average_volume_30d_calc"
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }
