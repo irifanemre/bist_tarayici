@@ -596,5 +596,148 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "ASİYE": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "EMA21",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA50",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 2
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "yukarı keser",
+        "hedef_turu": "deger",
+        "deger": 50
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
+  },
+  "MACD SIGN YUKARI KESER LEVEL": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "change_1H",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 15
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 2
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "MACD.signal"
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
+  },
+  "ALMAN KAP'TAL": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "SMA20",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA50",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA200",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA20",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "SMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "SMA50",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "SMA200"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "arada",
+        "deger": 50,
+        "deger2": 70
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "MACD.signal"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA20",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 2
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 0
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }
