@@ -77,12 +77,74 @@ def tarama_excel(satirlar, tarama_zamani, veri_saati=None) -> bytes:
     return buf.getvalue()
 
 
+def _deg_hucre(ws, satir, sutun, deger):
+    c = ws.cell(row=satir, column=sutun)
+    if deger is not None and deger == deger:
+        deger = float(deger)
+        c.value = deger
+        c.number_format = '+0.00"%";-0.00"%";0.00"%"'
+        c.font = Font(color=(_YESIL if deger > 0 else (_KIRMIZI if deger < 0 else _KOYU)), bold=True)
+    return c
+
+
+def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
+    """
+    Çok kombinli rapor — SÜTUN düzeni (kullanıcının el yazısı listesi gibi).
+    Her kombinasyon bir SÜTUN olur; altında o taramada çıkan firmalar alt alta.
+    15-20 strateji yan yana, tek sayfada.
+    bolumler: [{"ad": "Strateji adı", "satirlar": [{hisse, ...}]}]
+    """
+    from openpyxl.utils import get_column_letter
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Tarama"
+
+    n = max(len(bolumler), 1)
+    # üst bilgi (tüm sütunlara yayılı)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=n)
+    ust = f"BIST Toplu Tarama · {tarama_zamani}"
+    if veri_saati:
+        ust += f"  ·  veri {veri_saati} (15 dk gecikmeli)"
+    b = ws.cell(row=1, column=1, value=ust)
+    b.font = Font(bold=True, size=12, color=_KOYU)
+
+    for j, bolum in enumerate(bolumler, start=1):
+        firmalar = [s.get("hisse", "") for s in bolum.get("satirlar", [])]
+        # strateji başlığı (mavi, sütun tepesi)
+        h = ws.cell(row=2, column=j, value=str(bolum.get("ad", "")))
+        h.font = Font(bold=True, color=_BEYAZ, size=10)
+        h.fill = PatternFill("solid", fgColor=_BASLIK_BG)
+        h.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        h.border = Border(right=_ince, bottom=_ince)
+        # firma sayısı
+        cnt = ws.cell(row=3, column=j, value=f"{len(firmalar)} firma")
+        cnt.font = Font(size=9, italic=True, color=_GRI)
+        cnt.alignment = Alignment(horizontal="center")
+        # firmalar alt alta
+        for i, tk in enumerate(firmalar, start=4):
+            cc = ws.cell(row=i, column=j, value=tk)
+            cc.font = Font(color=_KOYU)
+            cc.alignment = Alignment(horizontal="center")
+            cc.border = Border(right=_ince)
+        ws.column_dimensions[get_column_letter(j)].width = 11
+
+    ws.row_dimensions[2].height = 34
+    ws.freeze_panes = "A4"
+
+    buf = BytesIO()
+    wb.save(buf)
+    return buf.getvalue()
+
+
 if __name__ == "__main__":
-    ornek = [
-        {"hisse": "ASELS", "fiyat": 357.25, "degisim": 1.8, "rating": "🟢 Güçlü Al", "sektor": "Elektronik"},
-        {"hisse": "GARAN", "fiyat": 130.40, "degisim": -0.85, "rating": "⚪ Nötr", "sektor": "Finans"},
+    bolumler = [
+        {"ad": "TİBO 7TM-7TZ-Basit", "satirlar": [{"hisse": h} for h in ["TEGYO", "MPARK", "TUPRS", "DURKN", "ANSGR"]]},
+        {"ad": "MARGASİ", "satirlar": [{"hisse": h} for h in ["BEYAZ", "CRFSA", "KRSTL"]]},
+        {"ad": "MARG SWING", "satirlar": [{"hisse": h} for h in ["ALARK", "DURKN", "KRPLS", "BQRAT", "FADE"]]},
+        {"ad": "MACD 7 SMA", "satirlar": [{"hisse": h} for h in ["ASTOR", "KONT7"]]},
     ]
-    data = tarama_excel(ornek, "11.06.2026 18:45", "11.06 18:09")
-    with open("/tmp/ornek_tarama.xlsx", "wb") as f:
+    data = toplu_rapor_excel(bolumler, "11.06.2026 18:45", "11.06 18:09")
+    with open("/tmp/ornek_toplu.xlsx", "wb") as f:
         f.write(data)
-    print("ornek_tarama.xlsx yazildi:", len(data), "bayt")
+    print("ornek_toplu.xlsx yazildi:", len(data), "bayt |", len(bolumler), "sütun")
