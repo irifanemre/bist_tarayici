@@ -432,5 +432,169 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "DUSENI KIRANLAR": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 2
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA50",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA20"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA20",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA5"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA5",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 50
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "CCI20",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": -100
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change_1H",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 15
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "close",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "open"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "MACD.signal"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.signal",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 0
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
+  },
+  "EMA 10 X SMA 50": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "close",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA10"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change_1H",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 10
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA10",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "SMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 6
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
+  },
+  "RSI14 X SMA14": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "change_1H",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 10
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI7",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "RSI"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Stoch.RSI.K",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "Stoch.RSI.D"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 7
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }
