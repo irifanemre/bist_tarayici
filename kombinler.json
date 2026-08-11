@@ -318,5 +318,119 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "EMA 20-50 BASIT": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "close",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA20"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change_1H",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 10
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA20",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA50"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 10
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "arada",
+        "deger": 40,
+        "deger2": 80
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
+  },
+  "HAFT / GUN": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "change",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 10
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA9",
+        "op": "aşağı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "change_1H",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 10
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "HullMA9",
+        "op": "aşağı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Pivot.M.Classic.Middle",
+        "op": "<",
+        "hedef_turu": "alan",
+        "hedef_alan": "close"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Mom",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 0
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 50
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "relative_volume",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 1.2
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }

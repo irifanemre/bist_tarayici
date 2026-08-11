@@ -104,6 +104,15 @@ KATALOG = {
     "Ichimoku.Lead2": {"ad": "Ichimoku Öncü B", "alan": "Ichimoku.Lead2", "grup": "Pivot/Ichimoku", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "Stoch.RSI.D":   {"ad": "Stokastik RSI %D", "alan": "Stoch.RSI.D", "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100), "op": "<", "deger": 20},
 
+    # ===================== 1 SAATLİK VARYANTLAR (çok zaman dilimli stratejiler) =====================
+    "EMA9":       {"ad": "EMA 9",                "alan": "EMA9",       "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
+    "EMA9_1H":    {"ad": "EMA 9 (1 saatlik)",    "alan": "EMA9|60",    "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
+    "HullMA9_1H": {"ad": "Hull MA 9 (1 saatlik)","alan": "HullMA9|60", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
+    "change_1H":  {"ad": "Değişim % (1 saatlik)","alan": "change|60",  "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-20, 20), "op": "<", "deger": 10, "zaman_yok": True},
+    "Mom_1H":     {"ad": "Momentum (1 saatlik)", "alan": "Mom|60",     "grup": "Osilatör", "tur": "osilator", "aralik": (-100, 100), "op": ">", "deger": 0, "zaman_yok": True},
+    "RSI_1H":     {"ad": "RSI (1 saatlik)",      "alan": "RSI|60",     "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100), "op": ">", "deger": 50, "zaman_yok": True},
+    "PivotMid_1H":{"ad": "Pivot orta (1 saatlik)","alan": "Pivot.M.Classic.Middle|60", "grup": "Pivot/Ichimoku", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
+
     # ===================== TEMEL ANALİZ / RATING (zaman diliminden bağımsız) =====================
     "Recommend.All":        {"ad": "Teknik Rating (-1…1)", "alan": "Recommend.All", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-1, 1), "op": ">", "deger": 0.3, "zaman_yok": True},
     "price_earnings_ttm":   {"ad": "F/K oranı",            "alan": "price_earnings_ttm", "grup": "Temel/Rating", "tur": "osilator", "aralik": (0, 200), "op": "<", "deger": 15, "zaman_yok": True},
@@ -302,6 +311,13 @@ ACIKLAMALAR = {
     "Ichimoku.Lead1": "Ichimoku öncü çizgi A (bulut sınırı).",
     "Ichimoku.Lead2": "Ichimoku öncü çizgi B (bulut sınırı).",
     "Stoch.RSI.D": "Stokastik RSI %D (sinyal çizgisi).",
+    "EMA9": "9 günlük üssel ortalama.",
+    "EMA9_1H": "9 periyotluk EMA, 1 saatlik grafikte.",
+    "HullMA9_1H": "Hull MA (9), 1 saatlik grafikte.",
+    "change_1H": "Son 1 saatteki yüzde değişim.",
+    "Mom_1H": "Momentum (10), 1 saatlik grafikte.",
+    "RSI_1H": "RSI (14), 1 saatlik grafikte.",
+    "PivotMid_1H": "Klasik pivot orta noktası, 1 saatlik.",
     "Recommend.All": "TradingView teknik özeti. +0.5 üstü Güçlü Al.",
     "price_earnings_ttm": "F/K oranı; düşük olması görece ucuz (sektöre göre yorumla).",
     "price_book_fq": "PD/DD; defter değerine göre fiyat. Düşük = ucuz.",
