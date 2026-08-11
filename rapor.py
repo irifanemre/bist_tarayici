@@ -100,50 +100,59 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
     ws = wb.active
     ws.title = "Tarama"
 
-    n = max(len(bolumler), 1)
-    # tüm hücrelere ızgara çizgisi (el yazısı tablo gibi)
     _gri = Side(style="thin", color="FF808080")
     kenar = Border(left=_gri, right=_gri, top=_gri, bottom=_gri)
 
-    # üst bilgi (her strateji 2 sütun: hisse kodu + boş giriş kutusu)
-    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=2 * n)
+    BLOK_SUTUN = 5   # yan yana kaç strateji (5 sütun × 3 satır düzeni)
+    toplam_sutun = BLOK_SUTUN * 3   # her blok: 2 veri sütunu + 1 boşluk sütunu
+
+    # üst bilgi
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=toplam_sutun)
     ust = f"BIST Toplu Tarama · {tarama_zamani}"
     if veri_saati:
         ust += f"  ·  veri {veri_saati} (15 dk gecikmeli)"
     ws.cell(row=1, column=1, value=ust).font = Font(bold=True, size=11, color=_KOYU)
 
     max_firma = max((len(b.get("satirlar", [])) for b in bolumler), default=0)
-    satir_sayisi = max(max_firma, 15)
+    satir_sayisi = max(max_firma, 8)   # her strateji altında en az 8 satır (boş kutular dahil)
 
-    for j, bolum in enumerate(bolumler):
-        c1 = 2 * j + 1   # hisse kodu sütunu
-        c2 = 2 * j + 2   # boş giriş kutusu (kullanıcı veri yazar)
+    for idx, bolum in enumerate(bolumler):
+        band = idx // BLOK_SUTUN      # 0, 1, 2 → hangi sıra
+        pos = idx % BLOK_SUTUN        # 0..4 → sıradaki konum
+        c1 = pos * 3 + 1              # hisse kodu sütunu
+        c2 = pos * 3 + 2              # boş giriş kutusu
+        hr = 2 + band * (satir_sayisi + 2)   # bu bandın başlık satırı
         firmalar = [s.get("hisse", "") for s in bolum.get("satirlar", [])]
 
-        # strateji başlığı — iki sütuna yayılı, kenarlıklı
-        ws.merge_cells(start_row=2, start_column=c1, end_row=2, end_column=c2)
-        h = ws.cell(row=2, column=c1, value=str(bolum.get("ad", "")))
+        # strateji başlığı — iki sütuna yayılı
+        ws.merge_cells(start_row=hr, start_column=c1, end_row=hr, end_column=c2)
+        h = ws.cell(row=hr, column=c1, value=str(bolum.get("ad", "")))
         h.font = Font(bold=True, color=_BEYAZ, size=10)
         h.fill = PatternFill("solid", fgColor=_BASLIK_BG)
         h.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-        ws.cell(row=2, column=c1).border = kenar
-        ws.cell(row=2, column=c2).border = kenar
+        ws.cell(row=hr, column=c1).border = kenar
+        ws.cell(row=hr, column=c2).border = kenar
 
-        # satırlar: hisse kodu | boş kutucuk (veri girişi için)
+        # satırlar: hisse kodu | boş kutucuk
         for i in range(satir_sayisi):
-            hc = ws.cell(row=3 + i, column=c1)   # hisse kodu
-            bc = ws.cell(row=3 + i, column=c2)   # boş kutu
+            hc = ws.cell(row=hr + 1 + i, column=c1)
+            bc = ws.cell(row=hr + 1 + i, column=c2)
             if i < len(firmalar):
                 hc.value = firmalar[i]
                 hc.font = Font(color=_KOYU)
             hc.alignment = Alignment(horizontal="center")
             hc.border = kenar
             bc.border = kenar
-        ws.column_dimensions[get_column_letter(c1)].width = 10
-        ws.column_dimensions[get_column_letter(c2)].width = 16
 
-    ws.row_dimensions[2].height = 34
-    ws.freeze_panes = "A3"
+    # sütun genişlikleri: her blok = kod(10) + kutu(14) + boşluk(2)
+    for pos in range(BLOK_SUTUN):
+        ws.column_dimensions[get_column_letter(pos * 3 + 1)].width = 10
+        ws.column_dimensions[get_column_letter(pos * 3 + 2)].width = 14
+        ws.column_dimensions[get_column_letter(pos * 3 + 3)].width = 2
+    # başlık satırlarının yüksekliği
+    bant_sayisi = (len(bolumler) + BLOK_SUTUN - 1) // BLOK_SUTUN
+    for band in range(bant_sayisi):
+        ws.row_dimensions[2 + band * (satir_sayisi + 2)].height = 32
 
     buf = BytesIO()
     wb.save(buf)
