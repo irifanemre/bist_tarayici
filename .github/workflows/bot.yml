@@ -1,0 +1,27 @@
+name: BIST komut botu (7/24)
+
+on:
+  schedule:
+    - cron: '*/50 * * * *'   # 50 dakikada bir yeniden başlar (kesintisiz kapsama)
+  workflow_dispatch: {}
+
+concurrency:
+  group: bist-bot          # aynı anda tek bot çalışsın (Telegram çakışmasın)
+  cancel-in-progress: false
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Telegram komutlarını dinle
+        run: python bot.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BOT_SURE_SN: '3000'   # ~50 dk sonra temiz çık, iş akışı yeniden başlatır
