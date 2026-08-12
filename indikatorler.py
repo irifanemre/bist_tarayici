@@ -19,6 +19,9 @@ from tradingview_screener import col, And
 KATALOG = {
     # ===================== OSİLATÖRLER =====================
     "RSI":         {"ad": "RSI (14)",              "alan": "RSI",        "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100),  "op": "<",  "deger": 30},
+    "RSI5":        {"ad": "RSI (5)",  "alan": "RSI5", "grup": "Osilatör", "tur": "osilator", "aralik": (0,100), "op": "<", "deger": 30},
+    "RSI9":        {"ad": "RSI (9)",  "alan": "RSI9", "grup": "Osilatör", "tur": "osilator", "aralik": (0,100), "op": "<", "deger": 30},
+    "IchimokuB_1W":{"ad": "Ichimoku Taban (haftalık)", "alan": "Ichimoku.BLine|1W", "grup": "Pivot/Ichimoku", "tur": "seviye", "op": "<", "hedef_alan": "close|1W", "zaman_yok": True},
     "RSI7":        {"ad": "RSI (7)",               "alan": "RSI7",       "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100),  "op": "<",  "deger": 30},
     "Stoch.K":     {"ad": "Stokastik %K",          "alan": "Stoch.K",    "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100),  "op": "<",  "deger": 20},
     "Stoch.D":     {"ad": "Stokastik %D",          "alan": "Stoch.D",    "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100),  "op": "<",  "deger": 20},
@@ -49,6 +52,13 @@ KATALOG = {
     "EMA10":  {"ad": "EMA 10",  "alan": "EMA10",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA13":  {"ad": "EMA 13",  "alan": "EMA13",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA13_1H": {"ad": "EMA 13 (1 saatlik)", "alan": "EMA13|60", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
+    "EMA13_1W": {"ad": "EMA 13 (haftalık)", "alan": "EMA13|1W", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
+    "close_1W":   {"ad": "Fiyat (haftalık)",      "alan": "close|1W",   "grup": "Fiyat/Hacim", "tur": "seviye", "op": ">", "deger": 10, "zaman_yok": True},
+    "RSI_1W":     {"ad": "RSI (haftalık)",         "alan": "RSI|1W",     "grup": "Osilatör", "tur": "osilator", "aralik": (0,100), "op": ">", "deger": 50, "zaman_yok": True},
+    "Mom_1W":     {"ad": "Momentum (haftalık)",    "alan": "Mom|1W",     "grup": "Osilatör", "tur": "osilator", "aralik": (-100,100), "op": ">", "deger": 0, "zaman_yok": True},
+    "EMA9_1W":    {"ad": "EMA 9 (haftalık)",       "alan": "EMA9|1W",    "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close|1W", "zaman_yok": True},
+    "HullMA9_1W": {"ad": "Hull MA 9 (haftalık)",   "alan": "HullMA9|1W", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close|1W", "zaman_yok": True},
+    "PivotMid_1W":{"ad": "Pivot orta (haftalık)",  "alan": "Pivot.M.Classic.Middle|1W", "grup": "Pivot/Ichimoku", "tur": "seviye", "op": "<", "hedef_alan": "close|1W", "zaman_yok": True},
     "EMA20":  {"ad": "EMA 20",  "alan": "EMA20",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA21":  {"ad": "EMA 21",  "alan": "EMA21",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA50":  {"ad": "EMA 50",  "alan": "EMA50",  "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
@@ -109,6 +119,7 @@ KATALOG = {
     "EMA9":       {"ad": "EMA 9",                "alan": "EMA9",       "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close"},
     "EMA9_1H":    {"ad": "EMA 9 (1 saatlik)",    "alan": "EMA9|60",    "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
     "HullMA9_1H": {"ad": "Hull MA 9 (1 saatlik)","alan": "HullMA9|60", "grup": "Hareketli Ort.", "tur": "seviye", "op": "<", "hedef_alan": "close", "zaman_yok": True},
+    "change_1W":  {"ad": "Değişim % (haftalık)", "alan": "change|1W", "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-30, 30), "op": "<", "deger": 10, "zaman_yok": True},
     "change_1H":  {"ad": "Değişim % (1 saatlik)","alan": "change|60",  "grup": "Fiyat/Hacim", "tur": "osilator", "aralik": (-20, 20), "op": "<", "deger": 10, "zaman_yok": True},
     "Mom_1H":     {"ad": "Momentum (1 saatlik)", "alan": "Mom|60",     "grup": "Osilatör", "tur": "osilator", "aralik": (-100, 100), "op": ">", "deger": 0, "zaman_yok": True},
     "RSI_1H":     {"ad": "RSI (1 saatlik)",      "alan": "RSI|60",     "grup": "Osilatör", "tur": "osilator", "aralik": (0, 100), "op": ">", "deger": 50, "zaman_yok": True},
@@ -124,6 +135,9 @@ KATALOG = {
     "net_margin":           {"ad": "Net Kar Marjı %",      "alan": "net_margin", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-50, 100), "op": ">", "deger": 10, "zaman_yok": True},
     "debt_to_equity":       {"ad": "Borç / Özkaynak",      "alan": "debt_to_equity", "grup": "Temel/Rating", "tur": "osilator", "aralik": (0, 5), "op": "<", "deger": 1, "zaman_yok": True},
     "total_revenue_yoy_growth_ttm": {"ad": "Ciro Büyümesi (yıllık %)", "alan": "total_revenue_yoy_growth_ttm", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-50, 300), "op": ">", "deger": 20, "zaman_yok": True},
+    "debt_to_equity_fq": {"ad": "Borç/Özkaynak (çeyreklik)", "alan": "debt_to_equity_fq", "grup": "Temel/Rating", "tur": "osilator", "aralik": (0,5), "op": "<", "deger": 0.5, "zaman_yok": True},
+    "return_on_equity_fq": {"ad": "ROE (çeyreklik %)", "alan": "return_on_equity_fq", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-50,100), "op": ">", "deger": 15, "zaman_yok": True},
+    "total_revenue_yoy_growth_fq": {"ad": "Ciro büyümesi (çeyreklik %)", "alan": "total_revenue_yoy_growth_fq", "grup": "Temel/Rating", "tur": "osilator", "aralik": (-50,300), "op": ">", "deger": 15, "zaman_yok": True},
     "current_ratio":        {"ad": "Cari Oran",            "alan": "current_ratio", "grup": "Temel/Rating", "tur": "osilator", "aralik": (0, 5), "op": ">", "deger": 1.5, "zaman_yok": True},
 }
 
@@ -140,6 +154,12 @@ HAZIR_SINYALLER = {
                      "kosul": lambda s="": col(f"MACD.macd{s}").crosses_above(col(f"MACD.signal{s}"))},
     "fiyat_ema200_ustu": {"ad": "🟢 Fiyat EMA200 üstünde (boğa)",    "grup": "Hazır Sinyal",
                      "kosul": lambda s="": col(f"close{s}") > col(f"EMA200{s}")},
+
+    "bist_tum_hisseler": {"ad": "🏛 BİST Tüm Hisseler (kara liste hariç)", "grup": "Hazır Sinyal",
+                     "kosul": lambda s="": col("is_blacklisted") == False},
+
+    "submarket_main_stars": {"ad": "🏛 Ana Pazar + Yıldız Pazar", "grup": "Hazır Sinyal",
+                     "kosul": lambda s="": col("submarket").isin(["MAIN", "STARS"])},
 
     # --- Ichimoku ---
     "ichimoku_bulut_ustu": {"ad": "🟢 Fiyat Ichimoku bulutunun üstünde", "grup": "Ichimoku",
@@ -185,7 +205,7 @@ HAZIR_SINYALLER = {
 _HAM_ALANLAR = ["close", "open", "high", "low"]
 _CAPRAZ_ZAMAN = [
     "RSI|60", "RSI|240", "RSI|1W",
-    "ChaikinMoneyFlow|60", "ChaikinMoneyFlow|240",
+    "ChaikinMoneyFlow|60", "ChaikinMoneyFlow|240", "ChaikinMoneyFlow|1W",
     "MoneyFlow|60", "Stoch.K|60", "MACD.macd|1W",
 ]
 
@@ -251,6 +271,9 @@ SEKTORLER = {
 # İndikatör başına kısa Türkçe açıklama (arayüzde ipucu olarak gösterilir)
 ACIKLAMALAR = {
     "RSI": "Aşırı alım/satımı ölçer. 30 altı ucuz (tepki gelebilir), 70 üstü pahalı bölge.",
+    "RSI5": "5 periyotluk RSI (çok hızlı).",
+    "RSI9": "9 periyotluk RSI.",
+    "IchimokuB_1W": "Ichimoku taban çizgisi, haftalık grafikte.",
     "RSI7": "Daha hızlı RSI; kısa vadeli aşırılıkları erken yakalar.",
     "Stoch.K": "Stokastik. 20 altı aşırı satım, 80 üstü aşırı alım.",
     "Stoch.D": "Stokastik sinyal çizgisi (%K'nın ortalaması).",
@@ -317,6 +340,10 @@ ACIKLAMALAR = {
     "EMA9_1H": "9 periyotluk EMA, 1 saatlik grafikte.",
     "HullMA9_1H": "Hull MA (9), 1 saatlik grafikte.",
     "change_1H": "Son 1 saatteki yüzde değişim.",
+    "change_1W": "Haftalık yüzde değişim.",
+    "close_1W": "Haftalık kapanış fiyatı.", "RSI_1W": "RSI, haftalık grafikte.",
+    "Mom_1W": "Momentum, haftalık grafikte.", "EMA9_1W": "EMA 9, haftalık grafikte.",
+    "HullMA9_1W": "Hull MA 9, haftalık grafikte.", "PivotMid_1W": "Pivot orta noktası, haftalık.",
     "Mom_1H": "Momentum (10), 1 saatlik grafikte.",
     "RSI_1H": "RSI (14), 1 saatlik grafikte.",
     "PivotMid_1H": "Klasik pivot orta noktası, 1 saatlik.",
@@ -338,6 +365,9 @@ ACIKLAMALAR = {
     "net_margin": "Net kâr marjı (%). Satışın ne kadarı kâra dönüyor.",
     "debt_to_equity": "Borç/özkaynak. Düşük = sağlam bilanço.",
     "total_revenue_yoy_growth_ttm": "Yıllık ciro büyümesi (%).",
+    "debt_to_equity_fq": "Borç/özkaynak (son çeyrek).",
+    "return_on_equity_fq": "Özkaynak kârlılığı (son çeyrek).",
+    "total_revenue_yoy_growth_fq": "Çeyreklik ciro büyümesi (yıllık kıyas).",
     "current_ratio": "Cari oran; kısa vadeli borç ödeme gücü. 1.5+ rahat.",
 }
 
