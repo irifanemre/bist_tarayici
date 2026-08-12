@@ -1,0 +1,7 @@
+# Eski Python/macOS için: sürüm sabitlemesi yok, pip uygun olanı seçer
+tradingview-screener
+streamlit
+pandas
+yfinance
+requests
+openpyxl

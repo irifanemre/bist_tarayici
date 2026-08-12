@@ -15,13 +15,35 @@ if [ -z "$PY" ]; then
   echo "   xcode-select --install"
   exit 1
 fi
-echo "✅ Python bulundu: $PY"
+SURUM=$("$PY" -c 'import sys; print("%d.%d"%sys.version_info[:2])')
+echo "✅ Python bulundu: $PY (sürüm $SURUM)"
+
+UYGUN=$("$PY" -c 'import sys; print(1 if sys.version_info[:2] >= (3,9) else 0)')
+if [ "$UYGUN" != "1" ]; then
+  echo ""
+  echo "⚠️  Python sürümün eski ($SURUM). En az 3.9 gerekiyor."
+  echo "   Çözüm: https://www.python.org/downloads/ adresinden güncel Python'u"
+  echo "   indirip kur, sonra bu kurulumu tekrar çalıştır."
+  exit 1
+fi
 
 echo ""
 echo "📦 Gerekli paketler kuruluyor (birkaç dakika sürebilir)…"
 "$PY" -m pip install --user --quiet --upgrade pip 2>/dev/null || true
-"$PY" -m pip install --user --quiet -r requirements.txt
+if ! "$PY" -m pip install --user --quiet -r requirements.txt 2>/dev/null; then
+  echo "   (sabit sürümler uymadı, esnek kuruluma geçiliyor…)"
+  "$PY" -m pip install --user --quiet -r requirements-esnek.txt
+fi
 echo "✅ Paketler kuruldu."
+
+echo ""
+echo "🔎 Kontrol ediliyor…"
+if "$PY" -c "import pandas, streamlit, openpyxl, yfinance, tradingview_screener" 2>/dev/null; then
+  echo "✅ Tüm paketler çalışıyor."
+else
+  echo "❌ Paketlerden biri yüklenemedi. Yukarıdaki hatayı paylaş."
+  exit 1
+fi
 
 # Masaüstüne çift tıklanabilir kısayol
 KISAYOL="$HOME/Desktop/BIST Toplu Tarama.command"
