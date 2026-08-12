@@ -1,4 +1,5 @@
 #!/bin/bash
-# BIST Tarayıcı'yı başlatır. Çift tıkla veya: ./baslat.sh
+# BIST Tarayıcı arayüzünü başlatır. Çift tıkla veya: ./baslat.sh
 cd "$(dirname "$0")"
-exec /opt/anaconda3/bin/python3 -m streamlit run app.py
+PY=$(command -v python3 || echo /usr/bin/python3)
+exec "$PY" -m streamlit run app.py
