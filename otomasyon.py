@@ -64,13 +64,18 @@ def telegram_gonder(metin: str):
     if not token or not chat:
         raise RuntimeError(
             "TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID ortam değişkenleri tanımlı değil.")
-    r = requests.post(
-        f"https://api.telegram.org/bot{token}/sendMessage",
-        json={"chat_id": chat, "text": metin, "parse_mode": "Markdown"},
-        timeout=20,
-    )
-    r.raise_for_status()
-    return r.json()
+    # Birden çok alıcı: TELEGRAM_CHAT_ID="123,456" şeklinde virgülle ayrılabilir
+    sonuc = []
+    for cid in str(chat).replace(" ", "").split(","):
+        if not cid:
+            continue
+        r = requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            json={"chat_id": cid, "text": metin, "parse_mode": "Markdown"},
+            timeout=20,
+        )
+        sonuc.append({cid: r.ok})
+    return sonuc
 
 
 def calistir(gonder: bool = True):

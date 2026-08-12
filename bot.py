@@ -97,11 +97,15 @@ def komut_isle(metin, chat_id):
         return (f"📋 *{len(k)} kayıtlı strateji:*\n"
                 + "\n".join(f"{i}. {a}" for i, a in enumerate(k, 1)))
 
+    if dusuk.startswith("/id"):
+        return f"🆔 Senin chat ID'in: `{chat_id}`\n\nBu numarayı bildirim listesine eklemek için paylaş."
+
     if dusuk.startswith("/start") or dusuk.startswith("/yardim") or dusuk.startswith("/help"):
-        return ("🤖 *BIST Tarayıcı Bot*\n\n"
+        return (f"🤖 *BIST Tarayıcı Bot*\n🆔 Chat ID'in: `{chat_id}`\n\n"
                 "*/tara* — tüm stratejileri tara\n"
                 "*/tara <isim>* — tek strateji (örn: `/tara HAFT`)\n"
                 "*/liste* — stratejileri listele\n"
+                "*/id* — chat ID'ini göster\n"
                 "*/yardim* — bu mesaj\n\n"
                 "_Ayrıca hafta içi 18:20'de otomatik tarama gelir._")
 
