@@ -54,12 +54,6 @@ echo "════════════════════════�
 echo "   BIST TOPLU TARAMA"
 echo "═══════════════════════════════════════"
 "$PY" toplu_tara.py
-son=\$(ls -t toplu_tarama_*.xlsx 2>/dev/null | head -1)
-if [ -n "\$son" ]; then
-  echo ""
-  echo "Excel açılıyor: \$son"
-  open "\$son"
-fi
 echo ""
 echo "Bitti. Bu pencereyi kapatabilirsin."
 KOMUT

@@ -50,6 +50,18 @@ def calistir(limit=100):
     with open(dosya, "wb") as f:
         f.write(data)
     print(f"\n✅ Excel yazıldı: {dosya}")
+
+    # Dosyayı otomatik aç (Windows / macOS / Linux)
+    try:
+        import sys, subprocess
+        if sys.platform.startswith("win"):
+            os.startfile(dosya)           # noqa: S606 (Windows)
+        elif sys.platform == "darwin":
+            subprocess.run(["open", dosya], check=False)
+        else:
+            subprocess.run(["xdg-open", dosya], check=False)
+    except Exception:
+        pass
     return dosya
 
 
