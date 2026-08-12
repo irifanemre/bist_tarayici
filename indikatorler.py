@@ -295,6 +295,7 @@ ACIKLAMALAR = {
     "EMA10": "10 günlük üssel ortalama.",
     "EMA13": "13 günlük üssel ortalama.",
     "EMA13_1H": "13 periyotluk EMA, 1 saatlik grafikte (kısa vade).",
+    "EMA13_1W": "13 periyotluk EMA, haftalık grafikte.",
     "EMA20": "20 günlük üssel ortalama; kısa-orta vade trend.",
     "EMA21": "21 günlük üssel ortalama.",
     "EMA50": "50 günlük üssel ortalama; orta vade trend çizgisi.",
