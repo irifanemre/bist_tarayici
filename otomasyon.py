@@ -88,11 +88,18 @@ def calistir(gonder: bool = True):
         except Exception as e:
             parcalar.append(f"📊 *{ad}* — tarama hatası: {e}")
 
-    tam = "\n\n".join(parcalar) if parcalar else "Taranacak kombin yok."
+    from datetime import datetime, timezone, timedelta
+    ist = datetime.now(timezone(timedelta(hours=3)))  # İstanbul saati
+    baslik = (f"🔔 *GÜNLÜK BIST TARAMASI*\n"
+              f"📅 {ist:%d.%m.%Y %H:%M} · {len(kayitlar)} strateji\n"
+              f"{'─' * 22}")
+    tam = baslik + "\n\n" + ("\n\n".join(parcalar) if parcalar else "Taranacak kombin yok.")
     print(tam)
 
     if gonder:
-        telegram_gonder(tam)
+        # Telegram mesaj sınırı 4096 karakter — uzunsa parçalara böl
+        for i in range(0, len(tam), 3800):
+            telegram_gonder(tam[i:i + 3800])
         print("\n✅ Telegram'a gönderildi.")
     else:
         print("\n(dry-run: gönderilmedi)")
