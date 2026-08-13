@@ -2,9 +2,19 @@ name: BIST otomatik bildirim
 
 on:
   schedule:
-    # Hafta içi 18:20 İstanbul = 15:20 UTC (Türkiye yıl boyu UTC+3).
-    - cron: '20 15 * * 1-5'
-  workflow_dispatch: {}   # GitHub'dan elle de tetiklenebilir
+    # GitHub zamanlanmış işleri 1-2 saat geciktirebiliyor. Bu yüzden
+    # 18:00-20:45 İstanbul arası 15 dakikada bir denenir; otomasyon.py
+    # "--gunluk" modu sayesinde 18:20'den önce göndermez ve günde
+    # yalnızca BİR kez gönderir (gonderim.json ile takip).
+    - cron: '*/15 15-17 * * 1-5'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write        # gonderim.json'u repoya geri yazabilmek için
+
+concurrency:
+  group: bist-bildirim
+  cancel-in-progress: false
 
 jobs:
   bildir:
@@ -15,8 +25,19 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - name: Kayıtlı kombinleri tara ve Telegram'a yolla
-        run: python otomasyon.py
+      - name: Vakti gelmişse tara ve Telegram'a yolla
+        run: python otomasyon.py --gunluk
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Gönderim kaydını sakla
+        run: |
+          if [ -n "$(git status --porcelain gonderim.json)" ]; then
+            git config user.name "bist-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add -f gonderim.json
+            git commit -m "gönderim kaydı [skip ci]"
+            git push
+          else
+            echo "değişiklik yok"
+          fi

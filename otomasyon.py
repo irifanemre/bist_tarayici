@@ -110,6 +110,54 @@ def calistir(gonder: bool = True):
         print("\n(dry-run: gönderilmedi)")
 
 
+import json  # noqa: E402  (günlük gönderim kaydı için)
+
+KONUM = os.path.dirname(os.path.abspath(__file__))
+DURUM_DOSYA = os.path.join(KONUM, "gonderim.json")
+
+
+def gunluk_kontrol(hedef_saat="18:20"):
+    """Günde bir kez, hedef saatten sonra gönderim yapılmasını sağlar.
+    GitHub zamanlamayı geciktirse bile gün içindeki ilk uygun çalışmada gönderir.
+    Döner: (gonderilsin_mi, aciklama)"""
+    from datetime import datetime, timezone, timedelta
+    ist = datetime.now(timezone(timedelta(hours=3)))
+    bugun = ist.strftime("%Y-%m-%d")
+
+    if ist.weekday() >= 5:
+        return False, "hafta sonu"
+
+    ss, dd = (int(x) for x in hedef_saat.split(":"))
+    if (ist.hour, ist.minute) < (ss, dd):
+        return False, f"vakit gelmedi ({ist:%H:%M} < {hedef_saat})"
+
+    try:
+        with open(DURUM_DOSYA, encoding="utf-8") as f:
+            if json.load(f).get("son_gonderim") == bugun:
+                return False, "bugün zaten gönderildi"
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+
+    return True, f"gönderilecek ({ist:%H:%M})"
+
+
+def gunluk_isaretle():
+    from datetime import datetime, timezone, timedelta
+    ist = datetime.now(timezone(timedelta(hours=3)))
+    try:
+        with open(DURUM_DOSYA, "w", encoding="utf-8") as f:
+            json.dump({"son_gonderim": ist.strftime("%Y-%m-%d"),
+                       "saat": ist.strftime("%H:%M")}, f, ensure_ascii=False, indent=2)
+    except OSError:
+        pass
+
+
 if __name__ == "__main__":
-    gonder = "--dry-run" not in sys.argv
-    calistir(gonder=gonder)
+    if "--gunluk" in sys.argv:
+        tamam, neden = gunluk_kontrol()
+        print(f"günlük kontrol: {neden}")
+        if tamam:
+            calistir(gonder=True)
+            gunluk_isaretle()
+    else:
+        calistir(gonder="--dry-run" not in sys.argv)
