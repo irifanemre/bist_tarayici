@@ -26,16 +26,16 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - name: Vakti gelmişse tara ve Telegram'a yolla
-        run: python otomasyon.py --gunluk
+        run: python otomasyon.py --gunluk    # tarama + performans mesajı
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: Gönderim kaydını sakla
         run: |
-          if [ -n "$(git status --porcelain gonderim.json)" ]; then
+          if [ -n "$(git status --porcelain gonderim.json taramalar/)" ]; then
             git config user.name "bist-bot"
             git config user.email "bot@users.noreply.github.com"
-            git add -f gonderim.json
+            git add -f gonderim.json taramalar/
             git commit -m "gönderim kaydı [skip ci]"
             git push
           else

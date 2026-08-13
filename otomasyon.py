@@ -39,23 +39,30 @@ def _meta(paket):
     return secimler, zaman, endeks, sektorler, mantik
 
 
-def tarama_metni(ad: str, paket, limit: int = 15):
-    """Bir kombin için Telegram'a uygun özet metni döndürür (None = boş kombin)."""
+def tarama_veri(ad: str, paket, limit: int = 15):
+    """(metin, [{hisse, fiyat}]) döndürür."""
     secimler, zaman, endeks, sektorler, mantik = _meta(paket)
     if not secimler:
-        return None
+        return None, []
     toplam, df = tara(secimler, limit=limit, zaman=zaman,
                       endeks=endeks, sektorler=sektorler, mantik=mantik)
     if not toplam or df is None or len(df) == 0:
-        return f"📊 *{ad}* — eşleşme yok."
+        return f"📊 *{ad}* — eşleşme yok.", []
 
-    satirlar = []
+    satirlar, kayitlar = [], []
     for _, r in df.iterrows():
         satirlar.append(
             f"• {r['name']}  {float(r['close']):g}  "
             f"({float(r['change']):+.1f}%)  [{rating_etiket(r['Recommend.All'])}]"
         )
-    return f"📊 *{ad}* — {toplam} eşleşme (ilk {len(df)}):\n" + "\n".join(satirlar)
+        kayitlar.append({"hisse": str(r["name"]), "fiyat": float(r["close"])})
+    metin = f"📊 *{ad}* — {toplam} eşleşme (ilk {len(df)}):\n" + "\n".join(satirlar)
+    return metin, kayitlar
+
+
+def tarama_metni(ad: str, paket, limit: int = 15):
+    """Bir kombin için Telegram'a uygun özet metni döndürür (None = boş kombin)."""
+    return tarama_veri(ad, paket, limit)[0]
 
 
 def telegram_gonder(metin: str):
@@ -84,14 +91,22 @@ def calistir(gonder: bool = True):
         print("Kayıtlı kombin yok — önce uygulamadan bir kombin kaydet.")
         return
 
-    parcalar = []
+    parcalar, foto = [], {}
     for ad, paket in kayitlar.items():
         try:
-            metin = tarama_metni(ad, paket)
+            metin, kayit_satirlar = tarama_veri(ad, paket)
             if metin:
                 parcalar.append(metin)
+            foto[ad] = kayit_satirlar
         except Exception as e:
             parcalar.append(f"📊 *{ad}* — tarama hatası: {e}")
+
+    # Taramanın fotoğrafını sakla (ertesi gün performans karşılaştırması için)
+    try:
+        import gecmis
+        gecmis.kaydet(foto)
+    except Exception as e:
+        print("(geçmiş kaydedilemedi:", e, ")")
 
     from datetime import datetime, timezone, timedelta
     ist = datetime.now(timezone(timedelta(hours=3)))  # İstanbul saati
@@ -152,12 +167,42 @@ def gunluk_isaretle():
         pass
 
 
+def performans_metni(en_fazla=15):
+    """Dünkü taramadaki kağıtların bugünkü durumu — Telegram metni."""
+    import performans
+    bilgi, satirlar, karne, _ = performans.hesapla()
+    if not bilgi:
+        return "Karşılaştırılacak önceki tarama kaydı yok."
+
+    bas = (f"📊 *DÜNKÜ KAĞITLAR — GÜNCEL DURUM*\n"
+           f"🕐 Tarama: {bilgi['tarama_zamani']} → Şimdi: {bilgi['simdi']}\n"
+           f"{'─' * 22}")
+    madde = ["🥇🥈🥉"[i] if i < 3 else "•" for i in range(len(satirlar))]
+    liste = []
+    for i, s in enumerate(satirlar[:en_fazla]):
+        d = f"{s['degisim']:+.2f}%" if s["degisim"] is not None else "—"
+        liste.append(f"{madde[i]} {s['hisse']}  {d}")
+    if len(satirlar) > en_fazla:
+        liste.append(f"…ve {len(satirlar) - en_fazla} tane daha")
+
+    kn = ["", "🏆 *STRATEJİ KARNESİ*"]
+    for k in karne[:5]:
+        o = f"{k['ortalama']:+.2f}%" if k["ortalama"] is not None else "—"
+        kn.append(f"• {k['strateji']}: {o}  ({k['kazanan']}↑/{k['kaybeden']}↓)")
+    return bas + "\n" + "\n".join(liste) + "\n" + "\n".join(kn)
+
+
 if __name__ == "__main__":
     if "--gunluk" in sys.argv:
         tamam, neden = gunluk_kontrol()
         print(f"günlük kontrol: {neden}")
         if tamam:
             calistir(gonder=True)
+            try:
+                telegram_gonder(performans_metni())
+                print("✅ performans mesajı gönderildi.")
+            except Exception as e:
+                print("(performans gönderilemedi:", e, ")")
             gunluk_isaretle()
     else:
         calistir(gonder="--dry-run" not in sys.argv)

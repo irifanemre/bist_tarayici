@@ -92,6 +92,12 @@ def komut_isle(metin, chat_id):
         gonder(chat_id, "⏳ Taranıyor, birkaç saniye…")
         return tek_tarama(arg) if arg else tum_tarama()
 
+    if (dusuk.startswith("/performans") or dusuk.startswith("/dun")
+            or dusuk.startswith("/sonuc") or dusuk.startswith("/karsilastir")):
+        gonder(chat_id, "⏳ Dünkü kağıtlar karşılaştırılıyor…")
+        from otomasyon import performans_metni
+        return performans_metni()
+
     if dusuk.startswith("/liste"):
         k = ks.tum_kombinler()
         return (f"📋 *{len(k)} kayıtlı strateji:*\n"
@@ -104,6 +110,7 @@ def komut_isle(metin, chat_id):
         return (f"🤖 *BIST Tarayıcı Bot*\n🆔 Chat ID'in: `{chat_id}`\n\n"
                 "*/tara* — tüm stratejileri tara\n"
                 "*/tara <isim>* — tek strateji (örn: `/tara HAFT`)\n"
+                "*/performans* — dünkü kağıtlar bugün ne yaptı\n"
                 "*/liste* — stratejileri listele\n"
                 "*/id* — chat ID'ini göster\n"
                 "*/yardim* — bu mesaj\n\n"
