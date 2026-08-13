@@ -47,7 +47,7 @@ def hesapla(kayit=None):
     """Döner: (bilgi, satirlar, karne)"""
     kayit = kayit or gecmis.son_kayit(bugun_haric=True) or gecmis.son_kayit(bugun_haric=False)
     if not kayit:
-        return None, [], []
+        return None, [], [], []
 
     stratejiler = kayit.get("stratejiler", {})
     tum_kodlar = [h.get("hisse") for lst in stratejiler.values() for h in lst]
@@ -98,15 +98,28 @@ def hesapla(kayit=None):
         })
     karne.sort(key=lambda k: (k["ortalama"] is None, -(k["ortalama"] or 0)))
 
+    # Strateji bazlı bölümler (ızgara düzeni için) — sıralı: en çok yükselen üstte
+    bolumler = []
+    for strateji, liste in stratejiler.items():
+        blok = []
+        for h in liste:
+            kod = (h.get("hisse") or "").upper()
+            eski = float(h.get("fiyat") or 0)
+            yeni = fiyatlar.get(kod, (None, None))[0]
+            deg = ((yeni - eski) / eski * 100) if (yeni and eski) else None
+            blok.append({"hisse": kod, "eski": eski or None, "yeni": yeni, "degisim": deg})
+        blok.sort(key=lambda s: (s["degisim"] is None, -(s["degisim"] or 0)))
+        bolumler.append({"ad": strateji, "satirlar": blok})
+
     bilgi = {
         "tarama_zamani": kayit.get("zaman", "?"),
         "simdi": datetime.now(IST).strftime("%d.%m.%Y %H:%M"),
     }
-    return bilgi, satirlar, karne
+    return bilgi, satirlar, karne, bolumler
 
 
 def calistir():
-    bilgi, satirlar, karne = hesapla()
+    bilgi, satirlar, karne, bolumler = hesapla()
     if not bilgi:
         print("Karşılaştırılacak önceki tarama kaydı yok.")
         print("Önce bir tarama çalıştır (toplu_tara.py), ertesi gün bunu çalıştır.")
@@ -120,7 +133,7 @@ def calistir():
     if len(satirlar) > 10:
         print(f"  … ve {len(satirlar) - 10} tane daha")
 
-    data = rapor_performans.performans_excel(bilgi, satirlar, karne)
+    data = rapor_performans.grid_performans_excel(bilgi, bolumler, karne)
     dosya = os.path.join(KONUM, "performans_" +
                          datetime.now(IST).strftime("%d-%m-%Y_%H%M") + ".xlsx")
     with open(dosya, "wb") as f:
