@@ -33,12 +33,21 @@ def calistir(limit=100):
                               endeks=endeks, sektorler=sektorler, mantik=mantik)
             if veri_saati is None and df is not None and len(df):
                 veri_saati = veri_bilgisi(df).get("saat")
-            firmalar = [{"hisse": r.get("name", "")} for _, r in df.iterrows()] if df is not None else []
+            firmalar = ([{"hisse": r.get("name", ""), "fiyat": float(r.get("close") or 0)}
+                         for _, r in df.iterrows()] if df is not None else [])
             print(f"  {ad}: {len(firmalar)} firma")
         except Exception as e:
             print(f"  {ad}: HATA ({e})")
             firmalar = []
         bolumler.append({"ad": ad, "satirlar": firmalar})
+
+    # Taramanın fotoğrafını sakla (ertesi gün performans karşılaştırması için)
+    try:
+        import gecmis
+        yol = gecmis.kaydet({b["ad"]: b["satirlar"] for b in bolumler}, veri_saati)
+        print(f"\n📸 Tarama kaydedildi: {os.path.basename(yol)}")
+    except Exception as e:
+        print(f"(geçmiş kaydedilemedi: {e})")
 
     zaman_str = datetime.now().strftime("%d.%m.%Y %H:%M")
     data = rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati)

@@ -20,3 +20,5 @@ durum.json
 .DS_Store
 toplu_tarama_*.xlsx
 bist_tarama*.xlsx
+taramalar/
+performans_*.xlsx
