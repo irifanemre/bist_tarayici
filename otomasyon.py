@@ -167,29 +167,36 @@ def gunluk_isaretle():
         pass
 
 
-def performans_metni(en_fazla=15):
-    """Dünkü taramadaki kağıtların bugünkü durumu — Telegram metni."""
+def performans_metni(en_fazla=None):
+    """Dünkü taramadaki kağıtların bugünkü durumu — strateji strateji, TAMAMI."""
     import performans
-    bilgi, satirlar, karne, _ = performans.hesapla()
+    bilgi, satirlar, karne, bolumler = performans.hesapla()
     if not bilgi:
         return "Karşılaştırılacak önceki tarama kaydı yok."
 
-    bas = (f"📊 *DÜNKÜ KAĞITLAR — GÜNCEL DURUM*\n"
-           f"🕐 Tarama: {bilgi['tarama_zamani']} → Şimdi: {bilgi['simdi']}\n"
-           f"{'─' * 22}")
-    madde = ["🥇🥈🥉"[i] if i < 3 else "•" for i in range(len(satirlar))]
-    liste = []
-    for i, s in enumerate(satirlar[:en_fazla]):
-        d = f"{s['degisim']:+.2f}%" if s["degisim"] is not None else "—"
-        liste.append(f"{madde[i]} {s['hisse']}  {d}")
-    if len(satirlar) > en_fazla:
-        liste.append(f"…ve {len(satirlar) - en_fazla} tane daha")
+    parcalar = ["📊 *DÜNKÜ KAĞITLAR — GÜNCEL DURUM*\n"
+                f"🕐 Tarama: {bilgi['tarama_zamani']} → Şimdi: {bilgi['simdi']}\n"
+                + "─" * 22]
 
-    kn = ["", "🏆 *STRATEJİ KARNESİ*"]
-    for k in karne[:5]:
+    for b in bolumler:
+        if not b["satirlar"]:
+            parcalar.append(f"📈 *{b['ad']}* — kağıt yoktu")
+            continue
+        satir = [f"📈 *{b['ad']}*"]
+        for s in b["satirlar"]:
+            d = f"{s['degisim']:+.2f}%" if s["degisim"] is not None else "—"
+            ok = "🟢" if (s["degisim"] or 0) > 0 else ("🔴" if (s["degisim"] or 0) < 0 else "⚪")
+            fiyat = f"{s['yeni']:g}" if s.get("yeni") else "—"
+            satir.append(f"{ok} {s['hisse']}  {fiyat}  ({d})")
+        parcalar.append("\n".join(satir))
+
+    kn = ["🏆 *STRATEJİ KARNESİ*"]
+    for k in karne:
         o = f"{k['ortalama']:+.2f}%" if k["ortalama"] is not None else "—"
         kn.append(f"• {k['strateji']}: {o}  ({k['kazanan']}↑/{k['kaybeden']}↓)")
-    return bas + "\n" + "\n".join(liste) + "\n" + "\n".join(kn)
+    parcalar.append("\n".join(kn))
+
+    return "\n\n".join(parcalar)
 
 
 if __name__ == "__main__":
