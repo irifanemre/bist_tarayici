@@ -176,7 +176,7 @@ def performans_metni(en_fazla=None):
 
     parcalar = ["📊 *DÜNKÜ KAĞITLAR — GÜNCEL DURUM*\n"
                 f"🕐 Tarama: {bilgi['tarama_zamani']} → Şimdi: {bilgi['simdi']}\n"
-                + "─" * 22]
+                + "─" * 22 + (("\n" + bilgi["uyari"]) if bilgi.get("uyari") else "")]
 
     for b in bolumler:
         if not b["satirlar"]:

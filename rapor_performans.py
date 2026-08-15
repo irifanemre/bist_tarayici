@@ -59,6 +59,11 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
             value=f"DÜN ÇIKAN KAĞITLAR — GÜNCEL DURUM   ·   Tarama: {bilgi['tarama_zamani']}"
                   f"   →   Şimdi: {bilgi['simdi']}").font = Font(bold=True, size=12, color=_KOYU)
 
+    if bilgi.get("uyari"):
+        ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=toplam)
+        u = ws.cell(row=2, column=1, value=bilgi["uyari"])
+        u.font = Font(size=10, bold=True, color="FFB45309")
+
     max_firma = max((len(b["satirlar"]) for b in bolumler), default=0)
     satir_sayisi = max(max_firma, 6)
 
@@ -67,7 +72,7 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
         pos = idx % BLOK
         c1 = pos * SUT + 1                      # hisse
         c2, c3 = c1 + 1, c1 + 2                 # güncel fiyat, değişim
-        hr = 3 + band * (satir_sayisi + 4)      # bu bandın başlık satırı
+        hr = 4 + band * (satir_sayisi + 4)      # bu bandın başlık satırı
 
         # strateji adı (3 sütuna yayılı)
         ws.merge_cells(start_row=hr, start_column=c1, end_row=hr, end_column=c3)
@@ -111,7 +116,7 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
 
     # --- strateji karnesi (en altta) ---
     bant = (len(bolumler) + BLOK - 1) // BLOK
-    r = 3 + bant * (satir_sayisi + 4) + 1
+    r = 4 + bant * (satir_sayisi + 4) + 1
     ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
     ws.cell(row=r, column=1, value="STRATEJİ KARNESİ (ortalama getiriye göre)"
             ).font = Font(bold=True, size=12, color=_KOYU)

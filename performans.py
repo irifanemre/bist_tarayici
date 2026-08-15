@@ -34,10 +34,11 @@ def guncel_fiyatlar(kodlar):
             _, df = (Query()
                      .set_markets("turkey")
                      .set_tickers(*[f"BIST:{k}" for k in grup])
-                     .select("name", "close", "change")
+                     .select("name", "close", "change", "current_session")
                      .get_scanner_data())
             for _, r in df.iterrows():
                 out[str(r["name"]).upper()] = (float(r["close"]), float(r["change"]))
+                globals()["_SESSION"] = str(r.get("current_session", ""))
         except Exception as e:
             print(f"  (fiyat alınamadı: {e})")
     return out
@@ -111,9 +112,19 @@ def hesapla(kayit=None):
         blok.sort(key=lambda s: (s["degisim"] is None, -(s["degisim"] or 0)))
         bolumler.append({"ad": strateji, "satirlar": blok})
 
+    acik = globals().get("_SESSION") == "market"
+    ayni_seans = all((s["degisim"] or 0) == 0 for s in satirlar) and satirlar
+    uyari = ""
+    if not acik and ayni_seans:
+        uyari = ("⚠️ Borsa kapalı ve fiyatlar tarama anıyla aynı — gerçek fark "
+                 "bir sonraki işlem gününün kapanışında görünecek.")
+    elif not acik:
+        uyari = "ℹ️ Borsa kapalı — son kapanış fiyatlarına göre hesaplandı."
+
     bilgi = {
         "tarama_zamani": kayit.get("zaman", "?"),
         "simdi": datetime.now(IST).strftime("%d.%m.%Y %H:%M"),
+        "uyari": uyari,
     }
     return bilgi, satirlar, karne, bolumler
 
@@ -126,7 +137,10 @@ def calistir():
         return None
 
     print(f"📊 {bilgi['tarama_zamani']} taramasındaki kağıtların "
-          f"{bilgi['simdi']} itibarıyla durumu:\n")
+          f"{bilgi['simdi']} itibarıyla durumu:")
+    if bilgi.get("uyari"):
+        print(bilgi["uyari"])
+    print()
     for s in satirlar[:10]:
         d = f"{s['degisim']:+.2f}%" if s["degisim"] is not None else "—"
         print(f"  {s['hisse']:8s} {d:>9s}   {s['strateji'][:40]}")
