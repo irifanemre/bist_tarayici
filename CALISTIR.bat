@@ -1,26 +1,22 @@
 @echo off
 cd /d "%~dp0"
-echo ===========================================
-echo    BIST TARAYICI
-echo ===========================================
-echo.
 set PY=py
 py --version >nul 2>&1
 if errorlevel 1 set PY=python
 %PY% --version >nul 2>&1
 if errorlevel 1 goto NOPY
-echo Python bulundu.
-%PY% --version
+echo ===========================================
+echo    BIST TOPLU TARAMA
+echo ===========================================
 echo.
-echo Paketler kontrol ediliyor (ilk seferde 2-3 dakika surer)...
+echo Guncellemeler kontrol ediliyor...
+%PY% guncelle.py --sessiz
+echo.
 %PY% -m pip install --quiet -r requirements.txt
-echo.
-echo Tarama basliyor...
 echo.
 %PY% toplu_tara.py
 echo.
-echo Bitti. Excel acilmadiysa klasordeki xlsx dosyasini ac.
-echo.
+echo Bitti. Bu pencereyi kapatabilirsin.
 pause
 exit /b 0
 
