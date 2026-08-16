@@ -110,9 +110,15 @@ def calistir(gonder: bool = True):
 
     from datetime import datetime, timezone, timedelta
     ist = datetime.now(timezone(timedelta(hours=3)))  # İstanbul saati
+    try:
+        import piyasa as _p
+        _borsa = _p.borsa_ozet_metni()
+    except Exception:
+        _borsa = ""
     baslik = (f"🔔 *GÜNLÜK BIST TARAMASI*\n"
               f"📅 {ist:%d.%m.%Y %H:%M} · {len(kayitlar)} strateji\n"
-              f"{'─' * 22}")
+              + (f"🏛 {_borsa}\n" if _borsa else "")
+              + "─" * 22)
     tam = baslik + "\n\n" + ("\n\n".join(parcalar) if parcalar else "Taranacak kombin yok.")
     print(tam)
 

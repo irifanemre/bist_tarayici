@@ -87,7 +87,7 @@ def _deg_hucre(ws, satir, sutun, deger):
     return c
 
 
-def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
+def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None, borsa=None) -> bytes:
     """
     Çok kombinli rapor — SÜTUN düzeni (kullanıcının el yazısı listesi gibi).
     Her kombinasyon bir SÜTUN olur; altında o taramada çıkan firmalar alt alta.
@@ -113,6 +113,11 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
         ust += f"  ·  veri {veri_saati} (15 dk gecikmeli)"
     ws.cell(row=1, column=1, value=ust).font = Font(bold=True, size=11, color=_KOYU)
 
+    if borsa:
+        ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=toplam_sutun)
+        bb = ws.cell(row=2, column=1, value="BORSA DURUMU:  " + borsa)
+        bb.font = Font(bold=True, size=10, color="FF1F6FEB")
+
     max_firma = max((len(b.get("satirlar", [])) for b in bolumler), default=0)
     satir_sayisi = max(max_firma, 8)   # her strateji altında en az 8 satır (boş kutular dahil)
 
@@ -121,7 +126,7 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
         pos = idx % BLOK_SUTUN        # 0..4 → sıradaki konum
         c1 = pos * 3 + 1              # hisse kodu sütunu
         c2 = pos * 3 + 2              # boş giriş kutusu
-        hr = 2 + band * (satir_sayisi + 2)   # bu bandın başlık satırı
+        hr = 3 + band * (satir_sayisi + 2)   # bu bandın başlık satırı
         firmalar = [s.get("hisse", "") for s in bolum.get("satirlar", [])]
 
         # strateji başlığı — iki sütuna yayılı
@@ -152,7 +157,7 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None) -> bytes:
     # başlık satırlarının yüksekliği
     bant_sayisi = (len(bolumler) + BLOK_SUTUN - 1) // BLOK_SUTUN
     for band in range(bant_sayisi):
-        ws.row_dimensions[2 + band * (satir_sayisi + 2)].height = 32
+        ws.row_dimensions[3 + band * (satir_sayisi + 2)].height = 32
 
     buf = BytesIO()
     wb.save(buf)

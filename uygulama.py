@@ -113,9 +113,16 @@ if st.session_state["mod"] == "tarama":
         except Exception:
             pass
 
+        try:
+            import piyasa as _p
+            _borsa = _p.borsa_ozet_metni()
+        except Exception:
+            _borsa = None
+
         zaman_str = datetime.now(IST).strftime("%d.%m.%Y %H:%M")
         st.session_state["sonuc"] = {
-            "excel": rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati),
+            "excel": rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati, _borsa),
+            "borsa": _borsa,
             "ad": "tarama_" + datetime.now(IST).strftime("%d-%m-%Y_%H%M") + ".xlsx",
             "bolumler": bolumler,
         }
@@ -123,6 +130,8 @@ if st.session_state["mod"] == "tarama":
     sonuc = st.session_state.get("sonuc")
     if sonuc:
         st.success("Tarama tamam!")
+        if sonuc.get("borsa"):
+            st.info("🏛 **Borsa durumu:** " + sonuc["borsa"])
         st.download_button("⬇️  EXCEL'İ İNDİR", sonuc["excel"], sonuc["ad"],
                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                            type="primary", use_container_width=True)

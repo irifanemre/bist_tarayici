@@ -50,7 +50,13 @@ def calistir(limit=100):
         print(f"(geçmiş kaydedilemedi: {e})")
 
     zaman_str = datetime.now().strftime("%d.%m.%Y %H:%M")
-    data = rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati)
+    try:
+        import piyasa as _p
+        borsa = _p.borsa_ozet_metni()
+        print("\n🏛  " + borsa)
+    except Exception:
+        borsa = None
+    data = rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati, borsa)
 
     dosya = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
