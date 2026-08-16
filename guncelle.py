@@ -30,6 +30,7 @@ def guncelle(sessiz=True):
         zf = zipfile.ZipFile(io.BytesIO(veri))
 
         degisen = 0
+        yenilenenler = []
         for isim in zf.namelist():
             ad = os.path.basename(isim)
             if not ad or ad in KORUNAN:
@@ -59,6 +60,18 @@ def guncelle(sessiz=True):
             with open(hedef, "wb") as f:
                 f.write(yeni)
             degisen += 1
+            yenilenenler.append(ad)
+
+        # requirements.txt değiştiyse eksik paketleri kur
+        if "requirements.txt" in yenilenenler:
+            print("[guncelleme] paket listesi degisti, eksikler kuruluyor...")
+            try:
+                import subprocess
+                subprocess.run([sys.executable, "-m", "pip", "install", "-q",
+                                "-r", os.path.join(KONUM, "requirements.txt")],
+                               timeout=600)
+            except Exception as e:
+                print(f"[guncelleme] paket kurulumu atlandi: {e}")
 
         if not sessiz or degisen:
             print(f"[guncelleme] {degisen} dosya yenilendi." if degisen
