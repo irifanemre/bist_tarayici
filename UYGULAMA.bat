@@ -22,13 +22,17 @@ if errorlevel 1 (
 if errorlevel 1 goto PAKETHATA
 echo     Paketler tamam.
 echo.
-echo [3/3] Basliyor...
+echo [3/3] Uygulama baslatiliyor...
 echo.
-echo Tarayicida acilacak. Kapatmak icin bu pencereyi kapat.
+echo   Tarayici birkac saniye icinde acilacak.
+echo   Acilmazsa su adresi tarayiciya yaz:  http://localhost:8501
 echo.
-%PY% -m streamlit run uygulama.py
+echo   KAPATMAK ICIN: bu pencereyi kapat.
 echo.
-echo Bitti. Bu pencereyi kapatabilirsin.
+start "" /b cmd /c "timeout /t 7 /nobreak >nul & start "" http://localhost:8501"
+%PY% -m streamlit run uygulama.py --server.port 8501 --server.headless true
+echo.
+echo Uygulama kapandi.
 pause
 exit /b 0
 
@@ -36,7 +40,6 @@ exit /b 0
 echo.
 echo [HATA] Paketler kurulamadi.
 echo  Internet baglantisini kontrol et ve tekrar dene.
-echo  Sorun surerse yukaridaki kirmizi yaziyi paylas.
 echo.
 pause
 exit /b 1
