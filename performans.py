@@ -277,9 +277,12 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
     return bilgi, bolumler, karne
 
 
-def gunluk_karne(bas_tarih, bit_tarih, secili=None):
+def gunluk_karne(bas_tarih, bit_tarih, secili=None, mod="ertesi"):
     """Aralıktaki HER GÜN için, o günün taramasındaki kağıtların
     bir sonraki işlem günü kapanışına göre getirisini strateji strateji hesaplar.
+
+    mod="ertesi"      → her günün hisseleri, BİR SONRAKİ işlem günü kapanışına göre
+    mod="aralik_sonu" → her günün hisseleri, ARALIĞIN SON gününün kapanışına göre
 
     Döner: (gunler, matris)
       gunler: ['2026-08-13', '2026-08-14', ...]
@@ -327,10 +330,21 @@ def gunluk_karne(bas_tarih, bit_tarih, secili=None):
         print(f"  (geçmiş fiyat alınamadı: {e})")
         return gunler, {}
 
-    def sonraki_kapanis(kod, gun):
-        """gun'den SONRAKİ ilk işlem gününün kapanışı."""
+    def _seri(kod):
         try:
-            seri = veri[f"{kod}.IS"].dropna() if hasattr(veri, "columns") else veri.dropna()
+            return veri[f"{kod}.IS"].dropna() if hasattr(veri, "columns") else veri.dropna()
+        except Exception:
+            return None
+
+    def hedef_kapanis(kod, gun):
+        """mod'a göre: ertesi işlem günü veya aralığın son günü kapanışı."""
+        seri = _seri(kod)
+        if seri is None or not len(seri):
+            return None
+        try:
+            if mod == "aralik_sonu":
+                kadar = seri[seri.index <= bit_tarih]
+                return float(kadar.iloc[-1]) if len(kadar) else None
             sonrasi = seri[seri.index > gun]
             return float(sonrasi.iloc[0]) if len(sonrasi) else None
         except Exception:
@@ -343,7 +357,7 @@ def gunluk_karne(bas_tarih, bit_tarih, secili=None):
             for h in liste:
                 kod = (h.get("hisse") or "").upper()
                 eski = float(h.get("fiyat") or 0)
-                yeni = sonraki_kapanis(kod, g)
+                yeni = hedef_kapanis(kod, g)
                 if eski and yeni:
                     getiriler.append((yeni - eski) / eski * 100)
             matris.setdefault(strateji, {})[g] = (

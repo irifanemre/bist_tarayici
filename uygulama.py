@@ -145,6 +145,13 @@ else:
     bit = st.date_input("Bitiş günü (bu günün kapanışına göre ölçülür)",
                         value=datetime.now(IST).date(), format="DD.MM.YYYY")
 
+    mod_ad = st.radio(
+        "Gün gün karne nasıl ölçülsün?",
+        ["Her günün hisseleri → ERTESİ GÜN kapanışı",
+         "Her günün hisseleri → ARALIK SONU kapanışı"],
+        help="İlki günlük isabeti, ikincisi 'o gün alsaydım aralık sonunda ne olurdu'yu gösterir.")
+    mod = "ertesi" if "ERTESİ" in mod_ad else "aralik_sonu"
+
     kayit = gecmis.gunun_kaydi(bas)
     mevcut = list((kayit or {}).get("stratejiler", {}).keys())
     secili = st.multiselect("Stratejiler", mevcut, default=mevcut)
@@ -155,16 +162,16 @@ else:
             bilgi, bolumler, karne = performans.hesapla_aralik(
                 bas, bit.strftime("%Y-%m-%d"), secili)
             gunler, matris = performans.gunluk_karne(
-                bas, bit.strftime("%Y-%m-%d"), secili)
+                bas, bit.strftime("%Y-%m-%d"), secili, mod=mod)
         if not bilgi:
             st.error("O güne ait tarama kaydı bulunamadı.")
         else:
             st.session_state["sonuc"] = {
                 "excel": rapor_performans.grid_performans_excel(
-                    bilgi, bolumler, karne, gunler, matris),
+                    bilgi, bolumler, karne, gunler, matris, mod),
                 "ad": f"performans_{bas}_{bit}.xlsx",
                 "karne": karne, "bolumler": bolumler, "bilgi": bilgi,
-                "gunler": gunler, "matris": matris,
+                "gunler": gunler, "matris": matris, "mod": mod,
             }
 
     sonuc = st.session_state.get("sonuc")
@@ -186,6 +193,9 @@ else:
                     for x in g}
             df = _pd.DataFrame(tablo).T
             st.markdown("#### 📅 Gün gün karne (%)")
+            st.caption("Her sütun O GÜNÜN taramasındaki hisselerin getirisidir — "
+                       + ("ertesi gün kapanışına göre." if sonuc.get("mod") == "ertesi"
+                          else "aralık sonu kapanışına göre."))
             st.dataframe(df.style.map(
                 lambda v: "color:#1a7f37;font-weight:600" if isinstance(v, (int, float)) and v > 0
                 else ("color:#b42318;font-weight:600" if isinstance(v, (int, float)) and v < 0 else "")),

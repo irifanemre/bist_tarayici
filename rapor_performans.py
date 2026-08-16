@@ -42,7 +42,7 @@ def _yuzde(ws, satir, sutun, deger):
     c.font = Font(bold=True, color=(_YESIL if deger > 0 else (_KIRMIZI if deger < 0 else _KOYU)))
 
 
-def grid_performans_excel(bilgi, bolumler, karne, gunler=None, matris=None) -> bytes:
+def grid_performans_excel(bilgi, bolumler, karne, gunler=None, matris=None, mod="ertesi") -> bytes:
     """Alışılmış 5x3 ızgara düzeni + her stratejide 'Güncel fiyat' ve 'Değişim' sütunu."""
     from openpyxl.utils import get_column_letter
 
@@ -143,7 +143,7 @@ def grid_performans_excel(bilgi, bolumler, karne, gunler=None, matris=None) -> b
 
     if gunler and matris:
         r += 2
-        gunluk_karne_yaz(ws, r, gunler, matris)
+        gunluk_karne_yaz(ws, r, gunler, matris, mod)
 
     buf = BytesIO()
     wb.save(buf)
@@ -219,13 +219,15 @@ def performans_excel(bilgi, satirlar, karne) -> bytes:
     return buf.getvalue()
 
 
-def gunluk_karne_yaz(ws, r, gunler, matris):
+def gunluk_karne_yaz(ws, r, gunler, matris, mod="ertesi"):
     """Strateji x Gün matrisi: hangi gün hangi strateji artı/eksi yazmış."""
     from datetime import datetime as _d
     from openpyxl.utils import get_column_letter
 
     ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=max(len(gunler) + 3, 6))
-    ws.cell(row=r, column=1, value="GÜN GÜN KARNE (her günün taraması → ertesi gün kapanışı)"
+    _aciklama = ("her günün taraması → ertesi gün kapanışı" if mod == "ertesi"
+                 else "her günün taraması → aralık sonu kapanışı")
+    ws.cell(row=r, column=1, value=f"GÜN GÜN KARNE ({_aciklama})"
             ).font = Font(bold=True, size=12, color=_KOYU)
     r += 1
 
