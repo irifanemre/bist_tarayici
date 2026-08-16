@@ -122,11 +122,12 @@ def grid_performans_excel(bilgi, bolumler, karne, gunler=None, matris=None, mod=
     # --- strateji karnesi (en altta) ---
     bant = (len(bolumler) + BLOK - 1) // BLOK
     r = 4 + bant * (satir_sayisi + 4) + 1
-    ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
-    ws.cell(row=r, column=1, value="STRATEJİ KARNESİ (ortalama getiriye göre)"
+    ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=8)
+    ws.cell(row=r, column=1, value="STRATEJİ KARNESİ  ·  'Fark' = stratejinin endeksi geçtiği kadar"
             ).font = Font(bold=True, size=12, color=_KOYU)
     r += 1
-    _basliklar(ws, r, ["Sıra", "Strateji", "Kağıt", "Kazanan", "Kaybeden", "Ortalama"])
+    _basliklar(ws, r, ["Sıra", "Strateji", "Kağıt", "Kazanan", "Kaybeden",
+                       "Ortalama", "Endeks", "Fark"])
     r += 1
     for i, k in enumerate(karne, start=1):
         ws.cell(row=r, column=1, value=i).alignment = Alignment(horizontal="center")
@@ -139,6 +140,8 @@ def grid_performans_excel(bilgi, bolumler, karne, gunler=None, matris=None, mod=
             c.alignment = Alignment(horizontal="center")
             c.border = _kenar
         _yuzde(ws, r, 6, k.get("ortalama"))
+        _yuzde(ws, r, 7, k.get("endeks"))
+        _yuzde(ws, r, 8, k.get("fark"))
         r += 1
 
     if gunler and matris:

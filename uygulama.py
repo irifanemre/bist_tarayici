@@ -119,9 +119,13 @@ if st.session_state["mod"] == "tarama":
         except Exception:
             _borsa = None
 
+        import analiz as _a
+        _guclu = _a.guclu_sinyaller(bolumler)
+
         zaman_str = datetime.now(IST).strftime("%d.%m.%Y %H:%M")
         st.session_state["sonuc"] = {
-            "excel": rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati, _borsa),
+            "excel": rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati, _borsa, _guclu),
+            "guclu": _guclu,
             "borsa": _borsa,
             "ad": "tarama_" + datetime.now(IST).strftime("%d-%m-%Y_%H%M") + ".xlsx",
             "bolumler": bolumler,
@@ -132,6 +136,10 @@ if st.session_state["mod"] == "tarama":
         st.success("Tarama tamam!")
         if sonuc.get("borsa"):
             st.info("🏛 **Borsa durumu:** " + sonuc["borsa"])
+        if sonuc.get("guclu"):
+            st.warning("🔥 **Güçlü sinyaller** (birden çok stratejide): "
+                       + "  ·  ".join(f"**{x['hisse']}** ({x['sayi']})"
+                                      for x in sonuc["guclu"][:12]))
         st.download_button("⬇️  EXCEL'İ İNDİR", sonuc["excel"], sonuc["ad"],
                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                            type="primary", use_container_width=True)

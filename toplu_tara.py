@@ -56,7 +56,11 @@ def calistir(limit=100):
         print("\n🏛  " + borsa)
     except Exception:
         borsa = None
-    data = rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati, borsa)
+    import analiz
+    guclu = analiz.guclu_sinyaller(bolumler)
+    if guclu:
+        print("\n🔥 Güçlü sinyaller: " + ", ".join(f"{x['hisse']}({x['sayi']})" for x in guclu[:10]))
+    data = rapor.toplu_rapor_excel(bolumler, zaman_str, veri_saati, borsa, guclu)
 
     dosya = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),

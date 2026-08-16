@@ -87,7 +87,8 @@ def _deg_hucre(ws, satir, sutun, deger):
     return c
 
 
-def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None, borsa=None) -> bytes:
+def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None, borsa=None,
+                      guclu=None) -> bytes:
     """
     Çok kombinli rapor — SÜTUN düzeni (kullanıcının el yazısı listesi gibi).
     Her kombinasyon bir SÜTUN olur; altında o taramada çıkan firmalar alt alta.
@@ -118,6 +119,12 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None, borsa=None) -> b
         bb = ws.cell(row=2, column=1, value="BORSA DURUMU:  " + borsa)
         bb.font = Font(bold=True, size=10, color="FF1F6FEB")
 
+    if guclu:
+        ws.merge_cells(start_row=3, start_column=1, end_row=3, end_column=toplam_sutun)
+        g = ws.cell(row=3, column=1, value="🔥 GÜÇLÜ SİNYALLER (birden çok stratejide):  "
+                    + "   ".join(f"{x['hisse']} ({x['sayi']})" for x in guclu[:14]))
+        g.font = Font(bold=True, size=10, color="FFB45309")
+
     max_firma = max((len(b.get("satirlar", [])) for b in bolumler), default=0)
     satir_sayisi = max(max_firma, 8)   # her strateji altında en az 8 satır (boş kutular dahil)
 
@@ -126,7 +133,7 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None, borsa=None) -> b
         pos = idx % BLOK_SUTUN        # 0..4 → sıradaki konum
         c1 = pos * 3 + 1              # hisse kodu sütunu
         c2 = pos * 3 + 2              # boş giriş kutusu
-        hr = 3 + band * (satir_sayisi + 2)   # bu bandın başlık satırı
+        hr = 4 + band * (satir_sayisi + 2)   # bu bandın başlık satırı
         firmalar = [s.get("hisse", "") for s in bolum.get("satirlar", [])]
 
         # strateji başlığı — iki sütuna yayılı
@@ -157,7 +164,7 @@ def toplu_rapor_excel(bolumler, tarama_zamani, veri_saati=None, borsa=None) -> b
     # başlık satırlarının yüksekliği
     bant_sayisi = (len(bolumler) + BLOK_SUTUN - 1) // BLOK_SUTUN
     for band in range(bant_sayisi):
-        ws.row_dimensions[3 + band * (satir_sayisi + 2)].height = 32
+        ws.row_dimensions[4 + band * (satir_sayisi + 2)].height = 32
 
     buf = BytesIO()
     wb.save(buf)

@@ -263,6 +263,16 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
             "kazanan": sum(1 for g in getiriler if g > 0),
             "kaybeden": sum(1 for g in getiriler if g < 0),
         })
+    # Endeks (BIST 100) karşılaştırması
+    try:
+        import analiz
+        _endeks = analiz.endeks_getiri(bas_tarih, bit_tarih)
+    except Exception:
+        _endeks = None
+    for k in karne:
+        k["endeks"] = _endeks
+        k["fark"] = (k["ortalama"] - _endeks) if (k["ortalama"] is not None
+                                                 and _endeks is not None) else None
     karne.sort(key=lambda k: (k["ortalama"] is None, -(k["ortalama"] or 0)))
 
     from datetime import datetime as _d
@@ -362,5 +372,14 @@ def gunluk_karne(bas_tarih, bit_tarih, secili=None, mod="ertesi"):
                     getiriler.append((yeni - eski) / eski * 100)
             matris.setdefault(strateji, {})[g] = (
                 sum(getiriler) / len(getiriler)) if getiriler else None
+
+    # BIST 100'ün aynı günlerdeki getirisi (karşılaştırma satırı)
+    try:
+        import analiz
+        matris["📈 BIST 100 (endeks)"] = {
+            g: analiz.endeks_getiri(g, bit_tarih, ertesi_gun=(mod == "ertesi"))
+            for g in gunler}
+    except Exception:
+        pass
 
     return gunler, matris

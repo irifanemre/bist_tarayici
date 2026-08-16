@@ -119,7 +119,13 @@ def calistir(gonder: bool = True):
               f"📅 {ist:%d.%m.%Y %H:%M} · {len(kayitlar)} strateji\n"
               + (f"🏛 {_borsa}\n" if _borsa else "")
               + "─" * 22)
-    tam = baslik + "\n\n" + ("\n\n".join(parcalar) if parcalar else "Taranacak kombin yok.")
+    try:
+        import analiz
+        _guclu = analiz.guclu_sinyal_metni([{"ad": a, "satirlar": v} for a, v in foto.items()])
+    except Exception:
+        _guclu = ""
+    tam = baslik + "\n\n" + ((_guclu + "\n\n") if _guclu else "") \
+        + ("\n\n".join(parcalar) if parcalar else "Taranacak kombin yok.")
     print(tam)
 
     if gonder:
@@ -197,9 +203,13 @@ def performans_metni(en_fazla=None):
         parcalar.append("\n".join(satir))
 
     kn = ["🏆 *STRATEJİ KARNESİ*"]
+    _e = next((k.get("endeks") for k in karne if k.get("endeks") is not None), None)
+    if _e is not None:
+        kn.append(f"_(BIST 100 aynı dönemde: {_e:+.2f}%)_")
     for k in karne:
         o = f"{k['ortalama']:+.2f}%" if k["ortalama"] is not None else "—"
-        kn.append(f"• {k['strateji']}: {o}  ({k['kazanan']}↑/{k['kaybeden']}↓)")
+        f = f"  → endekse göre *{k['fark']:+.2f}%*" if k.get("fark") is not None else ""
+        kn.append(f"• {k['strateji']}: {o}  ({k['kazanan']}↑/{k['kaybeden']}↓){f}")
     parcalar.append("\n".join(kn))
 
     return "\n\n".join(parcalar)

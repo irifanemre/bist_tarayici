@@ -14,10 +14,13 @@ import urllib.request
 ZIP = "https://github.com/irifanemre/bist_tarayici/archive/refs/heads/main.zip"
 KONUM = os.path.dirname(os.path.abspath(__file__))
 
-# Bu dosyalar güncellenir (kullanıcı verisi ASLA dokunulmaz)
+# Buluttan güncellenecekler: kod + strateji listesi
+# (stratejiler merkezi yönetiliyor, yeni indikatör eklenince herkese gitsin)
 UZANTILAR = (".py", ".txt")
-KORUNAN = {"telegram.json", "kombinler.json", "takip.json",
-           "zamanlamalar.json", "gonderim.json"}
+EK_DOSYALAR = {"kombinler.json"}
+
+# Yerelde kalması gerekenler — ASLA üzerine yazılmaz
+KORUNAN = {"telegram.json", "takip.json", "zamanlamalar.json", "gonderim.json"}
 
 
 def guncelle(sessiz=True):
@@ -29,7 +32,9 @@ def guncelle(sessiz=True):
         degisen = 0
         for isim in zf.namelist():
             ad = os.path.basename(isim)
-            if not ad or not ad.endswith(UZANTILAR) or ad in KORUNAN:
+            if not ad or ad in KORUNAN:
+                continue
+            if not (ad.endswith(UZANTILAR) or ad in EK_DOSYALAR):
                 continue
             if "/" in isim.split("/", 1)[1] and not isim.split("/", 1)[1].startswith(ad):
                 continue  # alt klasörleri atla (.github vb.)
