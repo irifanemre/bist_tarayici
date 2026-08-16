@@ -275,3 +275,78 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
         "bit_etiket": f"{_f(bit_tarih)} fiyat",
     }
     return bilgi, bolumler, karne
+
+
+def gunluk_karne(bas_tarih, bit_tarih, secili=None):
+    """Aralıktaki HER GÜN için, o günün taramasındaki kağıtların
+    bir sonraki işlem günü kapanışına göre getirisini strateji strateji hesaplar.
+
+    Döner: (gunler, matris)
+      gunler: ['2026-08-13', '2026-08-14', ...]
+      matris: {strateji: {gun: ortalama_yuzde|None}}
+    """
+    import warnings
+    warnings.filterwarnings("ignore")
+    import yfinance as yf
+    from datetime import datetime as _d, timedelta as _t
+
+    gunler = [g for g in sorted(gecmis.kayitli_gunler()) if bas_tarih <= g <= bit_tarih]
+    if not gunler:
+        return [], {}
+
+    # Tüm günlerin tüm kağıtlarını topla
+    kayitlar, tum_kodlar = {}, set()
+    evren = hisse_evreni()
+    for g in gunler:
+        k = gecmis.gunun_kaydi(g)
+        if not k:
+            continue
+        st = k.get("stratejiler", {})
+        if secili:
+            st = {a: v for a, v in st.items() if a in secili}
+        if evren:
+            st = {a: [h for h in v if (h.get("hisse") or "").upper() in evren]
+                  for a, v in st.items()}
+        kayitlar[g] = st
+        for lst in st.values():
+            tum_kodlar |= {(h.get("hisse") or "").upper() for h in lst if h.get("hisse")}
+
+    if not tum_kodlar:
+        return [], {}
+
+    # Tek seferde tüm dönemin kapanışlarını indir
+    bas_dt = _d.strptime(min(gunler), "%Y-%m-%d") - _t(days=5)
+    bit_dt = _d.strptime(bit_tarih, "%Y-%m-%d") + _t(days=6)
+    bugun = datetime.now(IST).replace(tzinfo=None) + _t(days=1)
+    bit_dt = min(bit_dt, bugun)   # gelecek tarih isteme (yfinance hata veriyor)
+    try:
+        veri = yf.download([f"{k}.IS" for k in sorted(tum_kodlar)],
+                           start=bas_dt.strftime("%Y-%m-%d"), end=bit_dt.strftime("%Y-%m-%d"),
+                           interval="1d", progress=False, auto_adjust=False)["Close"]
+    except Exception as e:
+        print(f"  (geçmiş fiyat alınamadı: {e})")
+        return gunler, {}
+
+    def sonraki_kapanis(kod, gun):
+        """gun'den SONRAKİ ilk işlem gününün kapanışı."""
+        try:
+            seri = veri[f"{kod}.IS"].dropna() if hasattr(veri, "columns") else veri.dropna()
+            sonrasi = seri[seri.index > gun]
+            return float(sonrasi.iloc[0]) if len(sonrasi) else None
+        except Exception:
+            return None
+
+    matris = {}
+    for g, st in kayitlar.items():
+        for strateji, liste in st.items():
+            getiriler = []
+            for h in liste:
+                kod = (h.get("hisse") or "").upper()
+                eski = float(h.get("fiyat") or 0)
+                yeni = sonraki_kapanis(kod, g)
+                if eski and yeni:
+                    getiriler.append((yeni - eski) / eski * 100)
+            matris.setdefault(strateji, {})[g] = (
+                sum(getiriler) / len(getiriler)) if getiriler else None
+
+    return gunler, matris

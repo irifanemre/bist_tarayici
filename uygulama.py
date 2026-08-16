@@ -154,13 +154,17 @@ else:
         with st.spinner("Geçmiş fiyatlar alınıyor…"):
             bilgi, bolumler, karne = performans.hesapla_aralik(
                 bas, bit.strftime("%Y-%m-%d"), secili)
+            gunler, matris = performans.gunluk_karne(
+                bas, bit.strftime("%Y-%m-%d"), secili)
         if not bilgi:
             st.error("O güne ait tarama kaydı bulunamadı.")
         else:
             st.session_state["sonuc"] = {
-                "excel": rapor_performans.grid_performans_excel(bilgi, bolumler, karne),
+                "excel": rapor_performans.grid_performans_excel(
+                    bilgi, bolumler, karne, gunler, matris),
                 "ad": f"performans_{bas}_{bit}.xlsx",
                 "karne": karne, "bolumler": bolumler, "bilgi": bilgi,
+                "gunler": gunler, "matris": matris,
             }
 
     sonuc = st.session_state.get("sonuc")
@@ -170,6 +174,23 @@ else:
         st.download_button("⬇️  EXCEL'İ İNDİR", sonuc["excel"], sonuc["ad"],
                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                            type="primary", use_container_width=True)
+        if sonuc.get("matris"):
+            import pandas as _pd
+            from datetime import datetime as _dt
+            g = sonuc["gunler"]
+            tablo = {}
+            for strateji, gunluk in sonuc["matris"].items():
+                tablo[strateji] = {
+                    _dt.strptime(x, "%Y-%m-%d").strftime("%d.%m"):
+                        (round(gunluk.get(x), 2) if gunluk.get(x) is not None else None)
+                    for x in g}
+            df = _pd.DataFrame(tablo).T
+            st.markdown("#### 📅 Gün gün karne (%)")
+            st.dataframe(df.style.map(
+                lambda v: "color:#1a7f37;font-weight:600" if isinstance(v, (int, float)) and v > 0
+                else ("color:#b42318;font-weight:600" if isinstance(v, (int, float)) and v < 0 else "")),
+                use_container_width=True)
+
         st.markdown("#### 🏆 Strateji karnesi")
         for k in sonuc["karne"]:
             o = k["ortalama"]

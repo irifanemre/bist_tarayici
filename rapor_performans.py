@@ -42,7 +42,7 @@ def _yuzde(ws, satir, sutun, deger):
     c.font = Font(bold=True, color=(_YESIL if deger > 0 else (_KIRMIZI if deger < 0 else _KOYU)))
 
 
-def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
+def grid_performans_excel(bilgi, bolumler, karne, gunler=None, matris=None) -> bytes:
     """Alışılmış 5x3 ızgara düzeni + her stratejide 'Güncel fiyat' ve 'Değişim' sütunu."""
     from openpyxl.utils import get_column_letter
 
@@ -141,6 +141,10 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
         _yuzde(ws, r, 6, k.get("ortalama"))
         r += 1
 
+    if gunler and matris:
+        r += 2
+        gunluk_karne_yaz(ws, r, gunler, matris)
+
     buf = BytesIO()
     wb.save(buf)
     return buf.getvalue()
@@ -213,3 +217,53 @@ def performans_excel(bilgi, satirlar, karne) -> bytes:
     buf = BytesIO()
     wb.save(buf)
     return buf.getvalue()
+
+
+def gunluk_karne_yaz(ws, r, gunler, matris):
+    """Strateji x Gün matrisi: hangi gün hangi strateji artı/eksi yazmış."""
+    from datetime import datetime as _d
+    from openpyxl.utils import get_column_letter
+
+    ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=max(len(gunler) + 3, 6))
+    ws.cell(row=r, column=1, value="GÜN GÜN KARNE (her günün taraması → ertesi gün kapanışı)"
+            ).font = Font(bold=True, size=12, color=_KOYU)
+    r += 1
+
+    basliklar = ["Strateji"] + [_d.strptime(g, "%Y-%m-%d").strftime("%d.%m") for g in gunler] \
+                + ["Ortalama", "Artı gün", "Eksi gün"]
+    for j, ad in enumerate(basliklar, start=1):
+        c = ws.cell(row=r, column=j, value=ad)
+        c.font = Font(bold=True, color=_BEYAZ, size=10)
+        c.fill = PatternFill("solid", fgColor=_BASLIK_BG)
+        c.alignment = Alignment(horizontal="center", vertical="center")
+        c.border = _kenar
+    ws.column_dimensions["A"].width = 30
+    for j in range(2, len(basliklar) + 1):
+        ws.column_dimensions[get_column_letter(j)].width = 10
+    r += 1
+
+    # ortalamaya göre sırala (iyiden kötüye)
+    def _ort(d):
+        v = [x for x in d.values() if x is not None]
+        return sum(v) / len(v) if v else None
+
+    for strateji, gunluk in sorted(matris.items(),
+                                   key=lambda kv: (_ort(kv[1]) is None, -(_ort(kv[1]) or 0))):
+        a = ws.cell(row=r, column=1, value=strateji)
+        a.font = Font(bold=True, color=_KOYU)
+        a.border = _kenar
+        degerler = []
+        for j, g in enumerate(gunler, start=2):
+            v = gunluk.get(g)
+            _yuzde(ws, r, j, v)
+            if v is not None:
+                degerler.append(v)
+        ort = sum(degerler) / len(degerler) if degerler else None
+        _yuzde(ws, r, len(gunler) + 2, ort)
+        for kol, val in ((len(gunler) + 3, sum(1 for v in degerler if v > 0)),
+                         (len(gunler) + 4, sum(1 for v in degerler if v < 0))):
+            c = ws.cell(row=r, column=kol, value=val)
+            c.alignment = Alignment(horizontal="center")
+            c.border = _kenar
+        r += 1
+    return r
