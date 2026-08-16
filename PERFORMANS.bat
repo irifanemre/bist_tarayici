@@ -9,16 +9,35 @@ echo ===========================================
 echo    DUNKU KAGITLARIN PERFORMANSI
 echo ===========================================
 echo.
-echo Guncellemeler kontrol ediliyor...
-%PY% guncelle.py --sessiz
+echo [1/3] Guncellemeler kontrol ediliyor...
+if exist guncelle.py %PY% guncelle.py --sessiz
 echo.
-%PY% -m pip install --quiet -r requirements.txt
+echo [2/3] Gerekli paketler kontrol ediliyor...
+%PY% -c "import streamlit, pandas, openpyxl, yfinance, tradingview_screener" 2>nul
+if errorlevel 1 (
+  echo     Eksik paket var, kuruluyor... Bu birkac dakika surebilir.
+  %PY% -m pip install -r requirements.txt
+)
+%PY% -c "import streamlit, pandas, openpyxl, yfinance, tradingview_screener" 2>nul
+if errorlevel 1 goto PAKETHATA
+echo     Paketler tamam.
+echo.
+echo [3/3] Basliyor...
 echo.
 %PY% performans.py
 echo.
 echo Bitti. Bu pencereyi kapatabilirsin.
 pause
 exit /b 0
+
+:PAKETHATA
+echo.
+echo [HATA] Paketler kurulamadi.
+echo  Internet baglantisini kontrol et ve tekrar dene.
+echo  Sorun surerse yukaridaki kirmizi yaziyi paylas.
+echo.
+pause
+exit /b 1
 
 :NOPY
 echo [HATA] Python bulunamadi!
