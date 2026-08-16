@@ -120,7 +120,12 @@ def tara(secimler, limit=100, *, zaman="", endeks=None, sektorler=None, mantik="
     # Sektör filtresi her zaman VE ile uygulanır
     sektor_ifade = col("sector").isin(list(sektorler)) if sektorler else None
 
-    parcalar = [x for x in (indikator_ifade, sektor_ifade) if x is not None]
+    # SADECE HİSSE: where2 kullanınca TradingView'in varsayılan tür filtresi
+    # devre dışı kalıyor ve fonlar (OPX30, ZGOLD, GLDTR…) listeye giriyor.
+    # Bu yüzden tür kısıtını kendimiz ekliyoruz.
+    sadece_hisse = col("type") == "stock"
+
+    parcalar = [x for x in (indikator_ifade, sektor_ifade, sadece_hisse) if x is not None]
     if parcalar:
         sorgu = sorgu.where2(And(*parcalar))
 

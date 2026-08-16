@@ -50,8 +50,8 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
     ws = wb.active
     ws.title = "Performans"
 
-    BLOK = 5          # yan yana kaç strateji
-    SUT = 4           # her blok: hisse + fiyat + değişim + boşluk
+    BLOK = 4          # yan yana kaç strateji (5 sütunlu bloklar için 4 blok)
+    SUT = 5           # her blok: hisse + ilk fiyat + son fiyat + değişim + boşluk
     toplam = BLOK * SUT
 
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=toplam)
@@ -71,20 +71,21 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
         band = idx // BLOK
         pos = idx % BLOK
         c1 = pos * SUT + 1                      # hisse
-        c2, c3 = c1 + 1, c1 + 2                 # güncel fiyat, değişim
+        c2, c3, c4 = c1 + 1, c1 + 2, c1 + 3     # ilk fiyat, son fiyat, değişim
         hr = 4 + band * (satir_sayisi + 4)      # bu bandın başlık satırı
 
         # strateji adı (3 sütuna yayılı)
-        ws.merge_cells(start_row=hr, start_column=c1, end_row=hr, end_column=c3)
+        ws.merge_cells(start_row=hr, start_column=c1, end_row=hr, end_column=c4)
         h = ws.cell(row=hr, column=c1, value=bolum["ad"])
         h.font = Font(bold=True, color=_BEYAZ, size=10)
         h.fill = PatternFill("solid", fgColor=_BASLIK_BG)
         h.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-        for c in (c1, c2, c3):
+        for c in (c1, c2, c3, c4):
             ws.cell(row=hr, column=c).border = _kenar
 
         # alt başlıklar
-        for c, ad in ((c1, "Hisse"), (c2, "Fiyat"), (c3, "Değ %")):
+        for c, ad in ((c1, "Hisse"), (c2, bilgi.get("bas_etiket", "İlk fiyat")),
+                      (c3, bilgi.get("bit_etiket", "Son fiyat")), (c4, "Değ %")):
             b = ws.cell(row=hr + 1, column=c, value=ad)
             b.font = Font(bold=True, size=9, color=_KOYU)
             b.alignment = Alignment(horizontal="center")
@@ -94,24 +95,28 @@ def grid_performans_excel(bilgi, bolumler, karne) -> bytes:
             r = hr + 2 + i
             s = bolum["satirlar"][i] if i < len(bolum["satirlar"]) else None
             hc = ws.cell(row=r, column=c1)
-            fc = ws.cell(row=r, column=c2)
+            f1 = ws.cell(row=r, column=c2)   # ilk (tarama günü) fiyat
+            f2 = ws.cell(row=r, column=c3)   # son (bitiş günü) fiyat
             if s:
                 hc.value = s["hisse"]
                 hc.font = Font(bold=True, color=_KOYU)
-                if s.get("yeni") is not None:
-                    fc.value = round(float(s["yeni"]), 2)
-                    fc.number_format = "#,##0.00"
-            hc.alignment = fc.alignment = Alignment(horizontal="center")
-            hc.border = fc.border = _kenar
-            _yuzde(ws, r, c3, s.get("degisim") if s else None)
+                for hucre, deger in ((f1, s.get("eski")), (f2, s.get("yeni"))):
+                    if deger is not None:
+                        hucre.value = round(float(deger), 2)
+                        hucre.number_format = "#,##0.00"
+            for hucre in (hc, f1, f2):
+                hucre.alignment = Alignment(horizontal="center")
+                hucre.border = _kenar
+            _yuzde(ws, r, c4, s.get("degisim") if s else None)
             if not s:
-                ws.cell(row=r, column=c3).value = None
-                ws.cell(row=r, column=c3).border = _kenar
+                ws.cell(row=r, column=c4).value = None
+                ws.cell(row=r, column=c4).border = _kenar
 
         ws.column_dimensions[get_column_letter(c1)].width = 10
-        ws.column_dimensions[get_column_letter(c2)].width = 9
-        ws.column_dimensions[get_column_letter(c3)].width = 9
-        ws.column_dimensions[get_column_letter(c1 + 3)].width = 2
+        ws.column_dimensions[get_column_letter(c2)].width = 11
+        ws.column_dimensions[get_column_letter(c3)].width = 11
+        ws.column_dimensions[get_column_letter(c4)].width = 9
+        ws.column_dimensions[get_column_letter(c1 + 4)].width = 2
         ws.row_dimensions[hr].height = 30
 
     # --- strateji karnesi (en altta) ---

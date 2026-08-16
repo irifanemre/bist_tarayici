@@ -125,6 +125,8 @@ def hesapla(kayit=None):
         "tarama_zamani": kayit.get("zaman", "?"),
         "simdi": datetime.now(IST).strftime("%d.%m.%Y %H:%M"),
         "uyari": uyari,
+        "bas_etiket": "Tarama fiyatı",
+        "bit_etiket": "Güncel fiyat",
     }
     return bilgi, satirlar, karne, bolumler
 
@@ -205,6 +207,22 @@ def kapanis_fiyatlari(kodlar, tarih):
     return out
 
 
+_EVREN = None
+
+
+def hisse_evreni():
+    """BIST'te işlem gören gerçek hisselerin kod listesi (fonlar hariç)."""
+    global _EVREN
+    if _EVREN is None:
+        try:
+            _, df = (Query().set_markets("turkey").select("name", "type")
+                     .limit(1000).get_scanner_data())
+            _EVREN = {str(x).upper() for x in df["name"]}
+        except Exception:
+            _EVREN = set()
+    return _EVREN
+
+
 def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
     """bas_tarih/bit_tarih: 'YYYY-MM-DD'. secili: strateji adları listesi (None=hepsi).
     Döner: (bilgi, bolumler, karne)"""
@@ -217,6 +235,11 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
         stratejiler = {k: v for k, v in stratejiler.items() if k in secili}
     if not stratejiler:
         return None, [], []
+
+    evren = hisse_evreni()
+    if evren:  # eski kayıtlarda kalmış fonları (OPX30, ZGOLD…) ayıkla
+        stratejiler = {k: [h for h in v if (h.get("hisse") or "").upper() in evren]
+                       for k, v in stratejiler.items()}
 
     kodlar = [h.get("hisse") for lst in stratejiler.values() for h in lst]
     bitis = kapanis_fiyatlari(kodlar, bit_tarih)
@@ -242,9 +265,13 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
         })
     karne.sort(key=lambda k: (k["ortalama"] is None, -(k["ortalama"] or 0)))
 
+    from datetime import datetime as _d
+    _f = lambda t: _d.strptime(t, "%Y-%m-%d").strftime("%d.%m")
     bilgi = {
         "tarama_zamani": kayit.get("zaman", bas_tarih),
         "simdi": f"{bit_tarih} kapanışı",
         "uyari": "",
+        "bas_etiket": f"{_f(bas_tarih)} fiyat",
+        "bit_etiket": f"{_f(bit_tarih)} fiyat",
     }
     return bilgi, bolumler, karne
