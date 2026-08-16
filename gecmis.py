@@ -39,6 +39,34 @@ def tum_kayitlar() -> list:
     return sorted(glob.glob(os.path.join(KLASOR, "*.json")))
 
 
+def kayitli_gunler() -> list:
+    """Kayıt bulunan günler (YYYY-MM-DD), yeniden eskiye."""
+    gunler = []
+    for yol in tum_kayitlar():
+        v = json_oku(yol, None)
+        if v and v.get("tarih") and v["tarih"] not in gunler:
+            gunler.append(v["tarih"])
+    return sorted(set(gunler), reverse=True)
+
+
+def gunun_kaydi(tarih: str):
+    """Verilen günün (YYYY-MM-DD) taraması. Aynı günde birden çok kayıt varsa
+    18:20'ye en yakın olanı seçer (asıl günlük tarama odur)."""
+    adaylar = []
+    for yol in tum_kayitlar():
+        v = json_oku(yol, None)
+        if v and v.get("tarih") == tarih:
+            try:
+                ss, dd = v["zaman"].split()[1].split(":")
+                fark = abs(int(ss) * 60 + int(dd) - (18 * 60 + 20))
+            except Exception:
+                fark = 9999
+            adaylar.append((fark, v))
+    if not adaylar:
+        return None
+    return min(adaylar, key=lambda x: x[0])[1]
+
+
 def son_kayit(bugun_haric=True):
     """En son taramayı döndürür. bugun_haric=True ise bugünkü kayıtları atlar
     (ertesi gün karşılaştırması için 'dünkü' kaydı bulur)."""

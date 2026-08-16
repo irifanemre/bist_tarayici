@@ -167,3 +167,84 @@ def calistir():
 
 if __name__ == "__main__":
     calistir()
+
+
+# ==========================================================================
+# TARİH ARALIĞI performansı: seçilen günün 18:20 taramasındaki kağıtların
+# bitiş günündeki kapanışa göre getirisi.
+# ==========================================================================
+def kapanis_fiyatlari(kodlar, tarih):
+    """Verilen gündeki (YYYY-MM-DD) kapanış fiyatları. {HISSE: fiyat}"""
+    import warnings
+    warnings.filterwarnings("ignore")
+    import yfinance as yf
+    from datetime import datetime as _dt, timedelta as _td
+
+    kodlar = sorted({(k or "").upper() for k in kodlar if k})
+    if not kodlar:
+        return {}
+    bas = _dt.strptime(tarih, "%Y-%m-%d") - _td(days=6)
+    bit = _dt.strptime(tarih, "%Y-%m-%d") + _td(days=1)
+    try:
+        df = yf.download([f"{k}.IS" for k in kodlar], start=bas.strftime("%Y-%m-%d"),
+                         end=bit.strftime("%Y-%m-%d"), interval="1d",
+                         progress=False, auto_adjust=False, group_by="column")
+        kapanis = df["Close"]
+    except Exception as e:
+        print(f"  (geçmiş fiyat alınamadı: {e})")
+        return {}
+
+    out = {}
+    for k in kodlar:
+        try:
+            seri = kapanis[f"{k}.IS"].dropna() if len(kodlar) > 1 else kapanis.dropna()
+            if len(seri):
+                out[k] = float(seri.iloc[-1])   # tarihe kadar olan son kapanış
+        except Exception:
+            continue
+    return out
+
+
+def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
+    """bas_tarih/bit_tarih: 'YYYY-MM-DD'. secili: strateji adları listesi (None=hepsi).
+    Döner: (bilgi, bolumler, karne)"""
+    kayit = gecmis.gunun_kaydi(bas_tarih)
+    if not kayit:
+        return None, [], []
+
+    stratejiler = kayit.get("stratejiler", {})
+    if secili:
+        stratejiler = {k: v for k, v in stratejiler.items() if k in secili}
+    if not stratejiler:
+        return None, [], []
+
+    kodlar = [h.get("hisse") for lst in stratejiler.values() for h in lst]
+    bitis = kapanis_fiyatlari(kodlar, bit_tarih)
+
+    bolumler, karne = [], []
+    for strateji, liste in stratejiler.items():
+        blok, getiriler = [], []
+        for h in liste:
+            kod = (h.get("hisse") or "").upper()
+            eski = float(h.get("fiyat") or 0)
+            yeni = bitis.get(kod)
+            deg = ((yeni - eski) / eski * 100) if (yeni and eski) else None
+            if deg is not None:
+                getiriler.append(deg)
+            blok.append({"hisse": kod, "eski": eski or None, "yeni": yeni, "degisim": deg})
+        blok.sort(key=lambda s: (s["degisim"] is None, -(s["degisim"] or 0)))
+        bolumler.append({"ad": strateji, "satirlar": blok})
+        karne.append({
+            "strateji": strateji, "adet": len(liste),
+            "ortalama": (sum(getiriler) / len(getiriler)) if getiriler else None,
+            "kazanan": sum(1 for g in getiriler if g > 0),
+            "kaybeden": sum(1 for g in getiriler if g < 0),
+        })
+    karne.sort(key=lambda k: (k["ortalama"] is None, -(k["ortalama"] or 0)))
+
+    bilgi = {
+        "tarama_zamani": kayit.get("zaman", bas_tarih),
+        "simdi": f"{bit_tarih} kapanışı",
+        "uyari": "",
+    }
+    return bilgi, bolumler, karne
