@@ -1,0 +1,295 @@
+{
+  "zaman": "18.08.2026 18:24",
+  "tarih": "2026-08-18",
+  "veri_saati": null,
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "CEMZY",
+        "fiyat": 14.81
+      },
+      {
+        "hisse": "SVGYO",
+        "fiyat": 16.75
+      },
+      {
+        "hisse": "DYOBY",
+        "fiyat": 13.96
+      },
+      {
+        "hisse": "MNDRS",
+        "fiyat": 11.45
+      },
+      {
+        "hisse": "BAGFS",
+        "fiyat": 27.58
+      },
+      {
+        "hisse": "DEVA",
+        "fiyat": 84.5
+      },
+      {
+        "hisse": "KUVVA",
+        "fiyat": 180.2
+      },
+      {
+        "hisse": "TRHOL",
+        "fiyat": 2300.0
+      },
+      {
+        "hisse": "GOLTS",
+        "fiyat": 313.0
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "DMLKT",
+        "fiyat": 6.95
+      },
+      {
+        "hisse": "PRDGS",
+        "fiyat": 8.36
+      },
+      {
+        "hisse": "HURGZ",
+        "fiyat": 7.95
+      },
+      {
+        "hisse": "AKSGY",
+        "fiyat": 9.96
+      },
+      {
+        "hisse": "OZSUB",
+        "fiyat": 43.1
+      },
+      {
+        "hisse": "KUVVA",
+        "fiyat": 180.2
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.0
+      },
+      {
+        "hisse": "BASGZ",
+        "fiyat": 44.7
+      },
+      {
+        "hisse": "NUHCM",
+        "fiyat": 218.7
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "KRGYO",
+        "fiyat": 2.87
+      },
+      {
+        "hisse": "ORGE",
+        "fiyat": 113.1
+      },
+      {
+        "hisse": "ARASE",
+        "fiyat": 120.3
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "FENER",
+        "fiyat": 3.16
+      },
+      {
+        "hisse": "HURGZ",
+        "fiyat": 7.95
+      }
+    ],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.0
+      }
+    ],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "TSPOR",
+        "fiyat": 1.08
+      },
+      {
+        "hisse": "NUGYO",
+        "fiyat": 9.04
+      },
+      {
+        "hisse": "BASGZ",
+        "fiyat": 44.7
+      },
+      {
+        "hisse": "DOGUB",
+        "fiyat": 80.55
+      },
+      {
+        "hisse": "NUHCM",
+        "fiyat": 218.7
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.0
+      },
+      {
+        "hisse": "OSMEN",
+        "fiyat": 8.66
+      },
+      {
+        "hisse": "KUVVA",
+        "fiyat": 180.2
+      },
+      {
+        "hisse": "BASGZ",
+        "fiyat": 44.7
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "CEMZY",
+        "fiyat": 14.81
+      },
+      {
+        "hisse": "SVGYO",
+        "fiyat": 16.75
+      },
+      {
+        "hisse": "BAYRK",
+        "fiyat": 4.88
+      },
+      {
+        "hisse": "DYOBY",
+        "fiyat": 13.96
+      },
+      {
+        "hisse": "OSMEN",
+        "fiyat": 8.66
+      },
+      {
+        "hisse": "MNDRS",
+        "fiyat": 11.45
+      },
+      {
+        "hisse": "BAGFS",
+        "fiyat": 27.58
+      },
+      {
+        "hisse": "DEVA",
+        "fiyat": 84.5
+      },
+      {
+        "hisse": "KUVVA",
+        "fiyat": 180.2
+      },
+      {
+        "hisse": "NETAS",
+        "fiyat": 75.1
+      },
+      {
+        "hisse": "TRHOL",
+        "fiyat": 2300.0
+      },
+      {
+        "hisse": "GOLTS",
+        "fiyat": 313.0
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.0
+      }
+    ],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.0
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "PRDGS",
+        "fiyat": 8.36
+      },
+      {
+        "hisse": "AKSGY",
+        "fiyat": 9.96
+      },
+      {
+        "hisse": "OSMEN",
+        "fiyat": 8.66
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "KTLEV",
+        "fiyat": 58.0
+      },
+      {
+        "hisse": "TEHOL",
+        "fiyat": 51.75
+      },
+      {
+        "hisse": "FONET",
+        "fiyat": 5.34
+      },
+      {
+        "hisse": "ESCOM",
+        "fiyat": 5.87
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 381.25
+      },
+      {
+        "hisse": "ASTOR",
+        "fiyat": 320.5
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 374.0
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 89.65
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 55.45
+      },
+      {
+        "hisse": "KRONT",
+        "fiyat": 25.86
+      },
+      {
+        "hisse": "ANSGR",
+        "fiyat": 28.1
+      },
+      {
+        "hisse": "TCKRC",
+        "fiyat": 163.9
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 32.48
+      },
+      {
+        "hisse": "GRSEL",
+        "fiyat": 338.5
+      },
+      {
+        "hisse": "DUNYH",
+        "fiyat": 150.8
+      }
+    ]
+  }
+}
