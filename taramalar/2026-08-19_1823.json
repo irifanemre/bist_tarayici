@@ -1,0 +1,377 @@
+{
+  "zaman": "19.08.2026 18:23",
+  "tarih": "2026-08-19",
+  "veri_saati": null,
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "CEMZY",
+        "fiyat": 16.15
+      },
+      {
+        "hisse": "ULKER",
+        "fiyat": 97.75
+      },
+      {
+        "hisse": "ESCAR",
+        "fiyat": 47.56
+      },
+      {
+        "hisse": "NETAS",
+        "fiyat": 82.6
+      },
+      {
+        "hisse": "TRHOL",
+        "fiyat": 2390.0
+      },
+      {
+        "hisse": "TBORG",
+        "fiyat": 148.7
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "BJKAS",
+        "fiyat": 2.44
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 395.5
+      },
+      {
+        "hisse": "ALARK",
+        "fiyat": 113.1
+      },
+      {
+        "hisse": "OZSUB",
+        "fiyat": 42.98
+      },
+      {
+        "hisse": "BRSAN",
+        "fiyat": 679.0
+      },
+      {
+        "hisse": "KUVVA",
+        "fiyat": 194.0
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "GSDDE",
+        "fiyat": 13.42
+      },
+      {
+        "hisse": "TNZTP",
+        "fiyat": 27.82
+      },
+      {
+        "hisse": "GLYHO",
+        "fiyat": 17.08
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "BIOEN",
+        "fiyat": 18.66
+      },
+      {
+        "hisse": "SODSN",
+        "fiyat": 7.95
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "ARSAN",
+        "fiyat": 3.81
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 403.0
+      },
+      {
+        "hisse": "FONET",
+        "fiyat": 5.43
+      },
+      {
+        "hisse": "HUNER",
+        "fiyat": 3.77
+      },
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.65
+      },
+      {
+        "hisse": "OSMEN",
+        "fiyat": 8.42
+      },
+      {
+        "hisse": "ADGYO",
+        "fiyat": 59.75
+      },
+      {
+        "hisse": "TBORG",
+        "fiyat": 148.7
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "AGROT",
+        "fiyat": 2.55
+      },
+      {
+        "hisse": "ALTNY",
+        "fiyat": 17.12
+      },
+      {
+        "hisse": "BIOEN",
+        "fiyat": 18.66
+      },
+      {
+        "hisse": "DOHOL",
+        "fiyat": 21.16
+      },
+      {
+        "hisse": "SDTTR",
+        "fiyat": 251.5
+      },
+      {
+        "hisse": "TRCAS",
+        "fiyat": 47.4
+      },
+      {
+        "hisse": "KUTPO",
+        "fiyat": 83.6
+      }
+    ],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "SANFM",
+        "fiyat": 9.6
+      }
+    ],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "ASTOR",
+        "fiyat": 331.5
+      },
+      {
+        "hisse": "BMSTL",
+        "fiyat": 46.7
+      },
+      {
+        "hisse": "TRENJ",
+        "fiyat": 96.9
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "TURSG",
+        "fiyat": 6.34
+      },
+      {
+        "hisse": "TUKAS",
+        "fiyat": 2.0
+      },
+      {
+        "hisse": "MRGYO",
+        "fiyat": 1.28
+      },
+      {
+        "hisse": "TSKB",
+        "fiyat": 11.05
+      },
+      {
+        "hisse": "DOHOL",
+        "fiyat": 21.16
+      },
+      {
+        "hisse": "GSDDE",
+        "fiyat": 13.42
+      },
+      {
+        "hisse": "ISMEN",
+        "fiyat": 32.94
+      },
+      {
+        "hisse": "TRENJ",
+        "fiyat": 96.9
+      },
+      {
+        "hisse": "KIMMR",
+        "fiyat": 13.85
+      },
+      {
+        "hisse": "AGESA",
+        "fiyat": 237.3
+      },
+      {
+        "hisse": "ATAGY",
+        "fiyat": 10.48
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "QUAGR",
+        "fiyat": 3.5
+      },
+      {
+        "hisse": "BIOEN",
+        "fiyat": 18.66
+      },
+      {
+        "hisse": "SANFM",
+        "fiyat": 9.6
+      },
+      {
+        "hisse": "GZNMI",
+        "fiyat": 63.1
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "AGROT",
+        "fiyat": 2.55
+      },
+      {
+        "hisse": "CEMZY",
+        "fiyat": 16.15
+      },
+      {
+        "hisse": "ARSAN",
+        "fiyat": 3.81
+      },
+      {
+        "hisse": "ULKER",
+        "fiyat": 97.75
+      },
+      {
+        "hisse": "BIOEN",
+        "fiyat": 18.66
+      },
+      {
+        "hisse": "OSMEN",
+        "fiyat": 8.42
+      },
+      {
+        "hisse": "ESCAR",
+        "fiyat": 47.56
+      },
+      {
+        "hisse": "GZNMI",
+        "fiyat": 63.1
+      },
+      {
+        "hisse": "NETAS",
+        "fiyat": 82.6
+      },
+      {
+        "hisse": "DOKTA",
+        "fiyat": 25.12
+      },
+      {
+        "hisse": "TRHOL",
+        "fiyat": 2390.0
+      },
+      {
+        "hisse": "TBORG",
+        "fiyat": 148.7
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "ARSAN",
+        "fiyat": 3.81
+      },
+      {
+        "hisse": "ALARK",
+        "fiyat": 113.1
+      },
+      {
+        "hisse": "SANFM",
+        "fiyat": 9.6
+      },
+      {
+        "hisse": "SKYMD",
+        "fiyat": 15.0
+      }
+    ],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 416.5
+      },
+      {
+        "hisse": "ESCAR",
+        "fiyat": 47.56
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "BIOEN",
+        "fiyat": 18.66
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "KTLEV",
+        "fiyat": 59.0
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 403.0
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 395.5
+      },
+      {
+        "hisse": "FONET",
+        "fiyat": 5.43
+      },
+      {
+        "hisse": "ASTOR",
+        "fiyat": 331.5
+      },
+      {
+        "hisse": "ESCOM",
+        "fiyat": 5.86
+      },
+      {
+        "hisse": "TEHOL",
+        "fiyat": 51.85
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 416.5
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 91.9
+      },
+      {
+        "hisse": "TCKRC",
+        "fiyat": 163.0
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 54.6
+      },
+      {
+        "hisse": "ANSGR",
+        "fiyat": 28.5
+      },
+      {
+        "hisse": "KRONT",
+        "fiyat": 26.0
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 33.86
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 442.75
+      }
+    ]
+  }
+}
