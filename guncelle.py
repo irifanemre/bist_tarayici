@@ -25,7 +25,14 @@ KORUNAN = {"telegram.json", "takip.json", "zamanlamalar.json", "gonderim.json"}
 
 def guncelle(sessiz=True):
     try:
-        with urllib.request.urlopen(ZIP, timeout=25) as r:
+        # GitHub arşivi kısa süre önbelleklenebiliyor; taze sürüm için
+        # önbellek kırıcı parametre + no-cache başlığı gönderiyoruz.
+        import time as _t
+        istek = urllib.request.Request(
+            f"{ZIP}?t={int(_t.time())}",
+            headers={"Cache-Control": "no-cache", "Pragma": "no-cache",
+                     "User-Agent": "bist-tarayici-guncelleyici"})
+        with urllib.request.urlopen(istek, timeout=25) as r:
             veri = r.read()
         zf = zipfile.ZipFile(io.BytesIO(veri))
 
