@@ -865,20 +865,5 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
-  },
-  "TEST GUNCELLEME KONTROL": {
-    "secimler": [
-      {
-        "tip": "metrik",
-        "anahtar": "RSI",
-        "op": "<",
-        "hedef_turu": "deger",
-        "deger": 25
-      }
-    ],
-    "zaman": "Günlük",
-    "endeks": "Tüm BIST",
-    "mantik": "VE",
-    "sektorler": []
   }
 }
