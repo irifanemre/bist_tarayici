@@ -1022,5 +1022,14 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "SUPERTREND AL": {
+    "ozel": "supertrend",
+    "ayarlar": {
+      "periyot": 10,
+      "carpan": 3.0,
+      "yon": "AL"
+    },
+    "aciklama": "SuperTrend (ATR 10, çarpan 3.0) yukarı dönüş — Pine kodundan birebir"
   }
 }

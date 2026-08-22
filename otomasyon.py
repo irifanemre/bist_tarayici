@@ -39,13 +39,24 @@ def _meta(paket):
     return secimler, zaman, endeks, sektorler, mantik
 
 
-def tarama_veri(ad: str, paket, limit: int = 15):
-    """(metin, [{hisse, fiyat}]) döndürür."""
+def strateji_df(paket, limit=100):
+    """Strateji tipine göre çalıştırır → (toplam, df).
+    Normal stratejiler TradingView'den, 'ozel' olanlar yerel hesaplanır."""
+    if isinstance(paket, dict) and paket.get("ozel"):
+        import ozel
+        return ozel.ozel_calistir(paket, limit)
     secimler, zaman, endeks, sektorler, mantik = _meta(paket)
     if not secimler:
+        return 0, None
+    return tara(secimler, limit=limit, zaman=zaman,
+                endeks=endeks, sektorler=sektorler, mantik=mantik)
+
+
+def tarama_veri(ad: str, paket, limit: int = 15):
+    """(metin, [{hisse, fiyat}]) döndürür."""
+    toplam, df = strateji_df(paket, limit)
+    if toplam == 0 and df is None:
         return None, []
-    toplam, df = tara(secimler, limit=limit, zaman=zaman,
-                      endeks=endeks, sektorler=sektorler, mantik=mantik)
     if not toplam or df is None or len(df) == 0:
         return f"📊 *{ad}* — eşleşme yok.", []
 
@@ -53,7 +64,7 @@ def tarama_veri(ad: str, paket, limit: int = 15):
     for _, r in df.iterrows():
         satirlar.append(
             f"• {r['name']}  {float(r['close']):g}  "
-            f"({float(r['change']):+.1f}%)  [{rating_etiket(r['Recommend.All'])}]"
+            f"({float(r['change']):+.1f}%)  [{rating_etiket(r.get('Recommend.All'))}]"
         )
         kayitlar.append({"hisse": str(r["name"]), "fiyat": float(r["close"])})
     metin = f"📊 *{ad}* — {toplam} eşleşme (ilk {len(df)}):\n" + "\n".join(satirlar)

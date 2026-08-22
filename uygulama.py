@@ -94,9 +94,8 @@ if st.session_state["mod"] == "tarama":
         for i, ad in enumerate(secili, 1):
             ilerleme.progress(i / len(secili), text=f"Taranıyor: {ad}")
             try:
-                sec, zaman, endeks, sektorler, mantik = _meta(kayitlar[ad])
-                _, df = tara(sec, limit=100, zaman=zaman, endeks=endeks,
-                             sektorler=sektorler, mantik=mantik)
+                from otomasyon import strateji_df
+                _, df = strateji_df(kayitlar[ad], 100)
                 if veri_saati is None and df is not None and len(df):
                     veri_saati = veri_bilgisi(df).get("saat")
                 satirlar = ([{"hisse": r.get("name", ""), "fiyat": float(r.get("close") or 0)}

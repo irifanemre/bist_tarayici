@@ -27,10 +27,9 @@ def calistir(limit=100):
     veri_saati = None
 
     for ad, paket in kayitlar.items():
-        secimler, zaman, endeks, sektorler, mantik = _meta(paket)
         try:
-            toplam, df = tara(secimler, limit=limit, zaman=zaman,
-                              endeks=endeks, sektorler=sektorler, mantik=mantik)
+            from otomasyon import strateji_df
+            toplam, df = strateji_df(paket, limit)
             if veri_saati is None and df is not None and len(df):
                 veri_saati = veri_bilgisi(df).get("saat")
             firmalar = ([{"hisse": r.get("name", ""), "fiyat": float(r.get("close") or 0)}
