@@ -52,7 +52,7 @@ def strateji_df(paket, limit=100):
                 endeks=endeks, sektorler=sektorler, mantik=mantik)
 
 
-def tarama_veri(ad: str, paket, limit: int = 15):
+def tarama_veri(ad: str, paket, limit: int = 12):
     """(metin, [{hisse, fiyat}]) döndürür."""
     toplam, df = strateji_df(paket, limit)
     if toplam == 0 and df is None:
@@ -67,13 +67,46 @@ def tarama_veri(ad: str, paket, limit: int = 15):
             f"({float(r['change']):+.1f}%)  [{rating_etiket(r.get('Recommend.All'))}]"
         )
         kayitlar.append({"hisse": str(r["name"]), "fiyat": float(r["close"])})
-    metin = f"📊 *{ad}* — {toplam} eşleşme (ilk {len(df)}):\n" + "\n".join(satirlar)
+    basi = f"📊 *{ad}* — {toplam} eşleşme"
+    basi += f" (ilk {len(df)})" if toplam > len(df) else ""
+    metin = basi + ":\n" + "\n".join(satirlar)
+    if toplam > len(df):
+        metin += f"\n…ve {toplam - len(df)} tane daha"
     return metin, kayitlar
 
 
 def tarama_metni(ad: str, paket, limit: int = 15):
     """Bir kombin için Telegram'a uygun özet metni döndürür (None = boş kombin)."""
     return tarama_veri(ad, paket, limit)[0]
+
+
+def _parcala(metin, limit=3600):
+    """Mesajı MANTIKLI yerlerden böler (strateji blokları arası).
+    Böylece *kalın* işaretleri yarıda kalmaz, Telegram mesajı reddetmez."""
+    if len(metin) <= limit:
+        return [metin]
+    parcalar, tampon = [], ""
+    for blok in metin.split("\n\n"):
+        # tek başına çok uzun blok → satır satır böl
+        if len(blok) > limit:
+            if tampon:
+                parcalar.append(tampon); tampon = ""
+            satir_tamponu = ""
+            for satir in blok.split("\n"):
+                if len(satir_tamponu) + len(satir) + 1 > limit:
+                    parcalar.append(satir_tamponu); satir_tamponu = satir
+                else:
+                    satir_tamponu += ("\n" if satir_tamponu else "") + satir
+            if satir_tamponu:
+                tampon = satir_tamponu
+            continue
+        if len(tampon) + len(blok) + 2 > limit:
+            parcalar.append(tampon); tampon = blok
+        else:
+            tampon += ("\n\n" if tampon else "") + blok
+    if tampon:
+        parcalar.append(tampon)
+    return parcalar
 
 
 def telegram_gonder(metin: str):
@@ -87,12 +120,17 @@ def telegram_gonder(metin: str):
     for cid in str(chat).replace(" ", "").split(","):
         if not cid:
             continue
-        r = requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": cid, "text": metin, "parse_mode": "Markdown"},
-            timeout=20,
-        )
-        sonuc.append({cid: r.ok})
+        for parca in _parcala(metin):
+            r = requests.post(
+                f"https://api.telegram.org/bot{token}/sendMessage",
+                json={"chat_id": cid, "text": parca, "parse_mode": "Markdown"},
+                timeout=25,
+            )
+            if not r.ok:   # biçimlendirme bozulduysa düz metin olarak yolla
+                r = requests.post(
+                    f"https://api.telegram.org/bot{token}/sendMessage",
+                    json={"chat_id": cid, "text": parca}, timeout=25)
+            sonuc.append({cid: r.ok})
     return sonuc
 
 
@@ -140,9 +178,7 @@ def calistir(gonder: bool = True):
     print(tam)
 
     if gonder:
-        # Telegram mesaj sınırı 4096 karakter — uzunsa parçalara böl
-        for i in range(0, len(tam), 3800):
-            telegram_gonder(tam[i:i + 3800])
+        telegram_gonder(tam)   # bölme işini telegram_gonder yapıyor
         print("\n✅ Telegram'a gönderildi.")
     else:
         print("\n(dry-run: gönderilmedi)")

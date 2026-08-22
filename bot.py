@@ -45,12 +45,16 @@ API = f"https://api.telegram.org/bot{TOKEN}"
 
 
 def gonder(chat_id, metin):
-    """Uzun mesajları bölerek gönderir."""
-    for i in range(0, len(metin), 3800):
+    """Uzun mesajları MANTIKLI yerlerden bölerek gönderir; biçim bozulursa düz metin."""
+    from otomasyon import _parcala
+    for parca in _parcala(metin):
         try:
-            requests.post(f"{API}/sendMessage",
-                          json={"chat_id": chat_id, "text": metin[i:i + 3800],
-                                "parse_mode": "Markdown"}, timeout=20)
+            r = requests.post(f"{API}/sendMessage",
+                              json={"chat_id": chat_id, "text": parca,
+                                    "parse_mode": "Markdown"}, timeout=25)
+            if not r.ok:
+                requests.post(f"{API}/sendMessage",
+                              json={"chat_id": chat_id, "text": parca}, timeout=25)
         except requests.RequestException as e:
             print("gönderim hatası:", e)
 
