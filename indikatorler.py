@@ -38,6 +38,7 @@ KATALOG = {
 
     # ===================== TREND / YÖN =====================
     "ADX":     {"ad": "ADX (14) — trend gücü",  "alan": "ADX",      "grup": "Trend", "tur": "osilator", "aralik": (0, 100), "op": ">", "deger": 25},
+    "ADX_1W":  {"ad": "ADX (haftalık)", "alan": "ADX|1W", "grup": "Trend", "tur": "osilator", "aralik": (0,100), "op": ">", "deger": 18, "zaman_yok": True},
     "ADX+DI":  {"ad": "+DI",                     "alan": "ADX+DI",   "grup": "Trend", "tur": "osilator", "aralik": (0, 100), "op": ">", "deger": 20},
     "ADX-DI":  {"ad": "-DI",                     "alan": "ADX-DI",   "grup": "Trend", "tur": "osilator", "aralik": (0, 100), "op": "<", "deger": 20},
     "Aroon.Up":   {"ad": "Aroon Up",            "alan": "Aroon.Up",  "grup": "Trend", "tur": "osilator", "aralik": (0, 100), "op": ">", "deger": 70},
@@ -285,6 +286,7 @@ ACIKLAMALAR = {
     "UO": "Ultimate Oscillator; üç periyotlu momentum dengesi.",
     "BBPower": "Alıcı/satıcı gücü. 0 üstü alıcılar baskın.",
     "ADX": "Trendin GÜCÜ (yön değil). 25 üstü = güçlü trend var.",
+    "ADX_1W": "ADX (trend gücü), haftalık grafikte.",
     "ADX+DI": "Yukarı yön gücü.",
     "ADX-DI": "Aşağı yön gücü.",
     "Aroon.Up": "Son zirvenin tazeliği. 70 üstü güçlü yükseliş.",

@@ -865,5 +865,76 @@
     "endeks": "Tüm BIST",
     "mantik": "VE",
     "sektorler": []
+  },
+  "ASİYE MFI": {
+    "secimler": [
+      {
+        "tip": "metrik",
+        "anahtar": "MoneyFlow",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 50
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "ADX_1W",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 18
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "volume",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "average_volume_10d_calc"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "MACD.macd",
+        "op": "yukarı keser",
+        "hedef_turu": "alan",
+        "hedef_alan": "MACD.signal"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "Mom",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 0
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "ChaikinMoneyFlow",
+        "op": ">",
+        "hedef_turu": "deger",
+        "deger": 0.05
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "close",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "EMA20"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "EMA10",
+        "op": ">",
+        "hedef_turu": "alan",
+        "hedef_alan": "SMA20"
+      },
+      {
+        "tip": "metrik",
+        "anahtar": "RSI",
+        "op": "<",
+        "hedef_turu": "deger",
+        "deger": 70
+      }
+    ],
+    "zaman": "Günlük",
+    "endeks": "Tüm BIST",
+    "mantik": "VE",
+    "sektorler": []
   }
 }
