@@ -17,6 +17,8 @@ Test (göndermeden, ekrana bas):
 import os
 import sys
 
+import time as _time
+
 import requests
 
 import kombin_store as ks
@@ -121,16 +123,31 @@ def telegram_gonder(metin: str):
         if not cid:
             continue
         for parca in _parcala(metin):
-            r = requests.post(
-                f"https://api.telegram.org/bot{token}/sendMessage",
-                json={"chat_id": cid, "text": parca, "parse_mode": "Markdown"},
-                timeout=25,
-            )
-            if not r.ok:   # biçimlendirme bozulduysa düz metin olarak yolla
-                r = requests.post(
-                    f"https://api.telegram.org/bot{token}/sendMessage",
-                    json={"chat_id": cid, "text": parca}, timeout=25)
-            sonuc.append({cid: r.ok})
+            ok = False
+            for deneme in range(4):
+                try:
+                    r = requests.post(
+                        f"https://api.telegram.org/bot{token}/sendMessage",
+                        json={"chat_id": cid, "text": parca, "parse_mode": "Markdown"},
+                        timeout=25)
+                    if not r.ok:   # biçim bozulduysa düz metin dene
+                        r = requests.post(
+                            f"https://api.telegram.org/bot{token}/sendMessage",
+                            json={"chat_id": cid, "text": parca}, timeout=25)
+                    if r.ok:
+                        ok = True
+                        break
+                    # 429 = hız sınırı → Telegram'ın istediği kadar bekle
+                    bekle = 3
+                    try:
+                        bekle = int(r.json().get("parameters", {}).get("retry_after", 3))
+                    except Exception:
+                        pass
+                    _time.sleep(bekle + 1)
+                except requests.RequestException:
+                    _time.sleep(2 * (deneme + 1))
+            sonuc.append({cid: ok})
+            _time.sleep(0.7)   # hız sınırına takılmamak için mesajlar arası bekleme
     return sonuc
 
 
@@ -173,7 +190,14 @@ def calistir(gonder: bool = True):
         _guclu = analiz.guclu_sinyal_metni([{"ad": a, "satirlar": v} for a, v in foto.items()])
     except Exception:
         _guclu = ""
-    tam = baslik + "\n\n" + ((_guclu + "\n\n") if _guclu else "") \
+    # Tüm stratejilerin özeti — mesaj bölünse bile hepsi ilk parçada görünür
+    ozet = ["📋 *ÖZET* (tüm stratejiler)"]
+    for ad, lst in foto.items():
+        n = len(lst)
+        ozet.append(f"{'✅' if n else '▫️'} {ad}: *{n}*")
+    _ozet = "\n".join(ozet)
+
+    tam = baslik + "\n\n" + _ozet + "\n\n" + ((_guclu + "\n\n") if _guclu else "") \
         + ("\n\n".join(parcalar) if parcalar else "Taranacak kombin yok.")
     print(tam)
 
