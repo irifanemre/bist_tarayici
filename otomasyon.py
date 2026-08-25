@@ -181,7 +181,7 @@ def calistir(gonder: bool = True):
         _borsa = _p.borsa_ozet_metni()
     except Exception:
         _borsa = ""
-    baslik = (f"🔔 *GÜNLÜK BIST TARAMASI*\n"
+    baslik = (f"🔮 *YARIN İÇİN ÖNERİLER*\n"
               f"📅 {ist:%d.%m.%Y %H:%M} · {len(kayitlar)} strateji\n"
               + (f"🏛 {_borsa}\n" if _borsa else "")
               + "─" * 22)
@@ -257,7 +257,7 @@ def performans_metni(en_fazla=None):
     if not bilgi:
         return "Karşılaştırılacak önceki tarama kaydı yok."
 
-    parcalar = ["📊 *DÜNKÜ KAĞITLAR — GÜNCEL DURUM*\n"
+    parcalar = ["📊 *DÜNKÜ TARAMA KARNESİ*\n"
                 f"🕐 Tarama: {bilgi['tarama_zamani']} → Şimdi: {bilgi['simdi']}\n"
                 + "─" * 22 + (("\n" + bilgi["uyari"]) if bilgi.get("uyari") else "")]
 
@@ -291,12 +291,13 @@ if __name__ == "__main__":
         tamam, neden = gunluk_kontrol()
         print(f"günlük kontrol: {neden}")
         if tamam:
-            calistir(gonder=True)
+            # ÖNCE dünkü taramanın karnesi, SONRA bugünün önerileri
             try:
                 telegram_gonder(performans_metni())
-                print("✅ performans mesajı gönderildi.")
+                print("✅ dünkü karne gönderildi.")
             except Exception as e:
-                print("(performans gönderilemedi:", e, ")")
+                print("(karne gönderilemedi:", e, ")")
+            calistir(gonder=True)
             gunluk_isaretle()
     else:
         calistir(gonder="--dry-run" not in sys.argv)

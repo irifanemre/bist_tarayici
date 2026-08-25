@@ -30,16 +30,15 @@ def guclu_sinyaller(bolumler, en_az=2):
                   key=lambda x: (-x["sayi"], x["hisse"]))
 
 
-def guclu_sinyal_metni(bolumler, en_az=2, en_fazla=12) -> str:
+def guclu_sinyal_metni(bolumler, en_az=2, en_fazla=None) -> str:
     """Telegram için kısa özet."""
     liste = guclu_sinyaller(bolumler, en_az)
     if not liste:
         return ""
-    satir = ["🔥 *GÜÇLÜ SİNYALLER* (birden çok stratejide çıkanlar)"]
-    for s in liste[:en_fazla]:
+    satir = [f"🔥 *GÜÇLÜ SİNYALLER* — {len(liste)} hisse (birden çok stratejide)"]
+    gosterilecek = liste if en_fazla is None else liste[:en_fazla]
+    for s in gosterilecek:
         satir.append(f"• *{s['hisse']}* — {s['sayi']} stratejide")
-    if len(liste) > en_fazla:
-        satir.append(f"…ve {len(liste) - en_fazla} tane daha")
     return "\n".join(satir)
 
 
