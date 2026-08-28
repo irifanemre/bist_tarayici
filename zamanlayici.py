@@ -139,7 +139,88 @@ def tick():
         except Exception as e:  # bir bildirim diğerlerini düşürmesin
             _log(f"HATA ({z.get('kombin', '?')}): {e}")
 
+    # GitHub gecikirse günlük bildirimi yerelden gönder (yedek)
+    try:
+        gunluk_bildirim()
+    except Exception as e:
+        _log(f"günlük bildirim hatası: {e}")
+
     _durum_yaz(f"{gonderilen} gönderildi" if gonderilen else "tetiklenen yok")
+
+
+
+# ==========================================================================
+# GÜNLÜK BİLDİRİM YEDEĞİ
+# GitHub zamanlanmış işleri saatlerce geciktirebiliyor/atlayabiliyor.
+# Bu yüzden yerel motor da 18:20 bildirimini göndermeye çalışır.
+# Çifte gönderimi önlemek için önce buluttaki gönderim kaydına bakar.
+# ==========================================================================
+RAW_DURUM = ("https://raw.githubusercontent.com/irifanemre/bist_tarayici/"
+             "main/gonderim.json")
+
+
+def _bulut_gonderdi_mi(bugun):
+    """Bulut bugün göndermiş mi? (repodaki gonderim.json)"""
+    try:
+        r = requests.get(f"{RAW_DURUM}?t={int(time.time())}",
+                         headers={"Cache-Control": "no-cache"}, timeout=10)
+        if r.ok:
+            return r.json().get("son_gonderim") == bugun
+    except Exception:
+        pass
+    return False
+
+
+def _kaydi_buluta_yaz():
+    """gonderim.json + taramalar/ değişikliğini repoya gönder (sessizce)."""
+    import subprocess
+    try:
+        subprocess.run(["git", "pull", "--rebase", "-q", "origin", "main"],
+                       cwd=KONUM, timeout=60, capture_output=True)
+        subprocess.run(["git", "add", "-f", "gonderim.json", "taramalar/"],
+                       cwd=KONUM, timeout=30, capture_output=True)
+        subprocess.run(["git", "commit", "-q", "-m", "gönderim kaydı (yerel) [skip ci]"],
+                       cwd=KONUM, timeout=30, capture_output=True)
+        subprocess.run(["git", "push", "-q"], cwd=KONUM, timeout=90, capture_output=True)
+    except Exception as e:
+        _log(f"kayıt buluta yazılamadı: {e}")
+
+
+def gunluk_bildirim():
+    """Vakti geldiyse ve bulut henüz göndermediyse günlük bildirimi yolla."""
+    import otomasyon
+    from datetime import datetime as _d, timezone as _tz, timedelta as _td
+
+    ist = _d.now(_tz(_td(hours=3)))
+    bugun = ist.strftime("%Y-%m-%d")
+
+    tamam, neden = otomasyon.gunluk_kontrol()
+    if not tamam:
+        return
+    if _bulut_gonderdi_mi(bugun):
+        otomasyon.gunluk_isaretle()          # yerelde de işaretle, tekrar bakmasın
+        _log("bulut zaten göndermiş, atlandı")
+        return
+
+    # Telegram bilgilerini ortama koy (otomasyon env değişkeni okuyor)
+    token, chat = _telegram_cfg()
+    if token:
+        os.environ["TELEGRAM_BOT_TOKEN"] = token
+    if chat:
+        os.environ["TELEGRAM_CHAT_ID"] = chat
+
+    _log("YEREL GÜNLÜK BİLDİRİM gönderiliyor…")
+    try:
+        otomasyon.telegram_gonder(otomasyon.performans_metni())   # 1) dünkü karne
+    except Exception as e:
+        _log(f"karne gönderilemedi: {e}")
+    try:
+        otomasyon.calistir(gonder=True)                           # 2) yarın için öneriler
+        otomasyon.gunluk_isaretle()
+        _kaydi_buluta_yaz()
+        _log("✅ yerel günlük bildirim gönderildi")
+    except Exception as e:
+        _log(f"öneriler gönderilemedi: {e}")
 
 
 if __name__ == "__main__":
