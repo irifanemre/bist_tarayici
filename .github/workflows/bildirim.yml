@@ -8,6 +8,10 @@ on:
     # yalnızca BİR kez gönderir (gonderim.json ile takip).
     - cron: '*/15 15-17 * * 1-5'
   workflow_dispatch: {}
+  # Dış zamanlayıcı (cron-job.org) buradan tetikler — GitHub'ın kendi
+  # zamanlayıcısı geciktiğinde/atladığında garanti çalışması için.
+  repository_dispatch:
+    types: [gunluk-bildirim]
 
 permissions:
   contents: write        # gonderim.json'u repoya geri yazabilmek için
