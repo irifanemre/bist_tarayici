@@ -1,0 +1,262 @@
+{
+  "zaman": "31.08.2026 18:21",
+  "tarih": "2026-08-31",
+  "veri_saati": null,
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "CANTE",
+        "fiyat": 1.38
+      },
+      {
+        "hisse": "BIGEN",
+        "fiyat": 183.8
+      },
+      {
+        "hisse": "PNSUT",
+        "fiyat": 11.79
+      },
+      {
+        "hisse": "PETUN",
+        "fiyat": 11.93
+      },
+      {
+        "hisse": "PRKME",
+        "fiyat": 19.52
+      },
+      {
+        "hisse": "TURGG",
+        "fiyat": 28.16
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "RYSAS",
+        "fiyat": 28.8
+      },
+      {
+        "hisse": "KRDMA",
+        "fiyat": 66.65
+      },
+      {
+        "hisse": "TNZTP",
+        "fiyat": 32.0
+      },
+      {
+        "hisse": "RYGYO",
+        "fiyat": 50.8
+      },
+      {
+        "hisse": "ATSYH",
+        "fiyat": 131.7
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "YKBNK",
+        "fiyat": 36.52
+      },
+      {
+        "hisse": "AKBNK",
+        "fiyat": 71.85
+      },
+      {
+        "hisse": "ENERY",
+        "fiyat": 9.88
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "BLUME",
+        "fiyat": 41.88
+      },
+      {
+        "hisse": "OZRDN",
+        "fiyat": 30.46
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "AKHAN",
+        "fiyat": 41.54
+      },
+      {
+        "hisse": "TURGG",
+        "fiyat": 28.16
+      },
+      {
+        "hisse": "ZRGYO",
+        "fiyat": 19.52
+      },
+      {
+        "hisse": "KONYA",
+        "fiyat": 3880.0
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AKHAN",
+        "fiyat": 41.54
+      },
+      {
+        "hisse": "TURGG",
+        "fiyat": 28.16
+      },
+      {
+        "hisse": "SANEL",
+        "fiyat": 57.75
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "OZRDN",
+        "fiyat": 30.46
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "CANTE",
+        "fiyat": 1.38
+      },
+      {
+        "hisse": "BIGEN",
+        "fiyat": 183.8
+      },
+      {
+        "hisse": "PNSUT",
+        "fiyat": 11.79
+      },
+      {
+        "hisse": "PETUN",
+        "fiyat": 11.93
+      },
+      {
+        "hisse": "PRKME",
+        "fiyat": 19.52
+      },
+      {
+        "hisse": "OZATD",
+        "fiyat": 4835.0
+      },
+      {
+        "hisse": "TURGG",
+        "fiyat": 28.16
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "OFSYM",
+        "fiyat": 67.05
+      }
+    ],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "OZRDN",
+        "fiyat": 30.46
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "ATSYH",
+        "fiyat": 131.7
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "KTLEV",
+        "fiyat": 62.8
+      },
+      {
+        "hisse": "ASTOR",
+        "fiyat": 325.75
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 400.25
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 386.25
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.5
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 86.5
+      },
+      {
+        "hisse": "NTGAZ",
+        "fiyat": 11.64
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 70.05
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 32.46
+      },
+      {
+        "hisse": "DUNYH",
+        "fiyat": 145.0
+      },
+      {
+        "hisse": "PCILT",
+        "fiyat": 33.84
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 299.25
+      }
+    ],
+    "ASİYE MFI": [
+      {
+        "hisse": "ATSYH",
+        "fiyat": 131.7
+      }
+    ],
+    "STG GUC": [
+      {
+        "hisse": "TURGG",
+        "fiyat": 28.16
+      }
+    ],
+    "STP FLAMA": [
+      {
+        "hisse": "OZRDN",
+        "fiyat": 30.46
+      },
+      {
+        "hisse": "RODRG",
+        "fiyat": 26.38
+      }
+    ],
+    "SUPERTREND AL": [
+      {
+        "hisse": "CANTE",
+        "fiyat": 1.3799999952316284
+      },
+      {
+        "hisse": "EDIP",
+        "fiyat": 40.2599983215332
+      },
+      {
+        "hisse": "MAKTK",
+        "fiyat": 10.720000267028809
+      },
+      {
+        "hisse": "MARTI",
+        "fiyat": 1.7000000476837158
+      },
+      {
+        "hisse": "TURGG",
+        "fiyat": 28.15999984741211
+      }
+    ]
+  }
+}
