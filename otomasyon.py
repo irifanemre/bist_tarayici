@@ -55,12 +55,17 @@ def strateji_df(paket, limit=100):
 
 
 def tarama_veri(ad: str, paket, limit: int = 12):
-    """(metin, [{hisse, fiyat}]) döndürür."""
+    """(metin, [{hisse, fiyat}], veri_bilgisi) döndürür.
+
+    Üçüncü değer verinin GERÇEK saatini taşır: TradingView 15 dk gecikmeli
+    yayınlıyor, yani tarama saati ile fiyatın saati aynı değil."""
+    from tarayici import veri_bilgisi
+
     toplam, df = strateji_df(paket, limit)
     if toplam == 0 and df is None:
-        return None, []
+        return None, [], {}
     if not toplam or df is None or len(df) == 0:
-        return f"📊 *{ad}* — eşleşme yok.", []
+        return f"📊 *{ad}* — eşleşme yok.", [], veri_bilgisi(df)
 
     satirlar, kayitlar = [], []
     for _, r in df.iterrows():
@@ -74,7 +79,7 @@ def tarama_veri(ad: str, paket, limit: int = 12):
     metin = basi + ":\n" + "\n".join(satirlar)
     if toplam > len(df):
         metin += f"\n…ve {toplam - len(df)} tane daha"
-    return metin, kayitlar
+    return metin, kayitlar, veri_bilgisi(df)
 
 
 def tarama_metni(ad: str, paket, limit: int = 15):
@@ -158,19 +163,22 @@ def calistir(gonder: bool = True):
         return
 
     parcalar, foto = [], {}
+    veri_saati, gecikme = None, None
     for ad, paket in kayitlar.items():
         try:
-            metin, kayit_satirlar = tarama_veri(ad, paket)
+            metin, kayit_satirlar, veri = tarama_veri(ad, paket)
             if metin:
                 parcalar.append(metin)
             foto[ad] = kayit_satirlar
+            if veri_saati is None and veri.get("saat"):
+                veri_saati, gecikme = veri["saat"], veri.get("gecikme_dk")
         except Exception as e:
             parcalar.append(f"📊 *{ad}* — tarama hatası: {e}")
 
     # Taramanın fotoğrafını sakla (ertesi gün performans karşılaştırması için)
     try:
         import gecmis
-        gecmis.kaydet(foto)
+        gecmis.kaydet(foto, veri_saati)
     except Exception as e:
         print("(geçmiş kaydedilemedi:", e, ")")
 
@@ -190,8 +198,15 @@ def calistir(gonder: bool = True):
         _borsa = _p.borsa_ozet_metni()
     except Exception:
         _borsa = ""
+    # Verinin saati tarama saatinden FARKLI (TradingView 15 dk gecikmeli).
+    # Hangi ana ait fiyatlara baktığımız mesajda açıkça yazsın.
+    if veri_saati:
+        _veri = f"🕐 Veri: {veri_saati}" + (f" ({gecikme} dk gecikmeli)" if gecikme else "")
+    else:
+        _veri = "🕐 Veri saati okunamadı"
     baslik = (f"🔮 *YARIN İÇİN ÖNERİLER*\n"
-              f"📅 {ist:%d.%m.%Y %H:%M} · {len(kayitlar)} strateji\n"
+              f"📅 Tarama: {ist:%d.%m.%Y %H:%M} · {len(kayitlar)} strateji\n"
+              f"{_veri}\n"
               + (f"🏛 {_borsa}\n" if _borsa else "")
               + "─" * 22)
     try:
