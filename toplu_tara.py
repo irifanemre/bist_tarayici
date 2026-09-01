@@ -48,6 +48,13 @@ def calistir(limit=100):
     except Exception as e:
         print(f"(geçmiş kaydedilemedi: {e})")
 
+    # Tüm BIST'in bugünkü kapanışı — performans hesapları bunu kullanır
+    try:
+        import fiyat_deposu
+        fiyat_deposu.gunluk_kaydet(veri_saati)
+    except Exception as e:
+        print(f"(günlük kapanışlar kaydedilemedi: {e})")
+
     zaman_str = datetime.now().strftime("%d.%m.%Y %H:%M")
     try:
         import piyasa as _p

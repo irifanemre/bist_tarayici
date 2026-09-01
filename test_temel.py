@@ -174,3 +174,43 @@ def test_rating_etiket():
 def test_rating_rozet_ikon():
     assert "🟢" in rating_rozet(0.7)
     assert "🔴" in rating_rozet(-0.8)
+
+
+# ----------------------------- fiyat deposu -------------------------------
+def test_fiyat_deposu_baska_gune_kaymaz(tmp_path, monkeypatch):
+    """Asıl hata buydu: o günün kapanışı yoksa BAŞKA bir günün fiyatı
+    kullanılıyordu; tek günlük diye gösterilen çok günlük getiri çıkıyordu."""
+    import fiyat_deposu as fd
+    monkeypatch.setattr(fd, "KLASOR", str(tmp_path))
+    du.json_yaz(str(tmp_path / "2026-08-26.json"),
+                {"tarih": "2026-08-26", "fiyatlar": {"AAA": 10.0}})
+
+    assert fd.kapanis(["AAA"], "2026-08-26") == {"AAA": 10.0}
+    assert fd.kapanis(["AAA"], "2026-08-27") == {}   # kayıt yok → uydurma yok
+    assert fd.kapanis(["BBB"], "2026-08-26") == {}   # o gün o hisse yok
+
+
+def test_fiyat_deposu_sonraki_gun(tmp_path, monkeypatch):
+    import fiyat_deposu as fd
+    monkeypatch.setattr(fd, "KLASOR", str(tmp_path))
+    for t in ("2026-08-26", "2026-08-28"):
+        du.json_yaz(str(tmp_path / f"{t}.json"), {"tarih": t, "fiyatlar": {"AAA": 1.0}})
+    assert fd.sonraki_gun("2026-08-26") == "2026-08-28"
+    assert fd.sonraki_gun("2026-08-28") is None
+
+
+def test_fiyat_deposu_tohumlama(tmp_path, monkeypatch):
+    """Eski günler tarama kayıtlarından doldurulur (o fiyatlar da TradingView'den)."""
+    import fiyat_deposu as fd
+    import gecmis
+    taramalar = tmp_path / "taramalar"
+    taramalar.mkdir()
+    du.json_yaz(str(taramalar / "2026-08-26_1820.json"),
+                {"tarih": "2026-08-26", "zaman": "26.08.2026 18:20",
+                 "stratejiler": {"X": [{"hisse": "AAA", "fiyat": 5.5}]}})
+    monkeypatch.setattr(gecmis, "KLASOR", str(taramalar))
+    monkeypatch.setattr(fd, "KLASOR", str(tmp_path / "fiyatlar"))
+
+    assert fd.tohumla() == {"2026-08-26": 1}
+    assert fd.kapanis(["AAA"], "2026-08-26") == {"AAA": 5.5}
+    assert fd.tohumla() == {}   # var olan günü tekrar yazmaz

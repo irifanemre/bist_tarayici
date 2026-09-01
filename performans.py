@@ -176,34 +176,29 @@ if __name__ == "__main__":
 # bitiş günündeki kapanışa göre getirisi.
 # ==========================================================================
 def kapanis_fiyatlari(kodlar, tarih):
-    """Verilen gündeki (YYYY-MM-DD) kapanış fiyatları. {HISSE: fiyat}"""
-    import warnings
-    warnings.filterwarnings("ignore")
-    import yfinance as yf
-    from datetime import datetime as _dt, timedelta as _td
+    """Verilen gündeki (YYYY-MM-DD) kapanış fiyatları. {HISSE: fiyat}
+
+    Kaynak: fiyat_deposu (TradingView). Eskiden yfinance kullanılıyordu ama
+    tarama fiyatı TradingView'den geldiği için iki kaynak tutmuyordu — bkz.
+    fiyat_deposu.py başlığı. O güne ait kapanış yoksa hisse sonuçta yer almaz;
+    eski bir günün fiyatına kayıp sahte getiri üretmeyiz."""
+    import fiyat_deposu
 
     kodlar = sorted({(k or "").upper() for k in kodlar if k})
     if not kodlar:
         return {}
-    bas = _dt.strptime(tarih, "%Y-%m-%d") - _td(days=6)
-    bit = _dt.strptime(tarih, "%Y-%m-%d") + _td(days=1)
-    try:
-        df = yf.download([f"{k}.IS" for k in kodlar], start=bas.strftime("%Y-%m-%d"),
-                         end=bit.strftime("%Y-%m-%d"), interval="1d",
-                         progress=False, auto_adjust=False, group_by="column")
-        kapanis = df["Close"]
-    except Exception as e:
-        print(f"  (geçmiş fiyat alınamadı: {e})")
-        return {}
 
-    out = {}
-    for k in kodlar:
-        try:
-            seri = kapanis[f"{k}.IS"].dropna() if len(kodlar) > 1 else kapanis.dropna()
-            if len(seri):
-                out[k] = float(seri.iloc[-1])   # tarihe kadar olan son kapanış
-        except Exception:
-            continue
+    out = fiyat_deposu.kapanis(kodlar, tarih)
+
+    # Bugün için henüz günlük kapanış yazılmadıysa canlı TradingView fiyatı
+    bugun = datetime.now(IST).strftime("%Y-%m-%d")
+    if not out and tarih == bugun:
+        out = {k: f for k, (f, _) in guncel_fiyatlar(kodlar).items()}
+
+    eksik = [k for k in kodlar if k not in out]
+    if eksik:
+        print(f"  ({tarih} kapanışı {len(eksik)} hisse için yok: {', '.join(eksik[:8])}"
+              f"{'…' if len(eksik) > 8 else ''})")
     return out
 
 
@@ -215,8 +210,10 @@ def hisse_evreni():
     global _EVREN
     if _EVREN is None:
         try:
+            from tradingview_screener import col, And
             _, df = (Query().set_markets("turkey").select("name", "type")
-                     .limit(1000).get_scanner_data())
+                     .where2(And(col("type") == "stock"))   # fonlar (OPX30, ZGOLD…) hariç
+                     .limit(2000).get_scanner_data())
             _EVREN = {str(x).upper() for x in df["name"]}
         except Exception:
             _EVREN = set()
@@ -298,10 +295,7 @@ def gunluk_karne(bas_tarih, bit_tarih, secili=None, mod="ertesi"):
       gunler: ['2026-08-13', '2026-08-14', ...]
       matris: {strateji: {gun: ortalama_yuzde|None}}
     """
-    import warnings
-    warnings.filterwarnings("ignore")
-    import yfinance as yf
-    from datetime import datetime as _d, timedelta as _t
+    import fiyat_deposu
 
     gunler = [g for g in sorted(gecmis.kayitli_gunler()) if bas_tarih <= g <= bit_tarih]
     if not gunler:
@@ -327,38 +321,38 @@ def gunluk_karne(bas_tarih, bit_tarih, secili=None, mod="ertesi"):
     if not tum_kodlar:
         return [], {}
 
-    # Tek seferde tüm dönemin kapanışlarını indir
-    bas_dt = _d.strptime(min(gunler), "%Y-%m-%d") - _t(days=5)
-    bit_dt = _d.strptime(bit_tarih, "%Y-%m-%d") + _t(days=6)
-    bugun = datetime.now(IST).replace(tzinfo=None) + _t(days=1)
-    bit_dt = min(bit_dt, bugun)   # gelecek tarih isteme (yfinance hata veriyor)
-    try:
-        veri = yf.download([f"{k}.IS" for k in sorted(tum_kodlar)],
-                           start=bas_dt.strftime("%Y-%m-%d"), end=bit_dt.strftime("%Y-%m-%d"),
-                           interval="1d", progress=False, auto_adjust=False)["Close"]
-    except Exception as e:
-        print(f"  (geçmiş fiyat alınamadı: {e})")
+    # Tüm dönemin kapanışları — TradingView kaynaklı fiyat deposundan
+    depo = fiyat_deposu.tum_fiyatlar()
+    if not depo:
+        print("  (fiyat deposu boş — 'python3 fiyat_deposu.py' ile doldur)")
         return gunler, {}
+    depo_gunleri = sorted(depo)
 
-    def _seri(kod):
-        try:
-            return veri[f"{kod}.IS"].dropna() if hasattr(veri, "columns") else veri.dropna()
-        except Exception:
-            return None
+    from datetime import datetime as _d, timedelta as _t
+
+    def _ertesi_isgunu(gun):
+        """gun'den sonraki ilk hafta içi gün (YYYY-MM-DD)."""
+        t = _d.strptime(gun, "%Y-%m-%d") + _t(days=1)
+        while t.weekday() >= 5:            # cumartesi/pazar
+            t += _t(days=1)
+        return t.strftime("%Y-%m-%d")
 
     def hedef_kapanis(kod, gun):
-        """mod'a göre: ertesi işlem günü veya aralığın son günü kapanışı."""
-        seri = _seri(kod)
-        if seri is None or not len(seri):
-            return None
-        try:
-            if mod == "aralik_sonu":
-                kadar = seri[seri.index <= bit_tarih]
-                return float(kadar.iloc[-1]) if len(kadar) else None
-            sonrasi = seri[seri.index > gun]
-            return float(sonrasi.iloc[0]) if len(sonrasi) else None
-        except Exception:
-            return None
+        """mod'a göre: ertesi işlem günü veya aralığın son günü kapanışı.
+
+        "ertesi" modunda hedef, GERÇEK ertesi iş günü olmak zorunda. Depoda o
+        gün yoksa (o gün tarama çalışmamışsa) None döner — bir sonraki kayıtlı
+        güne ATLAMAZ. Atlasaydı 26.08→28.08 gibi iki günlük getiri "ertesi gün"
+        diye görünürdü. Tersi: gerçek bir tatile denk gelen gün de boş kalır,
+        bilerek temkinli davranıyoruz."""
+        if mod == "aralik_sonu":
+            oncekiler = [g for g in depo_gunleri if g <= bit_tarih]
+            hedef = oncekiler[-1] if oncekiler else None
+        else:
+            hedef = _ertesi_isgunu(gun)
+            if hedef not in depo:
+                return None
+        return depo.get(hedef, {}).get(kod) if hedef else None
 
     matris = {}
     for g, st in kayitlar.items():

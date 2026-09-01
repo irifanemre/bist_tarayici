@@ -1,8 +1,11 @@
 """
 ÖZEL TARAMALAR — TradingView screener'ında bulunmayan indikatörler.
 
-Bu indikatörler fiyat verisinden (yfinance) yerel olarak hesaplanır.
 Şu an: SuperTrend (Pine "SuperTrend Scanner" mantığının birebir kopyası).
+
+Fiyat TradingView'den gelir. Bar geçmişi (OHLC) yfinance'ten gelmek zorunda —
+TradingView screener'ı geçmiş bar veremiyor. İki kaynak tutmayan hisseler
+elenir; ayrıntı için supertrend_tara() açıklamasına bak.
 
 Kullanım (kombinler.json içinde):
     {"ozel": "supertrend", "ayarlar": {"periyot": 10, "carpan": 3.0, "yon": "AL"}}
@@ -60,10 +63,19 @@ def supertrend_trend(yuksek, dusuk, kapanis, periyot=10, carpan=3.0):
     return pd.Series(trend, index=kapanis.index)
 
 
+TUTARSIZLIK_SINIRI = 3.0   # yfinance ile TradingView kapanışı arasında izin verilen % fark
+
+
 def supertrend_tara(periyot=10, carpan=3.0, yon="AL", kodlar=None, gun=120):
     """Bugün SuperTrend sinyali veren BIST hisseleri.
     yon: 'AL' (trend -1→+1) veya 'SAT' (+1→-1)
-    Döner: DataFrame(name, close, change, Recommend.All)"""
+    Döner: DataFrame(name, close, change, Recommend.All)
+
+    Fiyat TradingView'den alınır (diğer 18 strateji ile aynı kaynak olsun diye).
+    Bar geçmişi yfinance'ten gelmek zorunda — TradingView screener'ı 120 günlük
+    OHLC veremiyor. Bu yüzden yfinance serisi TradingView kapanışıyla
+    tutmayan hisseler ELENİR: orada seri farklı düzeltilmiş (bedelsiz/split)
+    ya da donmuş demektir, o seriden çıkan sinyal de anlamsız olur."""
     import yfinance as yf
 
     if kodlar is None:
@@ -75,7 +87,10 @@ def supertrend_tara(periyot=10, carpan=3.0, yon="AL", kodlar=None, gun=120):
     veri = yf.download([f"{k}.IS" for k in kodlar], period=f"{gun}d", interval="1d",
                        progress=False, auto_adjust=False, group_by="ticker", threads=True)
 
-    satirlar = []
+    from performans import guncel_fiyatlar
+    tv = guncel_fiyatlar(kodlar)
+
+    satirlar, elenen = [], []
     for k in kodlar:
         try:
             df = veri[f"{k}.IS"].dropna()
@@ -88,16 +103,30 @@ def supertrend_tara(periyot=10, carpan=3.0, yon="AL", kodlar=None, gun=120):
             sinyal = (son == 1 and onceki == -1) if yon == "AL" else (son == -1 and onceki == 1)
             if not sinyal:
                 continue
-            kapanis = float(df["Close"].iloc[-1])
-            onceki_kapanis = float(df["Close"].iloc[-2])
+
+            tv_fiyat, tv_degisim = tv.get(k, (None, None))
+            if not tv_fiyat:
+                elenen.append(f"{k} (TradingView fiyatı yok)")
+                continue
+
+            yf_kapanis = float(df["Close"].iloc[-1])
+            sapma = abs(yf_kapanis - tv_fiyat) / tv_fiyat * 100
+            if sapma > TUTARSIZLIK_SINIRI:
+                elenen.append(f"{k} (yfinance {yf_kapanis:.2f} ≠ TradingView {tv_fiyat:.2f})")
+                continue
+
             satirlar.append({
                 "name": k,
-                "close": kapanis,
-                "change": (kapanis - onceki_kapanis) / onceki_kapanis * 100 if onceki_kapanis else 0.0,
+                "close": tv_fiyat,
+                "change": tv_degisim if tv_degisim is not None else 0.0,
                 "Recommend.All": None,
             })
         except Exception:
             continue
+
+    if elenen:
+        print(f"  (SuperTrend — veri tutarsız, {len(elenen)} hisse elendi: "
+              f"{', '.join(elenen[:5])}{'…' if len(elenen) > 5 else ''})")
 
     return pd.DataFrame(satirlar, columns=["name", "close", "change", "Recommend.All"])
 

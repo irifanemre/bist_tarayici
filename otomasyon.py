@@ -174,6 +174,15 @@ def calistir(gonder: bool = True):
     except Exception as e:
         print("(geçmiş kaydedilemedi:", e, ")")
 
+    # Tüm BIST'in bugünkü kapanışı — performans hesapları bunu kullanır.
+    # Sadece taramada çıkanları değil HERKESİ kaydeder, çünkü ertesi gün
+    # karşılaştırılacak hisse o gün hiçbir stratejide çıkmamış olabilir.
+    try:
+        import fiyat_deposu
+        fiyat_deposu.gunluk_kaydet()
+    except Exception as e:
+        print("(günlük kapanışlar kaydedilemedi:", e, ")")
+
     from datetime import datetime, timezone, timedelta
     ist = datetime.now(timezone(timedelta(hours=3)))  # İstanbul saati
     try:

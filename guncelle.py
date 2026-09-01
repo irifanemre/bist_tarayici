@@ -46,9 +46,9 @@ def guncelle(sessiz=True):
             # ZIP içi yol: "bist_tarayici-main/<ic_yol>"
             ic_yol = isim.split("/", 1)[1] if "/" in isim else isim
 
-            # Tarama geçmişi (taramalar/*.json) — buluttaki günlük kayıtlar
-            if ic_yol.startswith("taramalar/") and ad.endswith(".json"):
-                hedef = os.path.join(KONUM, "taramalar", ad)
+            # Tarama geçmişi ve günlük kapanışlar — buluttaki günlük kayıtlar
+            if ic_yol.startswith(("taramalar/", "fiyatlar/")) and ad.endswith(".json"):
+                hedef = os.path.join(KONUM, ic_yol.split("/", 1)[0], ad)
                 os.makedirs(os.path.dirname(hedef), exist_ok=True)
             else:
                 if not (ad.endswith(UZANTILAR) or ad in EK_DOSYALAR):
