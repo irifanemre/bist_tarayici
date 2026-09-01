@@ -276,9 +276,13 @@ def performans_metni(en_fazla=None):
             continue
         satir = [f"📈 *{b['ad']}*"]
         for s in b["satirlar"]:
+            fiyat = f"{s['yeni']:g}" if s.get("yeni") else "—"
+            if s.get("supheli"):
+                # Tavanı aşan fark = bedelsiz/split düzeltmesi, getiri diye gösterme
+                satir.append(f"⚠️ {s['hisse']}  {fiyat}  (veri şüpheli)")
+                continue
             d = f"{s['degisim']:+.2f}%" if s["degisim"] is not None else "—"
             ok = "🟢" if (s["degisim"] or 0) > 0 else ("🔴" if (s["degisim"] or 0) < 0 else "⚪")
-            fiyat = f"{s['yeni']:g}" if s.get("yeni") else "—"
             satir.append(f"{ok} {s['hisse']}  {fiyat}  ({d})")
         parcalar.append("\n".join(satir))
 

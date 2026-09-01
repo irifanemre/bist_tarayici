@@ -214,3 +214,38 @@ def test_fiyat_deposu_tohumlama(tmp_path, monkeypatch):
     assert fd.tohumla() == {"2026-08-26": 1}
     assert fd.kapanis(["AAA"], "2026-08-26") == {"AAA": 5.5}
     assert fd.tohumla() == {}   # var olan günü tekrar yazmaz
+
+
+# ----------------------------- imkânsız değişim koruması ------------------
+def test_isgunu_farki_hafta_sonu_atlar():
+    import performans as p
+    assert p.isgunu_farki("2026-08-28", "2026-08-31") == 1   # cuma → pazartesi
+    assert p.isgunu_farki("2026-08-26", "2026-08-28") == 2   # araya 27'si girer
+    assert p.isgunu_farki("2026-08-31", "2026-08-31") == 1   # en az 1
+
+
+def test_sinir_gune_gore_bilesik():
+    import performans as p
+    assert abs(p._sinir(1) - 10.5) < 1e-9    # bir günde en fazla ±%10
+    assert abs(p._sinir(2) - 21.5) < 1e-9    # iki günde 1.10² - 1
+
+
+def test_hesapla_tavan_ustunu_getiri_saymaz(monkeypatch):
+    """BIST'te bir günde +%50 olamaz — bu bedelsiz/split düzeltmesidir.
+    Sayı olarak gösterilmemeli ve strateji ortalamasına girmemeli."""
+    import performans as p
+    bugun = datetime.now(p.IST).strftime("%Y-%m-%d")
+    kayit = {"tarih": bugun, "zaman": "01.09.2026 18:20",
+             "stratejiler": {"X": [{"hisse": "AAA", "fiyat": 100.0},
+                                   {"hisse": "BBB", "fiyat": 100.0}]}}
+    monkeypatch.setattr(p, "guncel_fiyatlar",
+                        lambda k: {"AAA": (150.0, 0.0), "BBB": (105.0, 0.0)})
+
+    bilgi, satirlar, karne, bolumler = p.hesapla(kayit)
+    s = {x["hisse"]: x for x in satirlar}
+    assert s["AAA"]["supheli"] is True
+    assert s["AAA"]["degisim"] is None          # +%50 sayı olarak gösterilmez
+    assert s["BBB"]["supheli"] is False
+    assert abs(s["BBB"]["degisim"] - 5.0) < 1e-9
+    assert abs(karne[0]["ortalama"] - 5.0) < 1e-9   # ortalama sadece geçerliden
+    assert "bedelsiz" in bilgi["uyari"]

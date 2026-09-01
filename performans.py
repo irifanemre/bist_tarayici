@@ -44,8 +44,41 @@ def guncel_fiyatlar(kodlar):
     return out
 
 
+TAVAN = 10.0        # BIST günlük fiyat tavanı (%) — bir işlem gününde aşılamaz
+TOLERANS = 0.5      # yuvarlama payı
+
+
+def isgunu_farki(bas_tarih, bit_tarih) -> int:
+    """İki tarih arasındaki hafta içi gün sayısı (bas hariç, bit dahil).
+    Resmî tatilleri bilmiyoruz; tatil varsa fark olduğundan büyük çıkar,
+    yani sınır GENİŞ olur — hatalı işaretlemek yerine kaçırmayı tercih eder."""
+    from datetime import datetime as _d, timedelta as _t
+    try:
+        t = _d.strptime(bas_tarih, "%Y-%m-%d")
+        son = _d.strptime(bit_tarih, "%Y-%m-%d")
+    except (ValueError, TypeError):
+        return 1
+    n = 0
+    while t < son:
+        t += _t(days=1)
+        if t.weekday() < 5:
+            n += 1
+    return max(n, 1)
+
+
+def _sinir(gun_farki: int) -> float:
+    """gun_farki işlem gününde fiyatın çıkabileceği azami yüzde.
+    Her gün en fazla ±%10 → bileşik: 1.10^n - 1"""
+    return ((1 + TAVAN / 100) ** gun_farki - 1) * 100 + TOLERANS
+
+
 def hesapla(kayit=None):
-    """Döner: (bilgi, satirlar, karne)"""
+    """Döner: (bilgi, satirlar, karne, bolumler)
+
+    Fiziksel olarak imkânsız değişimler (BIST tavanının üstü) rapora SAYI
+    olarak girmez: 'supheli' işaretlenir, degisim None olur, ortalamaya
+    katılmaz. Böyle bir değer neredeyse her zaman gerçek getiri değil,
+    araya giren bedelsiz/split/sermaye artırımı düzeltmesidir."""
     kayit = kayit or gecmis.son_kayit(bugun_haric=True) or gecmis.son_kayit(bugun_haric=False)
     if not kayit:
         return None, [], [], []
@@ -53,6 +86,19 @@ def hesapla(kayit=None):
     stratejiler = kayit.get("stratejiler", {})
     tum_kodlar = [h.get("hisse") for lst in stratejiler.values() for h in lst]
     fiyatlar = guncel_fiyatlar(tum_kodlar)
+
+    bugun = datetime.now(IST).strftime("%Y-%m-%d")
+    gun_farki = isgunu_farki(kayit.get("tarih") or bugun, bugun)
+    sinir = _sinir(gun_farki)
+
+    def _degisim(eski, yeni):
+        """(degisim, supheli) — imkânsız değer sayı olarak dönmez."""
+        if not (eski and yeni):
+            return None, False
+        d = (yeni - eski) / eski * 100
+        if abs(d) > sinir:
+            return None, True
+        return d, False
 
     # Aynı hisse birden çok stratejide çıkabilir → stratejileri birleştir
     birlesik = {}
@@ -70,13 +116,14 @@ def hesapla(kayit=None):
     satirlar = []
     for kod, v in birlesik.items():
         yeni, _ = fiyatlar.get(kod, (None, None))
-        degisim = ((yeni - v["eski"]) / v["eski"] * 100) if (yeni and v["eski"]) else None
+        degisim, supheli = _degisim(v["eski"], yeni)
         satirlar.append({
             "hisse": kod,
             "strateji": ", ".join(dict.fromkeys(v["stratejiler"])),
             "eski": v["eski"] or None,
             "yeni": yeni,
             "degisim": degisim,
+            "supheli": supheli,
         })
     satirlar.sort(key=lambda s: (s["degisim"] is None, -(s["degisim"] or 0)))
 
@@ -88,8 +135,9 @@ def hesapla(kayit=None):
             kod = (h.get("hisse") or "").upper()
             eski = float(h.get("fiyat") or 0)
             yeni = fiyatlar.get(kod, (None, None))[0]
-            if eski and yeni:
-                getiriler.append((yeni - eski) / eski * 100)
+            d, _supheli = _degisim(eski, yeni)
+            if d is not None:
+                getiriler.append(d)
         karne.append({
             "strateji": strateji,
             "adet": len(liste),
@@ -107,26 +155,43 @@ def hesapla(kayit=None):
             kod = (h.get("hisse") or "").upper()
             eski = float(h.get("fiyat") or 0)
             yeni = fiyatlar.get(kod, (None, None))[0]
-            deg = ((yeni - eski) / eski * 100) if (yeni and eski) else None
-            blok.append({"hisse": kod, "eski": eski or None, "yeni": yeni, "degisim": deg})
+            deg, supheli = _degisim(eski, yeni)
+            blok.append({"hisse": kod, "eski": eski or None, "yeni": yeni,
+                         "degisim": deg, "supheli": supheli})
         blok.sort(key=lambda s: (s["degisim"] is None, -(s["degisim"] or 0)))
         bolumler.append({"ad": strateji, "satirlar": blok})
 
     acik = globals().get("_SESSION") == "market"
     ayni_seans = all((s["degisim"] or 0) == 0 for s in satirlar) and satirlar
-    uyari = ""
+    uyarilar = []
     if not acik and ayni_seans:
-        uyari = ("⚠️ Borsa kapalı ve fiyatlar tarama anıyla aynı — gerçek fark "
-                 "bir sonraki işlem gününün kapanışında görünecek.")
+        uyarilar.append("⚠️ Borsa kapalı ve fiyatlar tarama anıyla aynı — gerçek fark "
+                        "bir sonraki işlem gününün kapanışında görünecek.")
     elif not acik:
-        uyari = "ℹ️ Borsa kapalı — son kapanış fiyatlarına göre hesaplandı."
+        uyarilar.append("ℹ️ Borsa kapalı — son kapanış fiyatlarına göre hesaplandı.")
+
+    # Arada bir işlem gününden fazla varsa "dünkü" demek yanlış olur:
+    # getiri tek günlük değil, tavan da o oranda yüksek.
+    if gun_farki > 1:
+        uyarilar.append(f"ℹ️ Bu karşılaştırma {gun_farki} işlem günü kapsıyor "
+                        f"(arada tarama çalışmamış) — tek günlük getiri değil.")
+
+    supheliler = [s["hisse"] for s in satirlar if s.get("supheli")]
+    if supheliler:
+        uyarilar.append(
+            f"⚠️ {len(supheliler)} hissede fiyat farkı {gun_farki} günün tavanını "
+            f"(±%{sinir:.1f}) aşıyor: {', '.join(supheliler[:6])}"
+            f"{'…' if len(supheliler) > 6 else ''}. Gerçek getiri değil, araya giren "
+            f"bedelsiz/split düzeltmesi — ortalamaya katılmadı.")
 
     bilgi = {
         "tarama_zamani": kayit.get("zaman", "?"),
         "simdi": datetime.now(IST).strftime("%d.%m.%Y %H:%M"),
-        "uyari": uyari,
+        "uyari": "\n".join(uyarilar),
         "bas_etiket": "Tarama fiyatı",
         "bit_etiket": "Güncel fiyat",
+        "gun_farki": gun_farki,
+        "sinir": sinir,
     }
     return bilgi, satirlar, karne, bolumler
 
@@ -241,6 +306,8 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
     kodlar = [h.get("hisse") for lst in stratejiler.values() for h in lst]
     bitis = kapanis_fiyatlari(kodlar, bit_tarih)
 
+    sinir = _sinir(isgunu_farki(bas_tarih, bit_tarih))
+
     bolumler, karne = [], []
     for strateji, liste in stratejiler.items():
         blok, getiriler = [], []
@@ -249,9 +316,13 @@ def hesapla_aralik(bas_tarih, bit_tarih, secili=None):
             eski = float(h.get("fiyat") or 0)
             yeni = bitis.get(kod)
             deg = ((yeni - eski) / eski * 100) if (yeni and eski) else None
+            supheli = deg is not None and abs(deg) > sinir
+            if supheli:      # tavan üstü = bedelsiz/split düzeltmesi, getiri değil
+                deg = None
             if deg is not None:
                 getiriler.append(deg)
-            blok.append({"hisse": kod, "eski": eski or None, "yeni": yeni, "degisim": deg})
+            blok.append({"hisse": kod, "eski": eski or None, "yeni": yeni,
+                         "degisim": deg, "supheli": supheli})
         blok.sort(key=lambda s: (s["degisim"] is None, -(s["degisim"] or 0)))
         bolumler.append({"ad": strateji, "satirlar": blok})
         karne.append({
@@ -363,7 +434,12 @@ def gunluk_karne(bas_tarih, bit_tarih, secili=None, mod="ertesi"):
                 eski = float(h.get("fiyat") or 0)
                 yeni = hedef_kapanis(kod, g)
                 if eski and yeni:
-                    getiriler.append((yeni - eski) / eski * 100)
+                    d = (yeni - eski) / eski * 100
+                    # "ertesi" modunda hedef tek işlem günü sonrası; aralık
+                    # modunda g→bit_tarih. Tavanı aşan fark bedelsiz/split'tir.
+                    kapsam = 1 if mod == "ertesi" else isgunu_farki(g, bit_tarih)
+                    if abs(d) <= _sinir(kapsam):
+                        getiriler.append(d)
             matris.setdefault(strateji, {})[g] = (
                 sum(getiriler) / len(getiriler)) if getiriler else None
 
