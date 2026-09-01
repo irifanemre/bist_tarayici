@@ -3,10 +3,11 @@ name: BIST otomatik bildirim
 on:
   schedule:
     # GitHub zamanlanmış işleri 1-2 saat geciktirebiliyor. Bu yüzden
-    # 18:00-20:45 İstanbul arası 15 dakikada bir denenir; otomasyon.py
-    # "--gunluk" modu sayesinde 18:20'den önce göndermez ve günde
+    # 18:10-20:55 İstanbul arası 15 dakikada bir denenir; otomasyon.py
+    # "--gunluk" modu sayesinde 18:40'tan önce göndermez ve günde
     # yalnızca BİR kez gönderir (gonderim.json ile takip).
-    - cron: '*/15 15-17 * * 1-5'
+    # Dakikalar 18:40'a denk gelecek şekilde hizalandı (UTC+3).
+    - cron: '10,25,40,55 15-17 * * 1-5'
   workflow_dispatch: {}
   # Dış zamanlayıcı (cron-job.org) buradan tetikler — GitHub'ın kendi
   # zamanlayıcısı geciktiğinde/atladığında garanti çalışması için.

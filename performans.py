@@ -237,7 +237,7 @@ if __name__ == "__main__":
 
 
 # ==========================================================================
-# TARİH ARALIĞI performansı: seçilen günün 18:20 taramasındaki kağıtların
+# TARİH ARALIĞI performansı: seçilen günün 18:40 taramasındaki kağıtların
 # bitiş günündeki kapanışa göre getirisi.
 # ==========================================================================
 def kapanis_fiyatlari(kodlar, tarih):

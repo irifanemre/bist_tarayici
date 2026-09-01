@@ -118,7 +118,7 @@ def komut_isle(metin, chat_id):
                 "*/liste* — stratejileri listele\n"
                 "*/id* — chat ID'ini göster\n"
                 "*/yardim* — bu mesaj\n\n"
-                "_Ayrıca hafta içi 18:20'de otomatik tarama gelir._")
+                "_Ayrıca hafta içi 18:40'ta otomatik tarama gelir._")
 
     return "Anlamadım. */yardim* yazarak komutları görebilirsin."
 

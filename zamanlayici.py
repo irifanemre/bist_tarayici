@@ -152,7 +152,7 @@ def tick():
 # ==========================================================================
 # GÜNLÜK BİLDİRİM YEDEĞİ
 # GitHub zamanlanmış işleri saatlerce geciktirebiliyor/atlayabiliyor.
-# Bu yüzden yerel motor da 18:20 bildirimini göndermeye çalışır.
+# Bu yüzden yerel motor da 18:40 bildirimini göndermeye çalışır.
 # Çifte gönderimi önlemek için önce buluttaki gönderim kaydına bakar.
 # ==========================================================================
 RAW_DURUM = ("https://raw.githubusercontent.com/irifanemre/bist_tarayici/"

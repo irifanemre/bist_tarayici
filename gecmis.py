@@ -51,14 +51,15 @@ def kayitli_gunler() -> list:
 
 def gunun_kaydi(tarih: str):
     """Verilen günün (YYYY-MM-DD) taraması. Aynı günde birden çok kayıt varsa
-    18:20'ye en yakın olanı seçer (asıl günlük tarama odur)."""
+    18:40'a en yakın olanı seçer (asıl günlük tarama odur — kapanış verisinin
+    gecikmeli de olsa oturduğu saat)."""
     adaylar = []
     for yol in tum_kayitlar():
         v = json_oku(yol, None)
         if v and v.get("tarih") == tarih:
             try:
                 ss, dd = v["zaman"].split()[1].split(":")
-                fark = abs(int(ss) * 60 + int(dd) - (18 * 60 + 20))
+                fark = abs(int(ss) * 60 + int(dd) - (18 * 60 + 40))
             except Exception:
                 fark = 9999
             adaylar.append((fark, v))

@@ -101,8 +101,9 @@ def _evren_fiyatlari():
 def gunluk_kaydet(veri_saati=None, zorla=False):
     """Bugünün kapanışlarını TradingView'den çekip kaydeder. Dosya yolunu döner.
 
-    Günlük tarama 18:20'de (BIST 18:00'de kapanır) çalıştığı için değerler
-    kapanıştır. Ama piyasa AÇILMADAN önce çalıştırılırsa TradingView hâlâ
+    Günlük tarama 18:40'ta (BIST 18:00'de kapanır, kapanış seansı ~18:09'da
+    oturur, TradingView 15 dk gecikmeli) çalıştığı için değerler kapanıştır.
+    Ama piyasa AÇILMADAN önce çalıştırılırsa TradingView hâlâ
     DÜNKÜ kapanışı verir; bunu bugünün kapanışı diye yazmak sahte bir
     '%0 değişim' günü uydurur. O yüzden seans başlamadıysa yazmayız."""
     os.makedirs(KLASOR, exist_ok=True)

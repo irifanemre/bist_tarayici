@@ -155,7 +155,7 @@ else:
         st.warning("Henüz kayıtlı tarama yok. Önce birkaç gün tarama yapılmalı.")
         st.stop()
 
-    st.caption("Hangi günün taraması ölçülsün? (o günün 18:20 taraması kullanılır)")
+    st.caption("Hangi günün taraması ölçülsün? (o günün 18:40 taraması kullanılır)")
     bas = st.selectbox("Başlangıç günü (tarama günü)", gunler,
                        format_func=lambda t: datetime.strptime(t, "%Y-%m-%d").strftime("%d.%m.%Y"))
     bit = st.date_input("Bitiş günü (bu günün kapanışına göre ölçülür)",

@@ -238,7 +238,10 @@ KONUM = os.path.dirname(os.path.abspath(__file__))
 DURUM_DOSYA = os.path.join(KONUM, "gonderim.json")
 
 
-def gunluk_kontrol(hedef_saat="18:20"):
+def gunluk_kontrol(hedef_saat="18:40"):
+    # 18:40 — 18:20 değil: TradingView 15 dk gecikmeli, BIST'in kapanış
+    # seansı ~18:09'da oturuyor. 18:20'de tarayınca gecikmeli olarak ~18:05
+    # verisi geliyordu, yani kapanış değil seans içi fiyat. 18:40 pay bırakır.
     """Günde bir kez, hedef saatten sonra gönderim yapılmasını sağlar.
     GitHub zamanlamayı geciktirse bile gün içindeki ilk uygun çalışmada gönderir.
     Döner: (gonderilsin_mi, aciklama)"""
