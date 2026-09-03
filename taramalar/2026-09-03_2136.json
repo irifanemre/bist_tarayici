@@ -1,0 +1,175 @@
+{
+  "zaman": "03.09.2026 21:36",
+  "tarih": "2026-09-03",
+  "veri_saati": "03.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "MANAS",
+        "fiyat": 35.58
+      },
+      {
+        "hisse": "SKYMD",
+        "fiyat": 15.25
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "ETYAT",
+        "fiyat": 16.13
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "BLCYT",
+        "fiyat": 2.26
+      },
+      {
+        "hisse": "AYGAZ",
+        "fiyat": 335.0
+      },
+      {
+        "hisse": "TRCAS",
+        "fiyat": 48.0
+      },
+      {
+        "hisse": "DIRIT",
+        "fiyat": 27.58
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "EMPAE",
+        "fiyat": 73.0
+      },
+      {
+        "hisse": "TRCAS",
+        "fiyat": 48.0
+      },
+      {
+        "hisse": "AKCNS",
+        "fiyat": 242.4
+      },
+      {
+        "hisse": "DIRIT",
+        "fiyat": 27.58
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "HLGYO",
+        "fiyat": 4.43
+      },
+      {
+        "hisse": "ASGYO",
+        "fiyat": 11.04
+      },
+      {
+        "hisse": "SOKM",
+        "fiyat": 58.0
+      },
+      {
+        "hisse": "ESCAR",
+        "fiyat": 45.6
+      },
+      {
+        "hisse": "KARTN",
+        "fiyat": 163.0
+      },
+      {
+        "hisse": "ETYAT",
+        "fiyat": 16.13
+      },
+      {
+        "hisse": "SNPAM",
+        "fiyat": 20.0
+      },
+      {
+        "hisse": "BALAT",
+        "fiyat": 72.1
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "DZGYO",
+        "fiyat": 7.62
+      },
+      {
+        "hisse": "KZGYO",
+        "fiyat": 21.24
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "BOBET",
+        "fiyat": 22.16
+      }
+    ],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TEHOL",
+        "fiyat": 43.52
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 380.25
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 391.0
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 412.75
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 82.65
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 69.05
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 31.1
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 289.0
+      },
+      {
+        "hisse": "AGESA",
+        "fiyat": 255.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AVOD",
+        "fiyat": 4.37
+      },
+      {
+        "hisse": "DZGYO",
+        "fiyat": 7.62
+      },
+      {
+        "hisse": "KZGYO",
+        "fiyat": 21.24
+      },
+      {
+        "hisse": "TEHOL",
+        "fiyat": 43.52
+      }
+    ]
+  }
+}
