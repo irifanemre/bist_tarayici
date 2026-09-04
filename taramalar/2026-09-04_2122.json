@@ -1,0 +1,233 @@
+{
+  "zaman": "04.09.2026 21:22",
+  "tarih": "2026-09-04",
+  "veri_saati": "04.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "AVOD",
+        "fiyat": 4.71
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "ENERY",
+        "fiyat": 11.04
+      },
+      {
+        "hisse": "MANAS",
+        "fiyat": 37.22
+      },
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 39.7
+      },
+      {
+        "hisse": "SKYMD",
+        "fiyat": 15.58
+      },
+      {
+        "hisse": "TRCAS",
+        "fiyat": 49.2
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 85.75
+      },
+      {
+        "hisse": "KRONT",
+        "fiyat": 24.8
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "TOASO",
+        "fiyat": 274.25
+      },
+      {
+        "hisse": "MSGYO",
+        "fiyat": 5.87
+      },
+      {
+        "hisse": "MERIT",
+        "fiyat": 15.59
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "BRKVY",
+        "fiyat": 90.7
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "KRPLS",
+        "fiyat": 11.3
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "BIOEN",
+        "fiyat": 19.32
+      },
+      {
+        "hisse": "PETUN",
+        "fiyat": 11.7
+      },
+      {
+        "hisse": "KONYA",
+        "fiyat": 3875.0
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "MERKO",
+        "fiyat": 1.24
+      },
+      {
+        "hisse": "GENTS",
+        "fiyat": 5.15
+      },
+      {
+        "hisse": "TOASO",
+        "fiyat": 274.25
+      },
+      {
+        "hisse": "MHRGY",
+        "fiyat": 3.22
+      },
+      {
+        "hisse": "ARFYE",
+        "fiyat": 19.05
+      },
+      {
+        "hisse": "MSGYO",
+        "fiyat": 5.87
+      },
+      {
+        "hisse": "AKYHO",
+        "fiyat": 2.09
+      },
+      {
+        "hisse": "HTTBT",
+        "fiyat": 36.44
+      },
+      {
+        "hisse": "ALCTL",
+        "fiyat": 116.0
+      },
+      {
+        "hisse": "ACSEL",
+        "fiyat": 113.6
+      },
+      {
+        "hisse": "EGEEN",
+        "fiyat": 5140.0
+      },
+      {
+        "hisse": "KONYA",
+        "fiyat": 3875.0
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "MIATK",
+        "fiyat": 30.7
+      },
+      {
+        "hisse": "SNPAM",
+        "fiyat": 21.28
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "AVOD",
+        "fiyat": 4.71
+      },
+      {
+        "hisse": "SNPAM",
+        "fiyat": 21.28
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "TRCAS",
+        "fiyat": 49.2
+      }
+    ],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "TRCAS",
+        "fiyat": 49.2
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TEHOL",
+        "fiyat": 45.0
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 388.25
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 388.5
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 415.75
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 85.75
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 72.0
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 31.1
+      },
+      {
+        "hisse": "KRONT",
+        "fiyat": 24.8
+      },
+      {
+        "hisse": "EGPRO",
+        "fiyat": 37.74
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 311.0
+      },
+      {
+        "hisse": "AGESA",
+        "fiyat": 259.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "KONYA",
+        "fiyat": 3875.0
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "BALAT",
+        "fiyat": 78.95
+      },
+      {
+        "hisse": "GENKM",
+        "fiyat": 11.15
+      }
+    ]
+  }
+}
