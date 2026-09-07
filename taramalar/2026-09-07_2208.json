@@ -1,0 +1,360 @@
+{
+  "zaman": "07.09.2026 22:08",
+  "tarih": "2026-09-07",
+  "veri_saati": "07.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "AVOD",
+        "fiyat": 4.5
+      },
+      {
+        "hisse": "KRPLS",
+        "fiyat": 12.43
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "PETKM",
+        "fiyat": 22.06
+      },
+      {
+        "hisse": "KARSN",
+        "fiyat": 13.94
+      },
+      {
+        "hisse": "KRPLS",
+        "fiyat": 12.43
+      },
+      {
+        "hisse": "SKYMD",
+        "fiyat": 17.13
+      },
+      {
+        "hisse": "KLSYN",
+        "fiyat": 16.15
+      },
+      {
+        "hisse": "BAHKM",
+        "fiyat": 168.7
+      },
+      {
+        "hisse": "ATSYH",
+        "fiyat": 134.0
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "KNFRT",
+        "fiyat": 12.96
+      },
+      {
+        "hisse": "TDGYO",
+        "fiyat": 16.82
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "SASA",
+        "fiyat": 2.51
+      },
+      {
+        "hisse": "DENGE",
+        "fiyat": 2.56
+      },
+      {
+        "hisse": "YKSLN",
+        "fiyat": 2.89
+      },
+      {
+        "hisse": "PINSU",
+        "fiyat": 10.38
+      },
+      {
+        "hisse": "BVSAN",
+        "fiyat": 110.7
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "PETKM",
+        "fiyat": 22.06
+      },
+      {
+        "hisse": "AVOD",
+        "fiyat": 4.5
+      },
+      {
+        "hisse": "KNFRT",
+        "fiyat": 12.96
+      },
+      {
+        "hisse": "ISDMR",
+        "fiyat": 59.5
+      },
+      {
+        "hisse": "TURGG",
+        "fiyat": 31.22
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "PETKM",
+        "fiyat": 22.06
+      },
+      {
+        "hisse": "KNFRT",
+        "fiyat": 12.96
+      },
+      {
+        "hisse": "BVSAN",
+        "fiyat": 110.7
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "SAYAS",
+        "fiyat": 57.7
+      },
+      {
+        "hisse": "ADGYO",
+        "fiyat": 59.65
+      },
+      {
+        "hisse": "TDGYO",
+        "fiyat": 16.82
+      },
+      {
+        "hisse": "BAGFS",
+        "fiyat": 26.84
+      },
+      {
+        "hisse": "ARASE",
+        "fiyat": 120.8
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "SISE",
+        "fiyat": 41.66
+      },
+      {
+        "hisse": "ESEN",
+        "fiyat": 3.54
+      },
+      {
+        "hisse": "PINSU",
+        "fiyat": 10.38
+      },
+      {
+        "hisse": "ALKA",
+        "fiyat": 8.04
+      },
+      {
+        "hisse": "ALKIM",
+        "fiyat": 15.67
+      },
+      {
+        "hisse": "IHYAY",
+        "fiyat": 1.23
+      },
+      {
+        "hisse": "KLSER",
+        "fiyat": 23.64
+      },
+      {
+        "hisse": "BAGFS",
+        "fiyat": 26.84
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "HEKTS",
+        "fiyat": 2.81
+      },
+      {
+        "hisse": "YKSLN",
+        "fiyat": 2.89
+      },
+      {
+        "hisse": "KRPLS",
+        "fiyat": 12.43
+      },
+      {
+        "hisse": "AVGYO",
+        "fiyat": 17.6
+      },
+      {
+        "hisse": "INGRM",
+        "fiyat": 408.5
+      },
+      {
+        "hisse": "LYDYE",
+        "fiyat": 12575.0
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "AVOD",
+        "fiyat": 4.5
+      },
+      {
+        "hisse": "KRPLS",
+        "fiyat": 12.43
+      },
+      {
+        "hisse": "INGRM",
+        "fiyat": 408.5
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "PETKM",
+        "fiyat": 22.06
+      },
+      {
+        "hisse": "GMTAS",
+        "fiyat": 47.06
+      },
+      {
+        "hisse": "ISDMR",
+        "fiyat": 59.5
+      }
+    ],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "GEREL",
+        "fiyat": 40.8
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "DENGE",
+        "fiyat": 2.56
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TEHOL",
+        "fiyat": 46.1
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 392.5
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 394.25
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 418.0
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 64.9
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 83.7
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 33.18
+      },
+      {
+        "hisse": "EGPRO",
+        "fiyat": 37.36
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 305.75
+      },
+      {
+        "hisse": "AGESA",
+        "fiyat": 254.0
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 294.5
+      }
+    ],
+    "ASİYE MFI": [
+      {
+        "hisse": "ATSYH",
+        "fiyat": 134.0
+      }
+    ],
+    "STG GUC": [
+      {
+        "hisse": "KNFRT",
+        "fiyat": 12.96
+      },
+      {
+        "hisse": "TDGYO",
+        "fiyat": 16.82
+      },
+      {
+        "hisse": "INGRM",
+        "fiyat": 408.5
+      }
+    ],
+    "STP FLAMA": [
+      {
+        "hisse": "MSGYO",
+        "fiyat": 5.95
+      }
+    ],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AGHOL",
+        "fiyat": 34.54
+      },
+      {
+        "hisse": "DENGE",
+        "fiyat": 2.56
+      },
+      {
+        "hisse": "DSTKF",
+        "fiyat": 2390.0
+      },
+      {
+        "hisse": "EMNIS",
+        "fiyat": 160.0
+      },
+      {
+        "hisse": "FLAP",
+        "fiyat": 11.39
+      },
+      {
+        "hisse": "ISDMR",
+        "fiyat": 59.5
+      },
+      {
+        "hisse": "MIATK",
+        "fiyat": 33.76
+      },
+      {
+        "hisse": "MMCAS",
+        "fiyat": 51.35
+      },
+      {
+        "hisse": "PETKM",
+        "fiyat": 22.06
+      },
+      {
+        "hisse": "SASA",
+        "fiyat": 2.51
+      },
+      {
+        "hisse": "SERNT",
+        "fiyat": 8.51
+      },
+      {
+        "hisse": "TOASO",
+        "fiyat": 288.0
+      }
+    ]
+  }
+}
