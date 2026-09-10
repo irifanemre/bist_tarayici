@@ -1,0 +1,264 @@
+{
+  "zaman": "10.09.2026 21:24",
+  "tarih": "2026-09-10",
+  "veri_saati": "10.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "SASA",
+        "fiyat": 2.77
+      },
+      {
+        "hisse": "AKFGY",
+        "fiyat": 2.87
+      },
+      {
+        "hisse": "BVSAN",
+        "fiyat": 140.4
+      },
+      {
+        "hisse": "DEVA",
+        "fiyat": 105.1
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "KARSN",
+        "fiyat": 16.51
+      },
+      {
+        "hisse": "SKYMD",
+        "fiyat": 17.65
+      },
+      {
+        "hisse": "DEVA",
+        "fiyat": 105.1
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "KLYPV",
+        "fiyat": 63.75
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "BOSSA",
+        "fiyat": 6.6
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "HUNER",
+        "fiyat": 4.06
+      },
+      {
+        "hisse": "KLYPV",
+        "fiyat": 63.75
+      },
+      {
+        "hisse": "BAHKM",
+        "fiyat": 167.0
+      },
+      {
+        "hisse": "GLCVY",
+        "fiyat": 54.1
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "AYDEM",
+        "fiyat": 26.8
+      },
+      {
+        "hisse": "KLYPV",
+        "fiyat": 63.75
+      },
+      {
+        "hisse": "SONME",
+        "fiyat": 140.0
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "KLYPV",
+        "fiyat": 63.75
+      },
+      {
+        "hisse": "SEKUR",
+        "fiyat": 9.97
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ECOGR",
+        "fiyat": 36.28
+      },
+      {
+        "hisse": "BMSCH",
+        "fiyat": 11.18
+      },
+      {
+        "hisse": "AYEN",
+        "fiyat": 31.96
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "SASA",
+        "fiyat": 2.77
+      },
+      {
+        "hisse": "HUNER",
+        "fiyat": 4.06
+      },
+      {
+        "hisse": "AKFGY",
+        "fiyat": 2.87
+      },
+      {
+        "hisse": "AKFYE",
+        "fiyat": 27.88
+      },
+      {
+        "hisse": "PATEK",
+        "fiyat": 22.98
+      },
+      {
+        "hisse": "ECOGR",
+        "fiyat": 36.28
+      },
+      {
+        "hisse": "DNISI",
+        "fiyat": 5.02
+      },
+      {
+        "hisse": "BVSAN",
+        "fiyat": 140.4
+      },
+      {
+        "hisse": "DEVA",
+        "fiyat": 105.1
+      },
+      {
+        "hisse": "GLCVY",
+        "fiyat": 54.1
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "AKFGY",
+        "fiyat": 2.87
+      },
+      {
+        "hisse": "ETILR",
+        "fiyat": 6.5
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "KLYPV",
+        "fiyat": 63.75
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TEHOL",
+        "fiyat": 48.78
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 416.75
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 398.5
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 430.0
+      },
+      {
+        "hisse": "NTGAZ",
+        "fiyat": 11.49
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 80.7
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 64.9
+      },
+      {
+        "hisse": "ANHYT",
+        "fiyat": 107.3
+      },
+      {
+        "hisse": "MTRKS",
+        "fiyat": 31.6
+      },
+      {
+        "hisse": "EGPRO",
+        "fiyat": 37.58
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 443.0
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 287.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "HUNER",
+        "fiyat": 4.06
+      },
+      {
+        "hisse": "KLYPV",
+        "fiyat": 63.75
+      },
+      {
+        "hisse": "GLCVY",
+        "fiyat": 54.1
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AEFES",
+        "fiyat": 19.58
+      },
+      {
+        "hisse": "AKFGY",
+        "fiyat": 2.87
+      },
+      {
+        "hisse": "CEOEM",
+        "fiyat": 26.3
+      },
+      {
+        "hisse": "KERVN",
+        "fiyat": 9.9
+      },
+      {
+        "hisse": "LOGO",
+        "fiyat": 143.1
+      },
+      {
+        "hisse": "PATEK",
+        "fiyat": 22.98
+      },
+      {
+        "hisse": "TRILC",
+        "fiyat": 1.1
+      }
+    ]
+  }
+}
