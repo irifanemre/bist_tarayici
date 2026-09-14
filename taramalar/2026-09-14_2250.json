@@ -1,0 +1,240 @@
+{
+  "zaman": "14.09.2026 22:50",
+  "tarih": "2026-09-14",
+  "veri_saati": "14.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "IHLAS",
+        "fiyat": 1.27
+      },
+      {
+        "hisse": "IHLGM",
+        "fiyat": 1.73
+      },
+      {
+        "hisse": "IHGZT",
+        "fiyat": 1.26
+      },
+      {
+        "hisse": "PATEK",
+        "fiyat": 22.88
+      },
+      {
+        "hisse": "MZHLD",
+        "fiyat": 6.27
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "CEOEM",
+        "fiyat": 29.78
+      },
+      {
+        "hisse": "GMTAS",
+        "fiyat": 50.3
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "SARAE",
+        "fiyat": 87.2
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "EPLAS",
+        "fiyat": 6.77
+      },
+      {
+        "hisse": "EGEEN",
+        "fiyat": 6522.5
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "RTALB",
+        "fiyat": 3.03
+      },
+      {
+        "hisse": "ANGEN",
+        "fiyat": 9.82
+      }
+    ],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "GSDDE",
+        "fiyat": 14.15
+      }
+    ],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "BIGEN",
+        "fiyat": 149.9
+      },
+      {
+        "hisse": "FORTE",
+        "fiyat": 118.2
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "EDATA",
+        "fiyat": 17.27
+      },
+      {
+        "hisse": "AKSUE",
+        "fiyat": 28.76
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "GSDDE",
+        "fiyat": 14.15
+      },
+      {
+        "hisse": "BMSTL",
+        "fiyat": 45.34
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "IHLAS",
+        "fiyat": 1.27
+      },
+      {
+        "hisse": "IHLGM",
+        "fiyat": 1.73
+      },
+      {
+        "hisse": "IHGZT",
+        "fiyat": 1.26
+      },
+      {
+        "hisse": "PATEK",
+        "fiyat": 22.88
+      },
+      {
+        "hisse": "CEOEM",
+        "fiyat": 29.78
+      },
+      {
+        "hisse": "IHEVA",
+        "fiyat": 2.09
+      },
+      {
+        "hisse": "ANGEN",
+        "fiyat": 9.82
+      },
+      {
+        "hisse": "MZHLD",
+        "fiyat": 6.27
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "BMSTL",
+        "fiyat": 45.34
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TEHOL",
+        "fiyat": 48.32
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 415.75
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 429.75
+      },
+      {
+        "hisse": "AHSGY",
+        "fiyat": 18.79
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 66.8
+      },
+      {
+        "hisse": "EGPRO",
+        "fiyat": 37.96
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 282.0
+      },
+      {
+        "hisse": "ANHYT",
+        "fiyat": 108.0
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 438.5
+      },
+      {
+        "hisse": "TGSAS",
+        "fiyat": 208.5
+      },
+      {
+        "hisse": "AGESA",
+        "fiyat": 248.0
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 292.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "SARAE",
+        "fiyat": 87.2
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "ALCAR",
+        "fiyat": 754.0
+      },
+      {
+        "hisse": "ANGEN",
+        "fiyat": 9.82
+      },
+      {
+        "hisse": "ATLAS",
+        "fiyat": 6.82
+      },
+      {
+        "hisse": "GRTHO",
+        "fiyat": 234.7
+      },
+      {
+        "hisse": "IHEVA",
+        "fiyat": 2.09
+      },
+      {
+        "hisse": "IHGZT",
+        "fiyat": 1.26
+      },
+      {
+        "hisse": "IHLGM",
+        "fiyat": 1.73
+      },
+      {
+        "hisse": "IHYAY",
+        "fiyat": 1.36
+      },
+      {
+        "hisse": "RTALB",
+        "fiyat": 3.03
+      }
+    ]
+  }
+}
