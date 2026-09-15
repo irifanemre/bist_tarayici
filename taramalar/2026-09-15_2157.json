@@ -1,0 +1,248 @@
+{
+  "zaman": "15.09.2026 21:57",
+  "tarih": "2026-09-15",
+  "veri_saati": "15.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "IHLAS",
+        "fiyat": 1.15
+      },
+      {
+        "hisse": "EPLAS",
+        "fiyat": 6.39
+      },
+      {
+        "hisse": "CEOEM",
+        "fiyat": 31.8
+      },
+      {
+        "hisse": "MZHLD",
+        "fiyat": 5.9
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 299.0
+      },
+      {
+        "hisse": "MAALT",
+        "fiyat": 1050.0
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 41.1
+      },
+      {
+        "hisse": "CEOEM",
+        "fiyat": 31.8
+      },
+      {
+        "hisse": "TRHOL",
+        "fiyat": 4500.0
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "CEMZY",
+        "fiyat": 15.65
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "YESIL",
+        "fiyat": 1.14
+      },
+      {
+        "hisse": "KUTPO",
+        "fiyat": 79.6
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "BOSSA",
+        "fiyat": 6.68
+      },
+      {
+        "hisse": "ANHYT",
+        "fiyat": 107.7
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "ZOREN",
+        "fiyat": 2.52
+      },
+      {
+        "hisse": "BOSSA",
+        "fiyat": 6.68
+      },
+      {
+        "hisse": "BEYAZ",
+        "fiyat": 24.08
+      },
+      {
+        "hisse": "AYCES",
+        "fiyat": 466.75
+      }
+    ],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "BOSSA",
+        "fiyat": 6.68
+      }
+    ],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "KNFRT",
+        "fiyat": 12.51
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "YESIL",
+        "fiyat": 1.14
+      },
+      {
+        "hisse": "KNFRT",
+        "fiyat": 12.51
+      },
+      {
+        "hisse": "KUTPO",
+        "fiyat": 79.6
+      },
+      {
+        "hisse": "OYAYO",
+        "fiyat": 41.68
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "YESIL",
+        "fiyat": 1.14
+      },
+      {
+        "hisse": "BOSSA",
+        "fiyat": 6.68
+      },
+      {
+        "hisse": "KUTPO",
+        "fiyat": 79.6
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 299.0
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "IHLAS",
+        "fiyat": 1.15
+      },
+      {
+        "hisse": "CEMZY",
+        "fiyat": 15.65
+      },
+      {
+        "hisse": "EPLAS",
+        "fiyat": 6.39
+      },
+      {
+        "hisse": "BMSTL",
+        "fiyat": 49.86
+      },
+      {
+        "hisse": "CEOEM",
+        "fiyat": 31.8
+      },
+      {
+        "hisse": "ZRGYO",
+        "fiyat": 20.06
+      },
+      {
+        "hisse": "BEYAZ",
+        "fiyat": 24.08
+      },
+      {
+        "hisse": "MZHLD",
+        "fiyat": 5.9
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 299.0
+      },
+      {
+        "hisse": "MAALT",
+        "fiyat": 1050.0
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "CEMZY",
+        "fiyat": 15.65
+      },
+      {
+        "hisse": "BMSTL",
+        "fiyat": 49.86
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TEHOL",
+        "fiyat": 47.82
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 412.5
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 415.75
+      },
+      {
+        "hisse": "CATES",
+        "fiyat": 63.0
+      },
+      {
+        "hisse": "EGPRO",
+        "fiyat": 37.08
+      },
+      {
+        "hisse": "ANHYT",
+        "fiyat": 107.7
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 270.25
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 299.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "BEYAZ",
+        "fiyat": 24.08
+      },
+      {
+        "hisse": "BMSTL",
+        "fiyat": 49.86
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 299.0
+      },
+      {
+        "hisse": "KSTUR",
+        "fiyat": 2350.0
+      }
+    ]
+  }
+}
