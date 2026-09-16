@@ -1,0 +1,78 @@
+{
+  "zaman": "16.09.2026 21:53",
+  "tarih": "2026-09-16",
+  "veri_saati": "16.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "BMSTL",
+        "fiyat": 49.32
+      }
+    ],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "CANTE",
+        "fiyat": 1.35
+      },
+      {
+        "hisse": "UNLU",
+        "fiyat": 11.33
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "INVES",
+        "fiyat": 781.0
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "DMRGD",
+        "fiyat": 10.8
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "BOSSA",
+        "fiyat": 6.83
+      },
+      {
+        "hisse": "BMSTL",
+        "fiyat": 49.32
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "BMSTL",
+        "fiyat": 49.32
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 401.75
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 405.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "CANTE",
+        "fiyat": 1.35
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
