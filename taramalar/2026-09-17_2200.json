@@ -1,0 +1,200 @@
+{
+  "zaman": "17.09.2026 22:00",
+  "tarih": "2026-09-17",
+  "veri_saati": "17.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "KCHOL",
+        "fiyat": 218.7
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 418.0
+      },
+      {
+        "hisse": "AGHOL",
+        "fiyat": 34.88
+      },
+      {
+        "hisse": "GSDDE",
+        "fiyat": 13.48
+      },
+      {
+        "hisse": "EBEBK",
+        "fiyat": 82.75
+      }
+    ],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "ANHYT",
+        "fiyat": 108.2
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "AKBNK",
+        "fiyat": 71.55
+      },
+      {
+        "hisse": "GARAN",
+        "fiyat": 132.5
+      },
+      {
+        "hisse": "KCHOL",
+        "fiyat": 218.7
+      },
+      {
+        "hisse": "TSKB",
+        "fiyat": 11.22
+      },
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 40.98
+      },
+      {
+        "hisse": "AGHOL",
+        "fiyat": 34.88
+      },
+      {
+        "hisse": "ISDMR",
+        "fiyat": 62.1
+      },
+      {
+        "hisse": "ZRGYO",
+        "fiyat": 19.91
+      },
+      {
+        "hisse": "LOGO",
+        "fiyat": 138.4
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 435.0
+      }
+    ],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "DMRGD",
+        "fiyat": 11.88
+      }
+    ],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "HALKB",
+        "fiyat": 47.8
+      },
+      {
+        "hisse": "KCHOL",
+        "fiyat": 218.7
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 412.0
+      },
+      {
+        "hisse": "ALTIN",
+        "fiyat": 74.27
+      },
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 40.98
+      },
+      {
+        "hisse": "ISMEN",
+        "fiyat": 34.72
+      },
+      {
+        "hisse": "DMLKT",
+        "fiyat": 7.02
+      },
+      {
+        "hisse": "AGHOL",
+        "fiyat": 34.88
+      },
+      {
+        "hisse": "GSDDE",
+        "fiyat": 13.48
+      },
+      {
+        "hisse": "ZRGYO",
+        "fiyat": 19.91
+      },
+      {
+        "hisse": "BAHKM",
+        "fiyat": 170.0
+      },
+      {
+        "hisse": "ANHYT",
+        "fiyat": 108.2
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "HUNER",
+        "fiyat": 4.02
+      },
+      {
+        "hisse": "PCILT",
+        "fiyat": 30.74
+      },
+      {
+        "hisse": "TABGD",
+        "fiyat": 231.5
+      },
+      {
+        "hisse": "QNBTR",
+        "fiyat": 175.0
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "DMRGD",
+        "fiyat": 11.88
+      },
+      {
+        "hisse": "MAVI",
+        "fiyat": 37.72
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "DMRGD",
+        "fiyat": 11.88
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "BMSTL",
+        "fiyat": 48.4
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 412.0
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 418.0
+      },
+      {
+        "hisse": "ANHYT",
+        "fiyat": 108.2
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 435.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
