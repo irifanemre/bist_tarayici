@@ -1,0 +1,137 @@
+{
+  "zaman": "18.09.2026 21:24",
+  "tarih": "2026-09-18",
+  "veri_saati": "18.09 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "UNLU",
+        "fiyat": 11.59
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "ENERY",
+        "fiyat": 12.85
+      },
+      {
+        "hisse": "BOSSA",
+        "fiyat": 7.01
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "EFOR",
+        "fiyat": 19.4
+      },
+      {
+        "hisse": "RYGYO",
+        "fiyat": 46.6
+      },
+      {
+        "hisse": "AVGYO",
+        "fiyat": 16.42
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "IDGYO",
+        "fiyat": 2.65
+      },
+      {
+        "hisse": "LOGO",
+        "fiyat": 143.5
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "EFOR",
+        "fiyat": 19.4
+      },
+      {
+        "hisse": "UNLU",
+        "fiyat": 11.59
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.72
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 419.75
+      },
+      {
+        "hisse": "TTRAK",
+        "fiyat": 427.25
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "GEDIK",
+        "fiyat": 5.25
+      },
+      {
+        "hisse": "INVEO",
+        "fiyat": 6.38
+      },
+      {
+        "hisse": "RNPOL",
+        "fiyat": 2.19
+      },
+      {
+        "hisse": "YGGYO",
+        "fiyat": 221.4
+      },
+      {
+        "hisse": "TTRAK",
+        "fiyat": 427.25
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ANSGR",
+        "fiyat": 27.1
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "UNLU",
+        "fiyat": 11.59
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 417.25
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 419.75
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 436.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AZTEK",
+        "fiyat": 3.8
+      },
+      {
+        "hisse": "LOGO",
+        "fiyat": 143.5
+      }
+    ]
+  }
+}
