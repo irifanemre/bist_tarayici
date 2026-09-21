@@ -1,0 +1,92 @@
+{
+  "zaman": "21.09.2026 22:59",
+  "tarih": "2026-09-21",
+  "veri_saati": "21.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "ISDMR",
+        "fiyat": 62.4
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "KRGYO",
+        "fiyat": 3.22
+      },
+      {
+        "hisse": "ZRGYO",
+        "fiyat": 19.5
+      }
+    ],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "YKBNK",
+        "fiyat": 36.58
+      }
+    ],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "TRALT",
+        "fiyat": 51.15
+      },
+      {
+        "hisse": "TRENJ",
+        "fiyat": 105.5
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "EREGL",
+        "fiyat": 37.38
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "MTRYO",
+        "fiyat": 9.0
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 41.6
+      }
+    ],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 414.75
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 433.0
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 439.25
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 433.0
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "TAVHL",
+        "fiyat": 279.25
+      }
+    ]
+  }
+}
