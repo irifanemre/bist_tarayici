@@ -1,0 +1,122 @@
+{
+  "zaman": "22.09.2026 21:50",
+  "tarih": "2026-09-22",
+  "veri_saati": "22.09 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "UNLU",
+        "fiyat": 12.15
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 44.0
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "RYSAS",
+        "fiyat": 26.4
+      },
+      {
+        "hisse": "GMTAS",
+        "fiyat": 48.8
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "YEOTK",
+        "fiyat": 32.46
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "LOGO",
+        "fiyat": 145.9
+      }
+    ],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "KATMR",
+        "fiyat": 1.66
+      },
+      {
+        "hisse": "KZBGY",
+        "fiyat": 1.5
+      },
+      {
+        "hisse": "YYLGD",
+        "fiyat": 8.97
+      },
+      {
+        "hisse": "CEMTS",
+        "fiyat": 8.08
+      },
+      {
+        "hisse": "GWIND",
+        "fiyat": 21.38
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "UNLU",
+        "fiyat": 12.15
+      }
+    ],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "LOGO",
+        "fiyat": 145.9
+      }
+    ],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "OZSUB",
+        "fiyat": 41.98
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 397.0
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 430.25
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 437.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "KRTEK",
+        "fiyat": 5.72
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "HRKET",
+        "fiyat": 7.21
+      },
+      {
+        "hisse": "MAVI",
+        "fiyat": 38.5
+      },
+      {
+        "hisse": "TUKAS",
+        "fiyat": 2.13
+      }
+    ]
+  }
+}
