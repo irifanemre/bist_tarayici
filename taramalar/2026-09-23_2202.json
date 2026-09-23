@@ -1,0 +1,105 @@
+{
+  "zaman": "23.09.2026 22:02",
+  "tarih": "2026-09-23",
+  "veri_saati": "23.09 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "ETILR",
+        "fiyat": 6.29
+      },
+      {
+        "hisse": "CELHA",
+        "fiyat": 26.66
+      },
+      {
+        "hisse": "SKYMD",
+        "fiyat": 15.54
+      }
+    ],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "CELHA",
+        "fiyat": 26.66
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AGHOL",
+        "fiyat": 34.84
+      },
+      {
+        "hisse": "BESLR",
+        "fiyat": 12.05
+      },
+      {
+        "hisse": "MAKIM",
+        "fiyat": 13.0
+      },
+      {
+        "hisse": "BURCE",
+        "fiyat": 27.68
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "TRMET",
+        "fiyat": 142.8
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "TUCLK",
+        "fiyat": 4.09
+      },
+      {
+        "hisse": "AGHOL",
+        "fiyat": 34.84
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 411.0
+      },
+      {
+        "hisse": "ASELS",
+        "fiyat": 381.5
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 433.75
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 433.25
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "ATEKS",
+        "fiyat": 92.4
+      },
+      {
+        "hisse": "KRTEK",
+        "fiyat": 6.29
+      },
+      {
+        "hisse": "TUREX",
+        "fiyat": 5.58
+      }
+    ]
+  }
+}
