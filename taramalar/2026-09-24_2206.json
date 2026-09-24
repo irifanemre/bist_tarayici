@@ -1,0 +1,63 @@
+{
+  "zaman": "24.09.2026 22:06",
+  "tarih": "2026-09-24",
+  "veri_saati": "24.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "TKFEN",
+        "fiyat": 274.0
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ATEKS",
+        "fiyat": 95.0
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 410.75
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 422.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "CELHA",
+        "fiyat": 27.3
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "EUHOL",
+        "fiyat": 8.64
+      },
+      {
+        "hisse": "MEPET",
+        "fiyat": 23.06
+      },
+      {
+        "hisse": "ORMA",
+        "fiyat": 143.4
+      }
+    ]
+  }
+}
