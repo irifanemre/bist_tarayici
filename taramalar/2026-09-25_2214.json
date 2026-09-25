@@ -1,0 +1,62 @@
+{
+  "zaman": "25.09.2026 22:14",
+  "tarih": "2026-09-25",
+  "veri_saati": "25.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "TOASO",
+        "fiyat": 290.0
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "IDGYO",
+        "fiyat": 2.4
+      },
+      {
+        "hisse": "VKING",
+        "fiyat": 17.53
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 406.0
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 424.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "INTEK",
+        "fiyat": 197.0
+      },
+      {
+        "hisse": "LMKDC",
+        "fiyat": 23.9
+      },
+      {
+        "hisse": "TUCLK",
+        "fiyat": 4.37
+      }
+    ]
+  }
+}
