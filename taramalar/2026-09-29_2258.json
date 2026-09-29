@@ -1,0 +1,73 @@
+{
+  "zaman": "29.09.2026 22:58",
+  "tarih": "2026-09-29",
+  "veri_saati": "29.09 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 49.24
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "GLYHO",
+        "fiyat": 16.3
+      },
+      {
+        "hisse": "CMENT",
+        "fiyat": 236.4
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "TUCLK",
+        "fiyat": 4.49
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 49.24
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AKSGY",
+        "fiyat": 9.61
+      },
+      {
+        "hisse": "YGGYO",
+        "fiyat": 211.9
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 383.25
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 421.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "VRGYO",
+        "fiyat": 1.51
+      }
+    ]
+  }
+}
