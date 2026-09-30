@@ -1,0 +1,73 @@
+{
+  "zaman": "30.09.2026 22:59",
+  "tarih": "2026-09-30",
+  "veri_saati": "30.09 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "SKYMD",
+        "fiyat": 19.9
+      }
+    ],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 43.3
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AKFYE",
+        "fiyat": 3.47
+      },
+      {
+        "hisse": "BERA",
+        "fiyat": 11.55
+      },
+      {
+        "hisse": "NTGAZ",
+        "fiyat": 10.43
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "SKYMD",
+        "fiyat": 19.9
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 376.25
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 418.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [
+      {
+        "hisse": "AKFIS",
+        "fiyat": 16.9
+      }
+    ],
+    "SUPERTREND AL": [
+      {
+        "hisse": "CITAS",
+        "fiyat": 126.7
+      }
+    ]
+  }
+}
