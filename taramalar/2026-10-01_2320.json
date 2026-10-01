@@ -1,0 +1,150 @@
+{
+  "zaman": "01.10.2026 23:20",
+  "tarih": "2026-10-01",
+  "veri_saati": "01.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "LOGO",
+        "fiyat": 146.1
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "PCILT",
+        "fiyat": 32.28
+      },
+      {
+        "hisse": "BRSAN",
+        "fiyat": 670.5
+      },
+      {
+        "hisse": "FLAP",
+        "fiyat": 12.28
+      },
+      {
+        "hisse": "LOGO",
+        "fiyat": 146.1
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "VAKBN",
+        "fiyat": 33.92
+      },
+      {
+        "hisse": "FLAP",
+        "fiyat": 12.28
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "HEKTS",
+        "fiyat": 2.18
+      },
+      {
+        "hisse": "ADESE",
+        "fiyat": 0.65
+      },
+      {
+        "hisse": "VAKFN",
+        "fiyat": 0.95
+      },
+      {
+        "hisse": "VAKBN",
+        "fiyat": 33.92
+      },
+      {
+        "hisse": "VKGYO",
+        "fiyat": 1.66
+      },
+      {
+        "hisse": "LINK",
+        "fiyat": 3.64
+      },
+      {
+        "hisse": "ARSAN",
+        "fiyat": 3.55
+      },
+      {
+        "hisse": "LRSHO",
+        "fiyat": 1.91
+      },
+      {
+        "hisse": "ESCOM",
+        "fiyat": 4.46
+      },
+      {
+        "hisse": "AKSA",
+        "fiyat": 10.48
+      },
+      {
+        "hisse": "ALBTN",
+        "fiyat": 22.68
+      },
+      {
+        "hisse": "AKGRT",
+        "fiyat": 5.23
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "AAGYO",
+        "fiyat": 9.48
+      },
+      {
+        "hisse": "KONKA",
+        "fiyat": 7.96
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "INDES",
+        "fiyat": 11.2
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 387.0
+      },
+      {
+        "hisse": "PCILT",
+        "fiyat": 32.28
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 431.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AAGYO",
+        "fiyat": 9.48
+      },
+      {
+        "hisse": "AKFIS",
+        "fiyat": 17.7
+      },
+      {
+        "hisse": "DMSAS",
+        "fiyat": 6.8
+      },
+      {
+        "hisse": "GMTAS",
+        "fiyat": 50.95
+      }
+    ]
+  }
+}
