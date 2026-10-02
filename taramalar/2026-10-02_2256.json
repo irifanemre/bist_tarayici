@@ -1,0 +1,106 @@
+{
+  "zaman": "02.10.2026 22:56",
+  "tarih": "2026-10-02",
+  "veri_saati": "02.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "KRTEK",
+        "fiyat": 6.17
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "ASTOR",
+        "fiyat": 220.0
+      },
+      {
+        "hisse": "HOROZ",
+        "fiyat": 43.44
+      },
+      {
+        "hisse": "GOLTS",
+        "fiyat": 258.5
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "QNBFK",
+        "fiyat": 37.72
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "INDES",
+        "fiyat": 11.61
+      },
+      {
+        "hisse": "DURDO",
+        "fiyat": 5.06
+      },
+      {
+        "hisse": "AVGYO",
+        "fiyat": 16.46
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "LOGO",
+        "fiyat": 149.6
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 377.0
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 414.0
+      },
+      {
+        "hisse": "PCILT",
+        "fiyat": 32.34
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 434.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [
+      {
+        "hisse": "KRONT",
+        "fiyat": 21.14
+      }
+    ],
+    "SUPERTREND AL": [
+      {
+        "hisse": "BERA",
+        "fiyat": 13.02
+      },
+      {
+        "hisse": "ISBIR",
+        "fiyat": 61.75
+      },
+      {
+        "hisse": "METRO",
+        "fiyat": 7.79
+      },
+      {
+        "hisse": "OTKAR",
+        "fiyat": 340.25
+      }
+    ]
+  }
+}
