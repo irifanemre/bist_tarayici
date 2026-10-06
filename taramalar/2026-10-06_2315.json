@@ -1,0 +1,157 @@
+{
+  "zaman": "06.10.2026 23:15",
+  "tarih": "2026-10-06",
+  "veri_saati": "06.10 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "SANKO",
+        "fiyat": 22.18
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "RYGYO",
+        "fiyat": 52.25
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "INDES",
+        "fiyat": 12.0
+      },
+      {
+        "hisse": "MEPET",
+        "fiyat": 22.2
+      }
+    ],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "HALKB",
+        "fiyat": 45.24
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "MEGAP",
+        "fiyat": 1.26
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "RTALB",
+        "fiyat": 2.2
+      },
+      {
+        "hisse": "A1CAP",
+        "fiyat": 4.42
+      },
+      {
+        "hisse": "SOKE",
+        "fiyat": 6.97
+      },
+      {
+        "hisse": "PRKME",
+        "fiyat": 16.1
+      },
+      {
+        "hisse": "HUBVC",
+        "fiyat": 1.67
+      },
+      {
+        "hisse": "COSMO",
+        "fiyat": 98.85
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "SANKO",
+        "fiyat": 22.18
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "RYGYO",
+        "fiyat": 52.25
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "ASELS",
+        "fiyat": 376.0
+      },
+      {
+        "hisse": "TUPRS",
+        "fiyat": 379.25
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 429.0
+      }
+    ],
+    "ASİYE MFI": [
+      {
+        "hisse": "RYGYO",
+        "fiyat": 52.25
+      }
+    ],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "COSMO",
+        "fiyat": 98.85
+      },
+      {
+        "hisse": "EKIM",
+        "fiyat": 15.51
+      },
+      {
+        "hisse": "HKTM",
+        "fiyat": 11.68
+      },
+      {
+        "hisse": "INDES",
+        "fiyat": 12.0
+      },
+      {
+        "hisse": "MIATK",
+        "fiyat": 30.24
+      },
+      {
+        "hisse": "MRGYO",
+        "fiyat": 1.48
+      },
+      {
+        "hisse": "PRKME",
+        "fiyat": 16.1
+      },
+      {
+        "hisse": "RYGYO",
+        "fiyat": 52.25
+      },
+      {
+        "hisse": "SANKO",
+        "fiyat": 22.18
+      },
+      {
+        "hisse": "TGSAS",
+        "fiyat": 137.0
+      },
+      {
+        "hisse": "TRILC",
+        "fiyat": 0.88
+      },
+      {
+        "hisse": "VANGD",
+        "fiyat": 69.35
+      }
+    ]
+  }
+}
