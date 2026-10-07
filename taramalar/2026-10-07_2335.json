@@ -1,0 +1,115 @@
+{
+  "zaman": "07.10.2026 23:35",
+  "tarih": "2026-10-07",
+  "veri_saati": "07.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "DURDO",
+        "fiyat": 6.36
+      },
+      {
+        "hisse": "PRKME",
+        "fiyat": 17.34
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "DURDO",
+        "fiyat": 6.36
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 48.28
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "KCAER",
+        "fiyat": 10.44
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "YKBNK",
+        "fiyat": 36.6
+      }
+    ],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ULUUN",
+        "fiyat": 6.63
+      },
+      {
+        "hisse": "BAYRK",
+        "fiyat": 2.99
+      },
+      {
+        "hisse": "MMCAS",
+        "fiyat": 16.13
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "DURDO",
+        "fiyat": 6.36
+      },
+      {
+        "hisse": "PRKME",
+        "fiyat": 17.34
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 379.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "ALVES",
+        "fiyat": 0.67
+      },
+      {
+        "hisse": "BURVA",
+        "fiyat": 537.0
+      },
+      {
+        "hisse": "CRDFA",
+        "fiyat": 11.71
+      },
+      {
+        "hisse": "ERSU",
+        "fiyat": 17.49
+      },
+      {
+        "hisse": "GLYHO",
+        "fiyat": 17.04
+      },
+      {
+        "hisse": "HDFGS",
+        "fiyat": 1.21
+      },
+      {
+        "hisse": "QUICK",
+        "fiyat": 51.35
+      },
+      {
+        "hisse": "RTALB",
+        "fiyat": 2.42
+      }
+    ]
+  }
+}
