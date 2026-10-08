@@ -1,0 +1,123 @@
+{
+  "zaman": "08.10.2026 23:41",
+  "tarih": "2026-10-08",
+  "veri_saati": "08.10 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "CELHA",
+        "fiyat": 31.2
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "KTLEV",
+        "fiyat": 7.28
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 392.25
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "CVKMD",
+        "fiyat": 12.91
+      },
+      {
+        "hisse": "CWENE",
+        "fiyat": 19.29
+      },
+      {
+        "hisse": "ALCAR",
+        "fiyat": 591.5
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "KTLEV",
+        "fiyat": 7.28
+      },
+      {
+        "hisse": "LRSHO",
+        "fiyat": 1.85
+      },
+      {
+        "hisse": "SERNT",
+        "fiyat": 5.52
+      },
+      {
+        "hisse": "PLTUR",
+        "fiyat": 15.61
+      },
+      {
+        "hisse": "RAYSG",
+        "fiyat": 130.0
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "DZGYO",
+        "fiyat": 7.45
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "ALARK",
+        "fiyat": 108.3
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 392.25
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AKCNS",
+        "fiyat": 229.1
+      },
+      {
+        "hisse": "ATEKS",
+        "fiyat": 94.6
+      },
+      {
+        "hisse": "CELHA",
+        "fiyat": 31.2
+      },
+      {
+        "hisse": "DZGYO",
+        "fiyat": 7.45
+      },
+      {
+        "hisse": "INFO",
+        "fiyat": 1.38
+      },
+      {
+        "hisse": "LYDYE",
+        "fiyat": 6270.0
+      },
+      {
+        "hisse": "SOKE",
+        "fiyat": 7.99
+      },
+      {
+        "hisse": "ULUUN",
+        "fiyat": 6.98
+      }
+    ]
+  }
+}
