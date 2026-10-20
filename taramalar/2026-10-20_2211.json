@@ -1,0 +1,176 @@
+{
+  "zaman": "20.10.2026 22:11",
+  "tarih": "2026-10-20",
+  "veri_saati": "20.10 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "AKFYE",
+        "fiyat": 3.98
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "EYGYO",
+        "fiyat": 1.83
+      },
+      {
+        "hisse": "SILVR",
+        "fiyat": 1.53
+      },
+      {
+        "hisse": "BRSAN",
+        "fiyat": 687.0
+      },
+      {
+        "hisse": "AYEN",
+        "fiyat": 24.9
+      },
+      {
+        "hisse": "KLNMA",
+        "fiyat": 7.21
+      },
+      {
+        "hisse": "MTRYO",
+        "fiyat": 8.05
+      },
+      {
+        "hisse": "TARKM",
+        "fiyat": 339.0
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "GARAN",
+        "fiyat": 134.6
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "BRSAN",
+        "fiyat": 687.0
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "INDES",
+        "fiyat": 11.92
+      },
+      {
+        "hisse": "ETILR",
+        "fiyat": 7.31
+      },
+      {
+        "hisse": "GLYHO",
+        "fiyat": 17.47
+      },
+      {
+        "hisse": "ENJSA",
+        "fiyat": 116.6
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AKBNK",
+        "fiyat": 68.3
+      },
+      {
+        "hisse": "SNGYO",
+        "fiyat": 2.55
+      },
+      {
+        "hisse": "IHGZT",
+        "fiyat": 0.87
+      },
+      {
+        "hisse": "HALKB",
+        "fiyat": 44.32
+      },
+      {
+        "hisse": "ENKAI",
+        "fiyat": 77.9
+      },
+      {
+        "hisse": "AKSGY",
+        "fiyat": 9.35
+      },
+      {
+        "hisse": "CIMSA",
+        "fiyat": 40.26
+      },
+      {
+        "hisse": "SILVR",
+        "fiyat": 1.53
+      },
+      {
+        "hisse": "IHEVA",
+        "fiyat": 1.54
+      },
+      {
+        "hisse": "ALKIM",
+        "fiyat": 10.66
+      },
+      {
+        "hisse": "AYEN",
+        "fiyat": 24.9
+      },
+      {
+        "hisse": "BRISA",
+        "fiyat": 70.45
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "EYGYO",
+        "fiyat": 1.83
+      },
+      {
+        "hisse": "RNPOL",
+        "fiyat": 1.78
+      },
+      {
+        "hisse": "KLNMA",
+        "fiyat": 7.21
+      },
+      {
+        "hisse": "MTRYO",
+        "fiyat": 8.05
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "ENJSA",
+        "fiyat": 116.6
+      }
+    ],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "BRSAN",
+        "fiyat": 687.0
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "INDES",
+        "fiyat": 11.92
+      },
+      {
+        "hisse": "TAVHL",
+        "fiyat": 286.25
+      },
+      {
+        "hisse": "ENJSA",
+        "fiyat": 116.6
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
