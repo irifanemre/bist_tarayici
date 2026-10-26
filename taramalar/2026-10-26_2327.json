@@ -1,0 +1,102 @@
+{
+  "zaman": "26.10.2026 23:27",
+  "tarih": "2026-10-26",
+  "veri_saati": "26.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "MEGMT",
+        "fiyat": 2.99
+      },
+      {
+        "hisse": "REEDR",
+        "fiyat": 2.6
+      },
+      {
+        "hisse": "BETAE",
+        "fiyat": 48.3
+      },
+      {
+        "hisse": "EKOS",
+        "fiyat": 2.64
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "MEGMT",
+        "fiyat": 2.99
+      },
+      {
+        "hisse": "FROTO",
+        "fiyat": 67.95
+      },
+      {
+        "hisse": "REEDR",
+        "fiyat": 2.6
+      },
+      {
+        "hisse": "SMRTG",
+        "fiyat": 4.03
+      },
+      {
+        "hisse": "AGROT",
+        "fiyat": 1.13
+      },
+      {
+        "hisse": "BETAE",
+        "fiyat": 48.3
+      },
+      {
+        "hisse": "EKOS",
+        "fiyat": 2.64
+      },
+      {
+        "hisse": "TUREX",
+        "fiyat": 5.3
+      },
+      {
+        "hisse": "KRSTL",
+        "fiyat": 6.34
+      },
+      {
+        "hisse": "YUNSA",
+        "fiyat": 5.37
+      },
+      {
+        "hisse": "MOPAS",
+        "fiyat": 14.98
+      },
+      {
+        "hisse": "TATGD",
+        "fiyat": 14.31
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ALBTN",
+        "fiyat": 19.84
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "YKBNK",
+        "fiyat": 35.84
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
