@@ -1,0 +1,120 @@
+{
+  "zaman": "27.10.2026 23:02",
+  "tarih": "2026-10-27",
+  "veri_saati": "27.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "RYSAS",
+        "fiyat": 25.86
+      },
+      {
+        "hisse": "ENJSA",
+        "fiyat": 112.3
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "VAKFA",
+        "fiyat": 8.89
+      },
+      {
+        "hisse": "MNDRS",
+        "fiyat": 9.22
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "ULUFA",
+        "fiyat": 1.52
+      }
+    ],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 54.5
+      }
+    ],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "HALKB",
+        "fiyat": 43.32
+      },
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.33
+      },
+      {
+        "hisse": "CIMSA",
+        "fiyat": 39.6
+      },
+      {
+        "hisse": "GOODY",
+        "fiyat": 1.93
+      },
+      {
+        "hisse": "KRVGD",
+        "fiyat": 2.04
+      },
+      {
+        "hisse": "TOASO",
+        "fiyat": 231.5
+      },
+      {
+        "hisse": "BNTAS",
+        "fiyat": 4.8
+      },
+      {
+        "hisse": "TABGD",
+        "fiyat": 191.3
+      },
+      {
+        "hisse": "BRKSN",
+        "fiyat": 5.05
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 54.5
+      },
+      {
+        "hisse": "MNDRS",
+        "fiyat": 9.22
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "RYSAS",
+        "fiyat": 25.86
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 54.5
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 54.5
+      }
+    ],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AKSA",
+        "fiyat": 10.75
+      }
+    ]
+  }
+}
