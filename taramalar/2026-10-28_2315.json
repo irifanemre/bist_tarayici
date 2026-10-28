@@ -1,0 +1,78 @@
+{
+  "zaman": "28.10.2026 23:15",
+  "tarih": "2026-10-28",
+  "veri_saati": "28.10 12:39",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "MEYSU",
+        "fiyat": 7.21
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "KIMMR",
+        "fiyat": 9.05
+      },
+      {
+        "hisse": "BFREN",
+        "fiyat": 90.9
+      },
+      {
+        "hisse": "CLEBI",
+        "fiyat": 1180.0
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "MEYSU",
+        "fiyat": 7.21
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AYES",
+        "fiyat": 7.27
+      },
+      {
+        "hisse": "EUHOL",
+        "fiyat": 5.86
+      },
+      {
+        "hisse": "KERVN",
+        "fiyat": 5.97
+      },
+      {
+        "hisse": "KONTR",
+        "fiyat": 1.67
+      },
+      {
+        "hisse": "MCARD",
+        "fiyat": 117.7
+      },
+      {
+        "hisse": "MNDRS",
+        "fiyat": 9.64
+      },
+      {
+        "hisse": "ORMA",
+        "fiyat": 128.9
+      }
+    ]
+  }
+}
