@@ -1,0 +1,69 @@
+{
+  "zaman": "23.10.2026 18:40",
+  "tarih": "2026-10-23",
+  "veri_saati": "23.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 49.6
+      }
+    ],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 49.6
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 49.6
+      },
+      {
+        "hisse": "DZGYO",
+        "fiyat": 6.67
+      },
+      {
+        "hisse": "TRCAS",
+        "fiyat": 41.98
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "KARCL",
+        "fiyat": 30.74
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "EBEBK",
+        "fiyat": 81.0
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "GMTAS",
+        "fiyat": 49.6
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "DCTTR",
+        "fiyat": 4.26
+      }
+    ]
+  }
+}

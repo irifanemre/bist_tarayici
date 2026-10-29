@@ -1,0 +1,145 @@
+{
+  "zaman": "05.10.2026 19:12",
+  "tarih": "2026-10-05",
+  "veri_saati": "05.10 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.85
+      }
+    ],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.85
+      }
+    ],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "VAKBN",
+        "fiyat": 33.94
+      },
+      {
+        "hisse": "TUCLK",
+        "fiyat": 4.05
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "ISDMR",
+        "fiyat": 64.8
+      },
+      {
+        "hisse": "DOAS",
+        "fiyat": 145.8
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "FRIGO",
+        "fiyat": 1.93
+      },
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.85
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "OTKAR",
+        "fiyat": 340.5
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.85
+      }
+    ],
+    "ERİK TRM": [
+      {
+        "hisse": "ALBRK",
+        "fiyat": 8.85
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 391.25
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 413.5
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 434.0
+      }
+    ],
+    "ASİYE MFI": [
+      {
+        "hisse": "MEPET",
+        "fiyat": 23.2
+      }
+    ],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "BALAT",
+        "fiyat": 58.05
+      },
+      {
+        "hisse": "BALSU",
+        "fiyat": 8.99
+      },
+      {
+        "hisse": "BASCM",
+        "fiyat": 11.9
+      },
+      {
+        "hisse": "DURDO",
+        "fiyat": 5.56
+      },
+      {
+        "hisse": "EKIZ",
+        "fiyat": 51.5
+      },
+      {
+        "hisse": "EMNIS",
+        "fiyat": 134.0
+      },
+      {
+        "hisse": "FRIGO",
+        "fiyat": 1.93
+      },
+      {
+        "hisse": "HTTBT",
+        "fiyat": 34.6
+      },
+      {
+        "hisse": "KONKA",
+        "fiyat": 9.01
+      },
+      {
+        "hisse": "KSTUR",
+        "fiyat": 2087.0
+      },
+      {
+        "hisse": "OTTO",
+        "fiyat": 120.5
+      },
+      {
+        "hisse": "QNBTR",
+        "fiyat": 168.9
+      }
+    ]
+  }
+}

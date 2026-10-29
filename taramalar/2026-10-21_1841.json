@@ -1,0 +1,78 @@
+{
+  "zaman": "21.10.2026 18:41",
+  "tarih": "2026-10-21",
+  "veri_saati": "21.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "AKFIS",
+        "fiyat": 16.35
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "CEOEM",
+        "fiyat": 19.09
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "TAVHL",
+        "fiyat": 287.0
+      }
+    ],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "GARFA",
+        "fiyat": 21.34
+      },
+      {
+        "hisse": "CEOEM",
+        "fiyat": 19.09
+      },
+      {
+        "hisse": "ATATP",
+        "fiyat": 218.5
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "BOBET",
+        "fiyat": 14.96
+      },
+      {
+        "hisse": "KUTPO",
+        "fiyat": 64.45
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "LIDFA",
+        "fiyat": 1.73
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [
+      {
+        "hisse": "KLSYN",
+        "fiyat": 14.75
+      }
+    ],
+    "SUPERTREND AL": [
+      {
+        "hisse": "ULUFA",
+        "fiyat": 1.59
+      }
+    ]
+  }
+}

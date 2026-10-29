@@ -1,0 +1,77 @@
+{
+  "zaman": "14.10.2026 18:41",
+  "tarih": "2026-10-14",
+  "veri_saati": "14.10 18:05",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "BEGYO",
+        "fiyat": 3.45
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "DURDO",
+        "fiyat": 7.01
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "CRFSA",
+        "fiyat": 221.6
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "PEKGY",
+        "fiyat": 1.32
+      },
+      {
+        "hisse": "PRZMA",
+        "fiyat": 12.13
+      },
+      {
+        "hisse": "CRFSA",
+        "fiyat": 221.6
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "BEGYO",
+        "fiyat": 3.45
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 391.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "HEDEF",
+        "fiyat": 18.24
+      },
+      {
+        "hisse": "HUBVC",
+        "fiyat": 1.98
+      },
+      {
+        "hisse": "TMPOL",
+        "fiyat": 128.8
+      }
+    ]
+  }
+}

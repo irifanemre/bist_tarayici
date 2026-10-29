@@ -1,0 +1,93 @@
+{
+  "zaman": "12.10.2026 19:01",
+  "tarih": "2026-10-12",
+  "veri_saati": "12.10 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "AFYON",
+        "fiyat": 12.22
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "KRGYO",
+        "fiyat": 3.73
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "CLEBI",
+        "fiyat": 1351.0
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "TNZTP",
+        "fiyat": 25.66
+      },
+      {
+        "hisse": "CLEBI",
+        "fiyat": 1351.0
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "AFYON",
+        "fiyat": 12.22
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 384.75
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 432.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AFYON",
+        "fiyat": 12.22
+      },
+      {
+        "hisse": "EFOR",
+        "fiyat": 17.5
+      },
+      {
+        "hisse": "LIDFA",
+        "fiyat": 1.71
+      },
+      {
+        "hisse": "MARTI",
+        "fiyat": 1.6
+      },
+      {
+        "hisse": "POLTK",
+        "fiyat": 3500.0
+      },
+      {
+        "hisse": "SNPAM",
+        "fiyat": 19.51
+      },
+      {
+        "hisse": "SUMAS",
+        "fiyat": 225.0
+      }
+    ]
+  }
+}

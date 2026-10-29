@@ -1,0 +1,59 @@
+{
+  "zaman": "19.10.2026 19:13",
+  "tarih": "2026-10-19",
+  "veri_saati": "19.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "ATLAS",
+        "fiyat": 4.98
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "METRO",
+        "fiyat": 7.94
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "YKBNK",
+        "fiyat": 36.1
+      }
+    ],
+    "RSI14 X SMA14": [],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ATLAS",
+        "fiyat": 4.98
+      },
+      {
+        "hisse": "BIGEN",
+        "fiyat": 12.6
+      },
+      {
+        "hisse": "TEHOL",
+        "fiyat": 3.86
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "METRO",
+        "fiyat": 7.94
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}

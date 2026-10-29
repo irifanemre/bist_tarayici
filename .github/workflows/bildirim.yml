@@ -38,8 +38,8 @@ jobs:
       - name: Gönderim kaydını sakla
         run: |
           if [ -n "$(git status --porcelain gonderim.json taramalar/)" ]; then
-            git config user.name "bist-bot"
-            git config user.email "bot@users.noreply.github.com"
+            git config user.name "irifanemre"
+            git config user.email "157026697+irifanemre@users.noreply.github.com"
             git add -f gonderim.json taramalar/
             git commit -m "gönderim kaydı [skip ci]"
             git push

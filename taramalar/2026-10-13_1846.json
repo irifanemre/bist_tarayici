@@ -1,0 +1,160 @@
+{
+  "zaman": "13.10.2026 18:46",
+  "tarih": "2026-10-13",
+  "veri_saati": "13.10 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "MHRGY",
+        "fiyat": 2.07
+      },
+      {
+        "hisse": "AFYON",
+        "fiyat": 12.45
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "HRKET",
+        "fiyat": 10.12
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "AKFGY",
+        "fiyat": 2.49
+      },
+      {
+        "hisse": "NIBAS",
+        "fiyat": 2.95
+      },
+      {
+        "hisse": "SILVR",
+        "fiyat": 1.65
+      },
+      {
+        "hisse": "FORTE",
+        "fiyat": 94.15
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "TURGG",
+        "fiyat": 26.76
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "RYGYO",
+        "fiyat": 49.18
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AKFGY",
+        "fiyat": 2.49
+      },
+      {
+        "hisse": "FORTE",
+        "fiyat": 94.15
+      },
+      {
+        "hisse": "BANVT",
+        "fiyat": 134.1
+      },
+      {
+        "hisse": "ASUZU",
+        "fiyat": 42.0
+      },
+      {
+        "hisse": "PAGYO",
+        "fiyat": 117.4
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "SILVR",
+        "fiyat": 1.65
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "MHRGY",
+        "fiyat": 2.07
+      },
+      {
+        "hisse": "AFYON",
+        "fiyat": 12.45
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 385.75
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 411.25
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 429.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AFYON",
+        "fiyat": 12.45
+      },
+      {
+        "hisse": "BEGYO",
+        "fiyat": 3.14
+      },
+      {
+        "hisse": "EFOR",
+        "fiyat": 17.67
+      },
+      {
+        "hisse": "ERCB",
+        "fiyat": 41.22
+      },
+      {
+        "hisse": "GATEG",
+        "fiyat": 166.0
+      },
+      {
+        "hisse": "MARTI",
+        "fiyat": 1.76
+      },
+      {
+        "hisse": "MHRGY",
+        "fiyat": 2.07
+      },
+      {
+        "hisse": "POLTK",
+        "fiyat": 3850.0
+      },
+      {
+        "hisse": "SERNT",
+        "fiyat": 6.35
+      },
+      {
+        "hisse": "SKYLP",
+        "fiyat": 95.05
+      },
+      {
+        "hisse": "YONGA",
+        "fiyat": 38.48
+      }
+    ]
+  }
+}
