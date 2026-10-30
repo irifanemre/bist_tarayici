@@ -1,0 +1,62 @@
+{
+  "zaman": "30.10.2026 22:55",
+  "tarih": "2026-10-30",
+  "veri_saati": "30.10 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "INTET",
+        "fiyat": 41.68
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "MTRYO",
+        "fiyat": 7.15
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "BNTAS",
+        "fiyat": 4.9
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "DOAS",
+        "fiyat": 149.2
+      },
+      {
+        "hisse": "DOGUB",
+        "fiyat": 20.1
+      },
+      {
+        "hisse": "ENPRA",
+        "fiyat": 39.0
+      },
+      {
+        "hisse": "KARTN",
+        "fiyat": 108.4
+      },
+      {
+        "hisse": "QNBTR",
+        "fiyat": 126.5
+      }
+    ]
+  }
+}
