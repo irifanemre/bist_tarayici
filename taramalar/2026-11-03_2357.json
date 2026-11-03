@@ -1,0 +1,131 @@
+{
+  "zaman": "03.11.2026 23:57",
+  "tarih": "2026-11-03",
+  "veri_saati": "03.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "ENJSA",
+        "fiyat": 113.9
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "KCAER",
+        "fiyat": 9.41
+      },
+      {
+        "hisse": "AKENR",
+        "fiyat": 6.37
+      },
+      {
+        "hisse": "BVSAN",
+        "fiyat": 50.0
+      },
+      {
+        "hisse": "MRSHL",
+        "fiyat": 1103.0
+      },
+      {
+        "hisse": "MAALT",
+        "fiyat": 662.5
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "QUAGR",
+        "fiyat": 1.32
+      },
+      {
+        "hisse": "BLCYT",
+        "fiyat": 1.42
+      },
+      {
+        "hisse": "ESEN",
+        "fiyat": 1.85
+      },
+      {
+        "hisse": "EKOS",
+        "fiyat": 2.43
+      },
+      {
+        "hisse": "LILAK",
+        "fiyat": 17.59
+      },
+      {
+        "hisse": "BKRGY",
+        "fiyat": 3.76
+      },
+      {
+        "hisse": "ARZUM",
+        "fiyat": 0.92
+      },
+      {
+        "hisse": "MHRGY",
+        "fiyat": 1.61
+      },
+      {
+        "hisse": "AKENR",
+        "fiyat": 6.37
+      },
+      {
+        "hisse": "LMKDC",
+        "fiyat": 20.4
+      },
+      {
+        "hisse": "SURGY",
+        "fiyat": 14.8
+      },
+      {
+        "hisse": "KOTON",
+        "fiyat": 8.05
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "BURCE",
+        "fiyat": 18.6
+      },
+      {
+        "hisse": "MRSHL",
+        "fiyat": 1103.0
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "EMNIS",
+        "fiyat": 134.1
+      },
+      {
+        "hisse": "ISBIR",
+        "fiyat": 57.2
+      },
+      {
+        "hisse": "KIMMR",
+        "fiyat": 10.55
+      },
+      {
+        "hisse": "RYSAS",
+        "fiyat": 27.84
+      },
+      {
+        "hisse": "SAFKR",
+        "fiyat": 13.84
+      }
+    ]
+  }
+}
