@@ -1,0 +1,109 @@
+{
+  "zaman": "06.11.2026 23:52",
+  "tarih": "2026-11-06",
+  "veri_saati": "06.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "BRSAN",
+        "fiyat": 682.0
+      }
+    ],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "BRSAN",
+        "fiyat": 682.0
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "BRSAN",
+        "fiyat": 682.0
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "CCOLA",
+        "fiyat": 73.25
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "YKBNK",
+        "fiyat": 37.24
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TCKRC",
+        "fiyat": 124.0
+      },
+      {
+        "hisse": "PCILT",
+        "fiyat": 31.28
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AKENR",
+        "fiyat": 7.3
+      },
+      {
+        "hisse": "BASCM",
+        "fiyat": 9.26
+      },
+      {
+        "hisse": "BIOEN",
+        "fiyat": 12.33
+      },
+      {
+        "hisse": "BSOKE",
+        "fiyat": 5.34
+      },
+      {
+        "hisse": "BVSAN",
+        "fiyat": 58.8
+      },
+      {
+        "hisse": "CEMZY",
+        "fiyat": 6.6
+      },
+      {
+        "hisse": "DOHOL",
+        "fiyat": 18.02
+      },
+      {
+        "hisse": "DOKTA",
+        "fiyat": 15.92
+      },
+      {
+        "hisse": "ESEN",
+        "fiyat": 2.1
+      },
+      {
+        "hisse": "FRIGO",
+        "fiyat": 2.23
+      },
+      {
+        "hisse": "FROTO",
+        "fiyat": 73.15
+      },
+      {
+        "hisse": "GARFA",
+        "fiyat": 23.02
+      }
+    ]
+  }
+}
