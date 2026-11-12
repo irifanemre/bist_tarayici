@@ -159,13 +159,14 @@ RAW_DURUM = ("https://raw.githubusercontent.com/irifanemre/bist_tarayici/"
              "main/gonderim.json")
 
 
-def _bulut_gonderdi_mi(bugun):
-    """Bulut bugün göndermiş mi? (repodaki gonderim.json)"""
+def _bulut_gonderdi_mi(hedef):
+    """Bulut bu İŞ GÜNÜ için göndermiş mi? (repodaki gonderim.json)"""
     try:
         r = requests.get(f"{RAW_DURUM}?t={int(time.time())}",
                          headers={"Cache-Control": "no-cache"}, timeout=10)
         if r.ok:
-            return r.json().get("son_gonderim") == bugun
+            son = r.json().get("son_gonderim")
+            return bool(son and son >= hedef)
     except Exception:
         pass
     return False
@@ -191,13 +192,11 @@ def gunluk_bildirim():
     import otomasyon
     from datetime import datetime as _d, timezone as _tz, timedelta as _td
 
-    ist = _d.now(_tz(_td(hours=3)))
-    bugun = ist.strftime("%Y-%m-%d")
-
     tamam, neden = otomasyon.gunluk_kontrol()
     if not tamam:
         return
-    if _bulut_gonderdi_mi(bugun):
+    hedef = otomasyon.hedef_gun()
+    if _bulut_gonderdi_mi(hedef):
         otomasyon.gunluk_isaretle()          # yerelde de işaretle, tekrar bakmasın
         _log("bulut zaten göndermiş, atlandı")
         return
@@ -209,7 +208,7 @@ def gunluk_bildirim():
     if chat:
         os.environ["TELEGRAM_CHAT_ID"] = chat
 
-    _log("YEREL GÜNLÜK BİLDİRİM gönderiliyor…")
+    _log(f"YEREL GÜNLÜK BİLDİRİM gönderiliyor… ({neden})")
     try:
         otomasyon.telegram_gonder(otomasyon.performans_metni())   # 1) dünkü karne
     except Exception as e:

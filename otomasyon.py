@@ -238,41 +238,59 @@ KONUM = os.path.dirname(os.path.abspath(__file__))
 DURUM_DOSYA = os.path.join(KONUM, "gonderim.json")
 
 
-def gunluk_kontrol(hedef_saat="18:40"):
-    # 18:40 — 18:20 değil: TradingView 15 dk gecikmeli, BIST'in kapanış
-    # seansı ~18:09'da oturuyor. 18:20'de tarayınca gecikmeli olarak ~18:05
-    # verisi geliyordu, yani kapanış değil seans içi fiyat. 18:40 pay bırakır.
-    """Günde bir kez, hedef saatten sonra gönderim yapılmasını sağlar.
-    GitHub zamanlamayı geciktirse bile gün içindeki ilk uygun çalışmada gönderir.
-    Döner: (gonderilsin_mi, aciklama)"""
+def hedef_gun(hedef_saat="18:40"):
+    """Bildirimi beklenen EN SON iş günü (YYYY-MM-DD).
+
+    18:40 — 18:20 değil: TradingView 15 dk gecikmeli, BIST'in kapanış seansı
+    ~18:09'da oturuyor; 18:20'de tarayınca seans içi fiyat geliyordu.
+
+    Bugün hafta içiyse ve saat 18:40'ı geçtiyse → bugün.
+    Aksi halde (hafta sonu, gece yarısı sonrası, saat gelmemiş) → bir önceki iş günü.
+    Böylece GitHub gece 01:00'de çalışsa bile DÜNÜN bildirimi telafi edilir.
+    """
     from datetime import datetime, timezone, timedelta
     ist = datetime.now(timezone(timedelta(hours=3)))
-    bugun = ist.strftime("%Y-%m-%d")
-
-    if ist.weekday() >= 5:
-        return False, "hafta sonu"
-
     ss, dd = (int(x) for x in hedef_saat.split(":"))
-    if (ist.hour, ist.minute) < (ss, dd):
-        return False, f"vakit gelmedi ({ist:%H:%M} < {hedef_saat})"
+
+    if ist.weekday() < 5 and (ist.hour, ist.minute) >= (ss, dd):
+        return ist.strftime("%Y-%m-%d")
+    for i in range(1, 8):
+        g = ist - timedelta(days=i)
+        if g.weekday() < 5:
+            return g.strftime("%Y-%m-%d")
+    return None
+
+
+def gunluk_kontrol(hedef_saat="18:40"):
+    """Kaçırılan iş günü varsa (geç kalınmış olsa bile) gönderilmesini sağlar.
+    Her iş günü için YALNIZCA BİR kez gönderir. Döner: (gonderilsin_mi, aciklama)"""
+    from datetime import datetime, timezone, timedelta
+    ist = datetime.now(timezone(timedelta(hours=3)))
+    hedef = hedef_gun(hedef_saat)
+    if not hedef:
+        return False, "hedef gün bulunamadı"
 
     try:
         with open(DURUM_DOSYA, encoding="utf-8") as f:
-            if json.load(f).get("son_gonderim") == bugun:
-                return False, "bugün zaten gönderildi"
+            son = json.load(f).get("son_gonderim")
+        if son and son >= hedef:
+            return False, f"{hedef} zaten gönderildi"
     except (FileNotFoundError, json.JSONDecodeError, OSError):
         pass
 
-    return True, f"gönderilecek ({ist:%H:%M})"
+    gec = hedef != ist.strftime("%Y-%m-%d")
+    return True, f"{hedef} gönderilecek" + (" (TELAFİ — geç kalındı)" if gec else "")
 
 
-def gunluk_isaretle():
+def gunluk_isaretle(hedef_saat="18:40"):
+    """Hangi İŞ GÜNÜ için gönderildiğini kaydeder (çalışma anını değil)."""
     from datetime import datetime, timezone, timedelta
     ist = datetime.now(timezone(timedelta(hours=3)))
     try:
         with open(DURUM_DOSYA, "w", encoding="utf-8") as f:
-            json.dump({"son_gonderim": ist.strftime("%Y-%m-%d"),
-                       "saat": ist.strftime("%H:%M")}, f, ensure_ascii=False, indent=2)
+            json.dump({"son_gonderim": hedef_gun(hedef_saat),
+                       "gonderim_ani": ist.strftime("%Y-%m-%d %H:%M")},
+                      f, ensure_ascii=False, indent=2)
     except OSError:
         pass
 
