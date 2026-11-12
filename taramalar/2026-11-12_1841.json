@@ -1,0 +1,131 @@
+{
+  "zaman": "12.11.2026 18:41",
+  "tarih": "2026-11-12",
+  "veri_saati": "12.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "SEGYO",
+        "fiyat": 2.83
+      }
+    ],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "THYAO",
+        "fiyat": 319.0
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "AKGRT",
+        "fiyat": 4.94
+      },
+      {
+        "hisse": "TCKRC",
+        "fiyat": 125.5
+      },
+      {
+        "hisse": "PLTUR",
+        "fiyat": 15.09
+      },
+      {
+        "hisse": "PKENT",
+        "fiyat": 110.5
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "AHGAZ",
+        "fiyat": 46.2
+      }
+    ],
+    "RSI14 X SMA14": [],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "SEGYO",
+        "fiyat": 2.83
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 357.0
+      },
+      {
+        "hisse": "AYGAZ",
+        "fiyat": 280.25
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TCKRC",
+        "fiyat": 125.5
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 452.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [
+      {
+        "hisse": "TUPRS",
+        "fiyat": 357.0
+      }
+    ],
+    "SUPERTREND AL": [
+      {
+        "hisse": "DAPGM",
+        "fiyat": 2.73
+      },
+      {
+        "hisse": "ENERY",
+        "fiyat": 14.45
+      },
+      {
+        "hisse": "FLAP",
+        "fiyat": 10.26
+      },
+      {
+        "hisse": "GENIL",
+        "fiyat": 4.61
+      },
+      {
+        "hisse": "MEYSU",
+        "fiyat": 8.15
+      },
+      {
+        "hisse": "ORZAX",
+        "fiyat": 70.6
+      },
+      {
+        "hisse": "PASEU",
+        "fiyat": 36.24
+      },
+      {
+        "hisse": "SELEC",
+        "fiyat": 92.4
+      },
+      {
+        "hisse": "SUWEN",
+        "fiyat": 5.14
+      },
+      {
+        "hisse": "TBORG",
+        "fiyat": 122.0
+      },
+      {
+        "hisse": "VESTL",
+        "fiyat": 14.08
+      }
+    ]
+  }
+}
