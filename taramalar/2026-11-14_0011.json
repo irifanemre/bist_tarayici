@@ -1,0 +1,101 @@
+{
+  "zaman": "14.11.2026 00:11",
+  "tarih": "2026-11-14",
+  "veri_saati": "13.11 18:09",
+  "stratejiler": {
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "GSDHO",
+        "fiyat": 4.06
+      },
+      {
+        "hisse": "USHOL",
+        "fiyat": 66.5
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "BALAT",
+        "fiyat": 56.25
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [
+      {
+        "hisse": "KLSYN",
+        "fiyat": 15.62
+      }
+    ],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 395.5
+      },
+      {
+        "hisse": "TCKRC",
+        "fiyat": 130.8
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 466.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AHSGY",
+        "fiyat": 7.35
+      },
+      {
+        "hisse": "AVGYO",
+        "fiyat": 15.26
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 395.5
+      },
+      {
+        "hisse": "BINBN",
+        "fiyat": 39.24
+      },
+      {
+        "hisse": "BKRGY",
+        "fiyat": 4.56
+      },
+      {
+        "hisse": "CCOLA",
+        "fiyat": 80.3
+      },
+      {
+        "hisse": "CELHA",
+        "fiyat": 30.48
+      },
+      {
+        "hisse": "EKSUN",
+        "fiyat": 4.0
+      },
+      {
+        "hisse": "ESCAR",
+        "fiyat": 11.96
+      },
+      {
+        "hisse": "GUNDG",
+        "fiyat": 116.0
+      },
+      {
+        "hisse": "KAPLM",
+        "fiyat": 133.0
+      },
+      {
+        "hisse": "MANAS",
+        "fiyat": 3.56
+      }
+    ]
+  }
+}
