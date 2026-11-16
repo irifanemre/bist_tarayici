@@ -1,0 +1,144 @@
+{
+  "zaman": "17.11.2026 02:44",
+  "tarih": "2026-11-17",
+  "veri_saati": "16.11 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "SODSN",
+        "fiyat": 7.07
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "KRGYO",
+        "fiyat": 3.68
+      }
+    ],
+    "MARG TEM TEK": [
+      {
+        "hisse": "DMLKT",
+        "fiyat": 6.96
+      }
+    ],
+    "LUVCERA": [],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [
+      {
+        "hisse": "MHRGY",
+        "fiyat": 1.82
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "METEN",
+        "fiyat": 20.76
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "MIATK",
+        "fiyat": 25.12
+      },
+      {
+        "hisse": "KRTEK",
+        "fiyat": 4.65
+      },
+      {
+        "hisse": "DMLKT",
+        "fiyat": 6.96
+      },
+      {
+        "hisse": "IHEVA",
+        "fiyat": 1.4
+      },
+      {
+        "hisse": "ARTMS",
+        "fiyat": 26.82
+      },
+      {
+        "hisse": "ERSU",
+        "fiyat": 14.88
+      },
+      {
+        "hisse": "BOSSA",
+        "fiyat": 4.99
+      },
+      {
+        "hisse": "KUVVA",
+        "fiyat": 70.0
+      },
+      {
+        "hisse": "CMENT",
+        "fiyat": 220.0
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [
+      {
+        "hisse": "FLAP",
+        "fiyat": 10.87
+      },
+      {
+        "hisse": "OTKAR",
+        "fiyat": 332.0
+      },
+      {
+        "hisse": "SODSN",
+        "fiyat": 7.07
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 394.5
+      },
+      {
+        "hisse": "TCKRC",
+        "fiyat": 127.3
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 462.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "MIATK",
+        "fiyat": 25.12
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 394.5
+      },
+      {
+        "hisse": "BKRGY",
+        "fiyat": 4.63
+      },
+      {
+        "hisse": "CCOLA",
+        "fiyat": 80.05
+      },
+      {
+        "hisse": "CELHA",
+        "fiyat": 30.72
+      },
+      {
+        "hisse": "EKSUN",
+        "fiyat": 4.07
+      },
+      {
+        "hisse": "OYYAT",
+        "fiyat": 24.6
+      }
+    ]
+  }
+}
