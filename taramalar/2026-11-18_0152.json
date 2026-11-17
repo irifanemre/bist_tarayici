@@ -1,0 +1,177 @@
+{
+  "zaman": "18.11.2026 01:52",
+  "tarih": "2026-11-18",
+  "veri_saati": "17.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "IHLGM",
+        "fiyat": 1.21
+      },
+      {
+        "hisse": "SEKFK",
+        "fiyat": 3.64
+      },
+      {
+        "hisse": "EGEGY",
+        "fiyat": 19.75
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "KRGYO",
+        "fiyat": 3.93
+      },
+      {
+        "hisse": "CELHA",
+        "fiyat": 32.74
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "AVHOL",
+        "fiyat": 28.5
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "FRIGO",
+        "fiyat": 2.2
+      },
+      {
+        "hisse": "BAHKM",
+        "fiyat": 177.8
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "FRIGO",
+        "fiyat": 2.2
+      },
+      {
+        "hisse": "EPLAS",
+        "fiyat": 5.1
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "IZMDC",
+        "fiyat": 5.93
+      },
+      {
+        "hisse": "GSDDE",
+        "fiyat": 10.57
+      },
+      {
+        "hisse": "AVHOL",
+        "fiyat": 28.5
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "AVHOL",
+        "fiyat": 28.5
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "IHLGM",
+        "fiyat": 1.21
+      },
+      {
+        "hisse": "SEKFK",
+        "fiyat": 3.64
+      },
+      {
+        "hisse": "CITAS",
+        "fiyat": 111.4
+      },
+      {
+        "hisse": "MHRGY",
+        "fiyat": 1.96
+      },
+      {
+        "hisse": "EGEGY",
+        "fiyat": 19.75
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "BIMAS",
+        "fiyat": 393.25
+      },
+      {
+        "hisse": "TCKRC",
+        "fiyat": 125.6
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 458.75
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "GSDDE",
+        "fiyat": 10.57
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "AKYHO",
+        "fiyat": 1.63
+      },
+      {
+        "hisse": "EDATA",
+        "fiyat": 4.07
+      },
+      {
+        "hisse": "HDFGS",
+        "fiyat": 1.35
+      },
+      {
+        "hisse": "INVES",
+        "fiyat": 726.0
+      },
+      {
+        "hisse": "ISKPL",
+        "fiyat": 3.17
+      },
+      {
+        "hisse": "KRPLS",
+        "fiyat": 10.8
+      },
+      {
+        "hisse": "PAHOL",
+        "fiyat": 0.88
+      },
+      {
+        "hisse": "PATEK",
+        "fiyat": 10.0
+      },
+      {
+        "hisse": "RUZYE",
+        "fiyat": 4.04
+      },
+      {
+        "hisse": "SURGY",
+        "fiyat": 17.69
+      },
+      {
+        "hisse": "VERUS",
+        "fiyat": 538.5
+      },
+      {
+        "hisse": "VKING",
+        "fiyat": 13.05
+      }
+    ]
+  }
+}
