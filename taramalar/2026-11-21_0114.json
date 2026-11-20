@@ -1,0 +1,90 @@
+{
+  "zaman": "21.11.2026 01:14",
+  "tarih": "2026-11-21",
+  "veri_saati": "20.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "IHEVA",
+        "fiyat": 1.71
+      },
+      {
+        "hisse": "PKART",
+        "fiyat": 86.15
+      }
+    ],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "NUHCM",
+        "fiyat": 165.4
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "KGYO",
+        "fiyat": 7.31
+      },
+      {
+        "hisse": "NUHCM",
+        "fiyat": 165.4
+      },
+      {
+        "hisse": "PAGYO",
+        "fiyat": 110.9
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "NUHCM",
+        "fiyat": 165.4
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "IHEVA",
+        "fiyat": 1.71
+      },
+      {
+        "hisse": "PKART",
+        "fiyat": 86.15
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "HKTM",
+        "fiyat": 12.69
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TCKRC",
+        "fiyat": 123.2
+      },
+      {
+        "hisse": "MPARK",
+        "fiyat": 440.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": [
+      {
+        "hisse": "NUGYO",
+        "fiyat": 6.83
+      },
+      {
+        "hisse": "TOASO",
+        "fiyat": 246.5
+      }
+    ]
+  }
+}
