@@ -1,0 +1,95 @@
+{
+  "zaman": "25.11.2026 02:51",
+  "tarih": "2026-11-25",
+  "veri_saati": "24.11 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "AVGYO",
+        "fiyat": 15.76
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "ALGYO",
+        "fiyat": 2.66
+      },
+      {
+        "hisse": "ERCB",
+        "fiyat": 30.1
+      },
+      {
+        "hisse": "BFREN",
+        "fiyat": 99.05
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "IHLGM",
+        "fiyat": 1.59
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "AVGYO",
+        "fiyat": 15.76
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "AVGYO",
+        "fiyat": 15.76
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "ALGYO",
+        "fiyat": 2.66
+      },
+      {
+        "hisse": "POLHO",
+        "fiyat": 13.72
+      },
+      {
+        "hisse": "BRISA",
+        "fiyat": 68.1
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "ALGYO",
+        "fiyat": 2.66
+      },
+      {
+        "hisse": "MSGYO",
+        "fiyat": 4.21
+      },
+      {
+        "hisse": "ERCB",
+        "fiyat": 30.1
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [
+      {
+        "hisse": "AVGYO",
+        "fiyat": 15.76
+      }
+    ],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "MPARK",
+        "fiyat": 429.0
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
