@@ -1,0 +1,54 @@
+{
+  "zaman": "26.11.2026 02:35",
+  "tarih": "2026-11-26",
+  "veri_saati": "25.11 18:08",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "TGSAS",
+        "fiyat": 110.1
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "UNLU",
+        "fiyat": 8.76
+      },
+      {
+        "hisse": "DGGYO",
+        "fiyat": 21.56
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "TSGYO",
+        "fiyat": 3.83
+      },
+      {
+        "hisse": "BRISA",
+        "fiyat": 70.0
+      }
+    ],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "KATMR",
+        "fiyat": 1.22
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
