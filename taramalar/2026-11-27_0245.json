@@ -1,0 +1,109 @@
+{
+  "zaman": "27.11.2026 02:45",
+  "tarih": "2026-11-27",
+  "veri_saati": "26.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [],
+    "MARGASİ YUKSELECEK": [],
+    "MARG TEM TEK": [
+      {
+        "hisse": "DURDO",
+        "fiyat": 5.99
+      }
+    ],
+    "LUVCERA": [
+      {
+        "hisse": "HEKTS",
+        "fiyat": 1.57
+      },
+      {
+        "hisse": "EPLAS",
+        "fiyat": 4.77
+      }
+    ],
+    "EMA 20-50 BASIT": [
+      {
+        "hisse": "AKSA",
+        "fiyat": 11.5
+      }
+    ],
+    "HAFT / GUN": [
+      {
+        "hisse": "KCAER",
+        "fiyat": 10.26
+      },
+      {
+        "hisse": "CITAS",
+        "fiyat": 111.1
+      },
+      {
+        "hisse": "DURDO",
+        "fiyat": 5.99
+      }
+    ],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "SASA",
+        "fiyat": 1.44
+      },
+      {
+        "hisse": "KCAER",
+        "fiyat": 10.26
+      },
+      {
+        "hisse": "IMASM",
+        "fiyat": 1.28
+      },
+      {
+        "hisse": "KAREL",
+        "fiyat": 3.74
+      },
+      {
+        "hisse": "CEMAS",
+        "fiyat": 1.99
+      },
+      {
+        "hisse": "EPLAS",
+        "fiyat": 4.77
+      },
+      {
+        "hisse": "BIENY",
+        "fiyat": 12.17
+      },
+      {
+        "hisse": "PAMEL",
+        "fiyat": 37.38
+      },
+      {
+        "hisse": "GLBMD",
+        "fiyat": 6.2
+      },
+      {
+        "hisse": "QNBTR",
+        "fiyat": 139.8
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [],
+    "Margasi swing": [],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "TCKRC",
+        "fiyat": 123.5
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [
+      {
+        "hisse": "KCAER",
+        "fiyat": 10.26
+      }
+    ],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
