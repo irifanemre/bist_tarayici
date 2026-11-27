@@ -1,0 +1,143 @@
+{
+  "zaman": "28.11.2026 02:24",
+  "tarih": "2026-11-28",
+  "veri_saati": "27.11 18:09",
+  "stratejiler": {
+    "MARGASİ orj": [
+      {
+        "hisse": "FZLGY",
+        "fiyat": 7.28
+      }
+    ],
+    "MARGASİ YUKSELECEK": [
+      {
+        "hisse": "KRPLS",
+        "fiyat": 11.23
+      }
+    ],
+    "MARG TEM TEK": [],
+    "LUVCERA": [
+      {
+        "hisse": "YEOTK",
+        "fiyat": 26.26
+      },
+      {
+        "hisse": "NATEN",
+        "fiyat": 2.73
+      },
+      {
+        "hisse": "KRDMA",
+        "fiyat": 31.14
+      },
+      {
+        "hisse": "ALARK",
+        "fiyat": 105.2
+      },
+      {
+        "hisse": "ALCTL",
+        "fiyat": 64.0
+      }
+    ],
+    "EMA 20-50 BASIT": [],
+    "HAFT / GUN": [],
+    "DUSENI KIRANLAR": [],
+    "EMA 10 X SMA 50": [
+      {
+        "hisse": "ENERY",
+        "fiyat": 14.36
+      },
+      {
+        "hisse": "ENTRA",
+        "fiyat": 4.6
+      },
+      {
+        "hisse": "CGCAM",
+        "fiyat": 20.7
+      }
+    ],
+    "RSI14 X SMA14": [
+      {
+        "hisse": "AKFYE",
+        "fiyat": 2.69
+      },
+      {
+        "hisse": "KCHOL",
+        "fiyat": 189.4
+      },
+      {
+        "hisse": "YEOTK",
+        "fiyat": 26.26
+      },
+      {
+        "hisse": "ALTIN",
+        "fiyat": 68.29
+      },
+      {
+        "hisse": "GESAN",
+        "fiyat": 31.32
+      },
+      {
+        "hisse": "BIMAS",
+        "fiyat": 370.75
+      },
+      {
+        "hisse": "TRMET",
+        "fiyat": 101.4
+      },
+      {
+        "hisse": "ENTRA",
+        "fiyat": 4.6
+      },
+      {
+        "hisse": "ARDYZ",
+        "fiyat": 45.84
+      },
+      {
+        "hisse": "ECILC",
+        "fiyat": 45.68
+      },
+      {
+        "hisse": "KRDMA",
+        "fiyat": 31.14
+      },
+      {
+        "hisse": "HURGZ",
+        "fiyat": 3.44
+      }
+    ],
+    "MACD SIGN YUKARI KESER LEVEL": [
+      {
+        "hisse": "BFREN",
+        "fiyat": 98.65
+      },
+      {
+        "hisse": "MAALT",
+        "fiyat": 738.0
+      }
+    ],
+    "Margasi swing": [
+      {
+        "hisse": "FZLGY",
+        "fiyat": 7.28
+      }
+    ],
+    "DUSENI KIRAN 2": [],
+    "HAFTALIK TRM": [
+      {
+        "hisse": "BRSAN",
+        "fiyat": 668.5
+      }
+    ],
+    "ERİK TRM": [],
+    "FİBO TEM-TEKN BASİT": [
+      {
+        "hisse": "MPARK",
+        "fiyat": 433.25
+      }
+    ],
+    "ASİYE MFI": [],
+    "STG GUC": [],
+    "STP FLAMA": [],
+    "SUPERTREND AL": []
+  }
+}
